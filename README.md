@@ -52,28 +52,28 @@ Features
 
 Style Guide
 
-Background - off-white (eggshell)
-  Text - black
-Accents/Header - cardinal red
-  Text - off-white (eggshell)
-Flat Buttons
-Calibri
-Layouts
-  Persistent header (except zoomed view)
-  Pages with Multiple Posters
-    Two columns, one poster per
-  Pages with One Poster
-    Two columns (3/4 and 1/4)
-  Anytime a poster image is clicked, it takes up the whole screen
-  Profile Page
-  Links
-    Every poster picture links to its page
-    Every username links to user's profile
-    Every tag links to that discipline's page
+- Background - off-white (eggshell)
+  - Text - black
+- Accents/Header - cardinal red
+  - Text - off-white (eggshell)
+- Flat Buttons
+- Calibri
+- Layouts
+  - Persistent header (except zoomed view)
+  - Pages with Multiple Posters
+    - Two columns, one poster per
+  - Pages with One Poster
+    - Two columns (3/4 and 1/4)
+  - Anytime a poster image is clicked, it takes up the whole screen
+  - Profile Page
+  - Links
+    - Every poster picture links to its page
+    - Every username links to user's profile
+    - Every tag links to that discipline's page
 
-Pages
-  Root/Index Page (Multiple Poster Partial)
-  Single Poster View
-  Category Poster View (Multiple Poster Partial)
-  User Profile (Multiple Poster Partial)
+- Pages
+  - Root/Index Page (Multiple Poster Partial)
+  - Single Poster View
+  - Category Poster View (Multiple Poster Partial)
+  - User Profile (Multiple Poster Partial)
 
