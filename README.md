@@ -1,20 +1,60 @@
 Science-Fair
 ============
-MVP user can do these things:
-- see top-rated and newly-submitted posters
-- view posters by tag
-- search through all posters (i.e., abstracts and titles) for a specific tag
-- view a specific poster 
-- create an account
-- upload a poster
-- be able to leave comment, upvote on a poster
 
+Agenda:
+Features (draw MVP line)
+Styling
 
-later on: we develop these things:
-- have separate versions of posters
-- presentation on the poster
-  - allow audio/video upload
-- chat functionality 
-- add oauth
-- integrate with LinkedIn
+Features
+
+Login
+Logout
+Create Account
+Create Poster
+  Upload Poster
+  Credit Authors
+  Tag Subjects
+Browse Posters
+View and Comment on Specific Poster
+  Can Zoom on Poster (thecodeplayer.com magnifier)
+Upvotes
+  Posters
+  Users
+  Authors
+  Comments
+Workshop
+  Edit with Google
+    Google drive integration
+  View/Leave Feedback
+Chat While Viewing a Poster
+Audio/Visual Uploads
+Institution Suggestions
+Responsive
+
+Style Guide
+
+Background - off-white (eggshell)
+  Text - black
+Accents/Header - cardinal red
+  Text - off-white (eggshell)
+Flat Buttons
+Calibri
+Layouts
+  Persistent header (except zoomed view)
+  Pages with Multiple Posters
+    Two columns, one poster per
+  Pages with One Poster
+    Two columns (3/4 and 1/4)
+  Anytime a poster image is clicked, it takes up the whole screen
+  Profile Page
+  Links
+    Every poster picture links to its page
+    Every username links to user's profile
+    Every tag links to that discipline's page
+
+Pages
+  Root/Index Page (Multiple Poster Partial)
+  Single Poster View
+  Category Poster View (Multiple Poster Partial)
+  User Profile (Multiple Poster Partial)
 
