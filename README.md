@@ -16,4 +16,5 @@ later on: we develop these things:
   - allow audio/video upload
 - chat functionality 
 - add oauth
+- integrate with LinkedIn
 
