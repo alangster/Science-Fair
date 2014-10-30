@@ -7,7 +7,7 @@ DISCIPLINES = ["Physics", "Chemistry", "Earth Science", "Geology", "Meteorology"
 		email:         Faker::Internet.email,
 		password:      "password",
 		institution:   Faker::Company.name,
-		linked_in_url: "http://linkedin.com/pub/#{Faker::Name.first_name}-#{Faker::Name.last_name}/#{rand(100..10000)}",
+		linkedin_url: "http://linkedin.com/pub/#{Faker::Name.first_name}-#{Faker::Name.last_name}/#{rand(100..10000)}",
 		profile_pic:   "/app/assets/images/cookie_squirrel.jpg",
 		degree:        ["PhD", "MD", "MS", "BA", "BS", "MSc"].sample,
 		points:        rand(0..90)
@@ -18,9 +18,9 @@ end
 	Poster.create!(
 		title:    Faker::Company.catch_phrase,
 		abstract: Faker::Lorem.paragraph(20),
-		filepath: "",
+		filepath: "/app/assets/images/cookie_squirrel.jpg",
 		points:   rand(0..100),
-		user_id:  i
+		creator_id:  i
 		)
 end
 
@@ -205,7 +205,7 @@ UserPoster.create(
 		text:             Faker::Lorem.paragraph(rand(2..12)),
 		user_id:          rand(1..50),
 		points:           rand(0..20),
-		commentable_type: "poster", # is this right?
+		commentable_type: "Poster", # is this right?
 		commentable_id:   rand(1..10)
 		)
 end
@@ -215,7 +215,7 @@ end
 		text:             Faker::Lorem.paragraph(rand(2..12)),
 		user_id:          rand(1..50),
 		points:           rand(0..20),
-		commentable_type: "comment", # is this right?
+		commentable_type: "Comment", # is this right?
 		commentable_id:   rand(1..25)
 		)
 end
@@ -226,7 +226,7 @@ end
 		text:             Faker::Lorem.paragraph(rand(2..12)),
 		user_id:          rand(1..50),
 		points:           rand(0..20),
-		commentable_type: "comment", # is this right?
+		commentable_type: "Comment", # is this right?
 		commentable_id:   rand(35..60)
 		)
 end
