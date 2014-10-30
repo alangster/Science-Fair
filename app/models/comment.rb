@@ -4,4 +4,20 @@ class Comment < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   validates :text, presence: true
+
+  def get_all_subcomments
+    return recursive_comments(self)
+  end
+
+  private
+  def recursive_comments(comment, all_comments=[])
+    all_comments << comment
+    if comment.comments != nil
+      comment.comments.each do |children|
+        recursive_comments(children, all_comments)
+      end
+    end
+    return all_comments # Poster.comments = [A, 1,1a,1b,2,2a,2b]
+  end
+
 end
