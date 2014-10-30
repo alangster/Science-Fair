@@ -228,3 +228,5 @@ end
 		commentable_id:   rand(35..60)
 		)
 end
+
+# make a constant that is an array of disciplines, use index to create tags
