@@ -12,16 +12,3 @@ class Poster < ActiveRecord::Base
 
 
 end
-
-@comments = Poster.comments
-<ul>
-<%= @comments.each do |comment| %>
-  p comment
-    <%= comment.comments.each do |c| %>
-      p c
-      <% if c.comments %>
-        <% c.comments.each do |c2|
-          p c2.in_response_to + c2.text
-      <% end %>
-    <% end %>
-</ul>

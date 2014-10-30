@@ -17,7 +17,7 @@ class Comment < ActiveRecord::Base
         recursive_comments(children, all_comments)
       end
     end
-    return all_comments # Poster.comments = [A, 1,1a,1b,2,2a,2b]
+    return all_comments
   end
 
 end

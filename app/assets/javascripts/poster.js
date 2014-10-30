@@ -1,4 +1,9 @@
-//Now the mousemove function
+$(document).ready(function(){
+
+  var native_width = 0;
+  var native_height = 0;
+
+
   $(".magnify").mousemove(function(e){
     //When the user hovers on the image, the script will first calculate
     //the native dimensions if they don't exist. Only after the native dimensions
@@ -61,3 +66,4 @@
     }
   })
 })
+
