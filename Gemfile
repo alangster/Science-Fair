@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'rspec'
+gem 'paperclip', '~> 4.2.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -42,5 +43,4 @@ gem 'carrierwave'
 # Use debugger
 gem 'debugger', group: [:development, :test]
 
-
-
+gem 'rspec-rails', group: [:development, :test]
