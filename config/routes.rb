@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "posters#index"
+ root "posters#index"
 
  resources :posters
 
@@ -9,5 +9,7 @@ Rails.application.routes.draw do
  resources :users, except: [:destroy]
 
  resources :tags, only: [:show]
+
+ resources :sessions, only: [:new, :create, :destroy]
 
 end
