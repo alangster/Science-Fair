@@ -10,5 +10,6 @@ RSpec.describe UserPoster, :type => :model do
 
   it "should belong to a poster." do
     expect(user_poster.poster_id).to eq(Poster.first)
+
   end
 end

@@ -1,8 +1,8 @@
 <header>
   <nav>
     <ul>
-      <% if current_user == nil %>
-      <li id="signin_link"><a href="/users/signin">Sign In</a></li>
+      <% if !current_user %>
+      <li id="signin_link"><%=link_to "Login", %></li>
       <li id="signup_link"><a href="/users/new">Sign Up</a></li>
       <% else %>
       <li id="logout_link"><a href="/logout">Logout</a></li>

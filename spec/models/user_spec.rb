@@ -34,5 +34,9 @@ RSpec.describe User, :type => :model do
       expect(alex.email).to eq("drennen42@gmail.com")
     end
 
+    it "should return its full name when #name is called" do
+      expect(alex.name).to eq("Alex Drennen")
+    end
+
   end
 end

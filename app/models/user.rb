@@ -25,4 +25,7 @@ class User < ActiveRecord::Base
     tags_array.map {|tag| tag.discipline}.uniq
   end
 
+  def name
+    self.first_name + " " + self.last_name
+  end
 end

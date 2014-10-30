@@ -13,5 +13,6 @@ RSpec.describe PosterTag, :type => :model do
 
   it "should belong to a tag." do
     expect(post_tag.tag).to eq(tag)
+
   end
 end
