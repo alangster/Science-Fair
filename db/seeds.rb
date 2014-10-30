@@ -26,7 +26,7 @@ end
 
 10.times do |i|
 	UserPoster.create!(
-		user_id: i,
+		user_id:   i,
 		poster_id: i
 		)
 end
@@ -34,129 +34,129 @@ end
 # now the users who created the 10 posters are associated with the poster not only as a creator, but also as an author
 
 UserPoster.create(
-	user_id: 2,
+	user_id:   2,
 	poster_id: 1 
 	)
 
 UserPoster.create(
-	user_id: 20,
+	user_id:   20,
 	poster_id: 1 
 	)
 
 UserPoster.create(
-	user_id: 45,
+	user_id:   45,
 	poster_id: 1 
 	)
 
 # now poster 1 has 4 users associated with it 
 
 UserPoster.create(
-	user_id: 24,
+	user_id:   24,
 	poster_id: 2 
 	)
 
 UserPoster.create(
-	user_id: 18,
+	user_id:   18,
 	poster_id: 2 
 	)
 
 # poster 2 has 3 users associated with it
 
 UserPoster.create(
-	user_id: 12,
+	user_id:   12,
 	poster_id: 3 
 	)
 
 UserPoster.create(
-	user_id: 37,
+	user_id:   37,
 	poster_id: 3 
 	)
 
 UserPoster.create(
-	user_id: 42,
+	user_id:   42,
 	poster_id: 3 
 	)
 
 # poster 3 has 4 users associated with it
 
 UserPoster.create(
-	user_id: 29,
+	user_id:   29,
 	poster_id: 4 
 	)
 
 UserPoster.create(
-	user_id: 2,
+	user_id:   2,
 	poster_id: 4 
 	)
 
 UserPoster.create(
-	user_id: 17,
+	user_id:   17,
 	poster_id: 4 
 	)
 
 UserPoster.create(
-	user_id: 35,
+	user_id:   35,
 	poster_id: 4 
 	)
 
 UserPoster.create(
-	user_id: 50,
+	user_id:   50,
 	poster_id: 4 
 	)
 
 UserPoster.create(
-	user_id: 40,
+	user_id:   40,
 	poster_id: 4 
 	)
 
 # poster 4 has 7 users associated with it
 
 UserPoster.create(
-	user_id: 11,
+	user_id:   11,
 	poster_id: 5 
 	)
 
 UserPoster.create(
-	user_id: 8,
+	user_id:   8,
 	poster_id: 5 
 	)
 
 UserPoster.create(
-	user_id: 5,
+	user_id:   5,
 	poster_id: 5 
 	)
 
 UserPoster.create(
-	user_id: 9,
+	user_id:   9,
 	poster_id: 5 
 	)
 
 # poster 5 has 5 users associated with it
 
 UserPoster.create(
-	user_id: 19,
+	user_id:   19,
 	poster_id: 6 
 	)
 
 # poster 6 has 2 users associated with it
 
 UserPoster.create(
-	user_id: 37,
+	user_id:   37,
 	poster_id: 7 
 	)
 
 UserPoster.create(
-	user_id: 43,
+	user_id:   43,
 	poster_id: 7 
 	)
 
 UserPoster.create(
-	user_id: 19,
+	user_id:   19,
 	poster_id: 7 
 	)
 
 UserPoster.create(
-	user_id: 9,
+	user_id:   9,
 	poster_id: 7 
 	)
 
@@ -165,37 +165,66 @@ UserPoster.create(
 # poster 8 has only 1 user associated with it
 
 UserPoster.create(
-	user_id: 24,
+	user_id:   24,
 	poster_id: 9 
 	)
 
 UserPoster.create(
-	user_id: 18,
+	user_id:   18,
 	poster_id: 9 
 	)
 
 # poster 9 has 3 users associated with it
 
 UserPoster.create(
-	user_id: 7,
+	user_id:   7,
 	poster_id: 10 
 	)
 
 UserPoster.create(
-	user_id: 18,
+	user_id:   18,
 	poster_id: 10 
 	)
 
 UserPoster.create(
-	user_id: 30,
+	user_id:   30,
 	poster_id: 10 
 	)
 
 UserPoster.create(
-	user_id: 12,
+	user_id:   12,
 	poster_id: 10 
 	)
 
 # poster 10 has 5 users associated with it
 
+50.times do 
+	Comment.create!(
+		text:             Faker::Lorem.paragraph(rand(2..12)),
+		user_id:          rand(1..50),
+		points:           rand(0..20),
+		commentable_type: "poster", # is this right?
+		commentable_id:   rand(1..10)
+		)
+end
 
+50.times do 
+	Comment.create!(
+		text:             Faker::Lorem.paragraph(rand(2..12)),
+		user_id:          rand(1..50),
+		points:           rand(0..20),
+		commentable_type: "comment", # is this right?
+		commentable_id:   rand(1..25)
+		)
+end
+
+
+20.times do 
+	Comment.create!(
+		text:             Faker::Lorem.paragraph(rand(2..12)),
+		user_id:          rand(1..50),
+		points:           rand(0..20),
+		commentable_type: "comment", # is this right?
+		commentable_id:   rand(35..60)
+		)
+end
