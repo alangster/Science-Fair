@@ -1,0 +1,42 @@
+header {
+    background-color: #C41E3A;
+    height: 4em;
+    width: 100%;
+/*     position: absolute; */
+    margin-bottom: 2em;
+}
+
+nav a {
+    border:2px solid #FFFFF0;
+    border-bottom: none;
+    display: inline-block;
+    width: 8em;
+    height: 2.5em;
+    text-align: center;
+    padding-top: 0.6em;
+    font-size: 20px;
+    float: right;
+    margin-top: 0.8em;
+    margin-right: 1.5em;  
+}
+
+nav a:hover {
+    background-color: #FFFFF0;
+    color: #C41E3A;
+    font-weight: bold;
+}
+
+
+div.title{
+    float: left;
+    display: block;
+    height: 4em;
+    width: 30em;
+    padding-left: 6em;
+}
+
+div.title h3 {
+    font-size: 50px;
+    margin-top: 0em;
+    color: #FFFFF0;
+}
