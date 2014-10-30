@@ -5,7 +5,7 @@ class CreatePosters < ActiveRecord::Migration
       t.text :abstract
       t.string :filepath
       t.integer :points, default: 0
-      t.belongs_to :user
+      t.belongs_to :creator
 
       t.timestamps
     end

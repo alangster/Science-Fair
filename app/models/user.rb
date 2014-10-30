@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   has_many :authored_posters, through: :user_posters, source: :poster
 
   validates :password_hash, :last_name, :first_name, :email, presence: true
-  validates :email, uniqueness: true
+
+  validates :email, uniqueness: true, message: "An account with that email already exists."
 
 
   def password
