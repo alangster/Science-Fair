@@ -5,7 +5,8 @@
       <li id="signin_link"><a href="/users/signin">Sign In</a></li>
       <li id="signup_link"><a href="/users/new">Sign Up</a></li>
       <% else %>
-      <li id="logout_link"><a href="/logout">Logout <%= current_user.name %></a></li>
+      <li id="logout_link"><a href="/logout">Logout</a></li>
+      <li id="profile_link"><a href="/user/<%= current_user.id %>">Profile</a></li>
       <% end %>
     </ul>
   </nav>
