@@ -1,3 +1,5 @@
+DISCIPLINES = ["Physics", "Chemistry", "Earth Science", "Geology", "Meteorology", "Biology", "Botany", "Astronomy", "Nuclear Physics", "Physical Chemistry", "Organic Chemistry", "Inorganic Chemistry", "Ecology", "Genetics"]
+
 50.times do 
 	User.create!(
 		first_name:    Faker::Name.first_name,
@@ -230,3 +232,77 @@ end
 end
 
 # make a constant that is an array of disciplines, use index to create tags
+
+DISCIPLINES.each do |discipline|
+	Tag.create!(discipline: discipline)
+end
+
+4.times do 
+	PosterTag.create!(
+		poster_id: 1,
+		tag_id:    rand(1..14)
+		)
+end
+
+1.times do 
+	PosterTag.create!(
+		poster_id: 2,
+		tag_id:    rand(1..14)
+		)
+end
+
+3.times do 
+	PosterTag.create!(
+		poster_id: 3,
+		tag_id:    rand(1..14)
+		)
+end
+
+5.times do 
+	PosterTag.create!(
+		poster_id: 4,
+		tag_id:    rand(1..14)
+		)
+end
+
+1.times do 
+	PosterTag.create!(
+		poster_id: 5,
+		tag_id:    rand(1..14)
+		)
+end
+
+6.times do 
+	PosterTag.create!(
+		poster_id: 6,
+		tag_id:    rand(1..14)
+		)
+end
+
+3.times do 
+	PosterTag.create!(
+		poster_id: 7,
+		tag_id:    rand(1..14)
+		)
+end
+
+2.times do 
+	PosterTag.create!(
+		poster_id: 8,
+		tag_id:    rand(1..14)
+		)
+end
+
+1.times do 
+	PosterTag.create!(
+		poster_id: 9,
+		tag_id:    rand(1..14)
+		)
+end
+
+3.times do 
+	PosterTag.create!(
+		poster_id: 10,
+		tag_id:    rand(1..14)
+		)
+end
