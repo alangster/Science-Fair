@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
+  root "posters#index"
+
  resources :posters
 
- resources :comment, only: [:create]
+ resources :comment, only: [:create, :destroy]
 
  resources :users, except: [:destroy]
 
- # get "/login", :sessions, "sessions#new"
+ resources :tags, only: [:show]
 
 end
