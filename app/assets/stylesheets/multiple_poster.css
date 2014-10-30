@@ -20,14 +20,14 @@ div.poster:nth-child(even) {
 }
 
 div.poster-container {
-/*   border: 1px solid blue; */
+  border: 6px solid #C41E3A;
   width: 40em;
   height: 19em;
-  background-color: #C41E3A;
+  background-color: #FFFFF0;
 }
 
 div.poster-pic {
-  border: 3px solid #FFFFF0;
+  border: 3px solid #C41E3A;
   height: 14em;
   width: 18em;
   margin-top: 1em;
@@ -55,9 +55,9 @@ div.poster-info ul {
   font-size: 15px;
 }
 
-a {
+div.poster-container a {
   text-decoration: none;
-  color: #FFFFF0;
+  color: #C41E3A;
 }
 
 div.poster-tags ul {
