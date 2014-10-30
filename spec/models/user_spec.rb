@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe User, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
 
-  let(:alex) {User.create!(first_name: "Alex", last_name: "Drennen", email: "drennen42@gmail.com", password_hash: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
+  let(:alex) {User.create(first_name: "Alex", last_name: "Drennen", email: "drennen42@gmail.com", password_hash: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
 
-  it "should not allow multiple accounts with a single email address" do
-    alex2 = User.create!(first_name: "Alex", last_name: "Drennen", email: "drennen42@gmail.com", password_hash: "ad")
-    expect(alex2).to_not be_valid
+  it "should not allow an account to be created without a password" do
+    alex()
+    expect(User.new(first_name: "Alex", last_name: "Drennen", email: "drennen42@gmail.com", password_hash: "")).not_to be_valid
   end
 
   describe "alex" do
