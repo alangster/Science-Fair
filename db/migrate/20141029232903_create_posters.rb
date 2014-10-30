@@ -5,7 +5,7 @@ class CreatePosters < ActiveRecord::Migration
       t.text :abstract
       t.string :filepath
       t.integer :points, deafault: 0
-      t.belongs_to :user
+      t.belongs_to :creator, class_name: "User", foreign_key: :user_id
 
       t.timestamps
     end
