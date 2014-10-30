@@ -8,7 +8,7 @@ DISCIPLINES = ["Physics", "Chemistry", "Earth Science", "Geology", "Meteorology"
 		password:      "password",
 		institution:   Faker::Company.name,
 		linked_in_url: "http://linkedin.com/pub/#{Faker::Name.first_name}-#{Faker::Name.last_name}/#{rand(100..10000)}",
-		profile_pic:   "",
+		profile_pic:   "/app/assets/images/cookie_squirrel.jpg",
 		degree:        ["PhD", "MD", "MS", "BA", "BS", "MSc"].sample,
 		points:        rand(0..90)
 		)
