@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   validates :password_hash, :last_name, :first_name, :email, presence: true
 
-  validates :email, uniqueness: true, message: "An account with that email already exists."
+  validates :email, uniqueness: true
 
 
   def password
@@ -22,7 +22,10 @@ class User < ActiveRecord::Base
 
   def disciplines
     tags_array = self.authored_posters.map {|poster| poster.tags}[0]
-    tags_array.map {|tag| tag.discipline}.uniq  
+    tags_array.map {|tag| tag.discipline}.uniq
   end
 
+  def name
+    self.first_name + " " + self.last_name
+  end
 end

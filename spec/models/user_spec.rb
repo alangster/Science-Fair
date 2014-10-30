@@ -4,10 +4,11 @@ RSpec.describe User, :type => :model do
   pending "add some examples to (or delete) #{__FILE__}"
 
   let(:alex) {User.create!(first_name: "Alex", last_name: "Drennen", email: "drennen42@gmail.com", password_hash: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
+  let(:alex2) {User.new(first_name: "Alex", last_name: "Drennen", email: "drennen42@gmail.com", password_hash: "ad")}
 
   it "should not allow multiple accounts with a single email address" do
-    alex2 = User.create!(first_name: "Alex", last_name: "Drennen", email: "drennen42@gmail.com", password_hash: "ad")
-    expect(alex2).to_not be_valid
+    # alex2 = User.new(first_name: "Alex", last_name: "Drennen", email: "drennen42@gmail.com", password_hash: "ad")
+    expect(alex2.valid?).to eq(false)
   end
 
   describe "alex" do
@@ -33,6 +34,10 @@ RSpec.describe User, :type => :model do
 
     it "should have the email address 'drennen42@gmail.com'." do
       expect(alex.email).to eq("drennen42@gmail.com")
+    end
+
+    it "should return its full name when #name is called" do
+      expect(alex.name).to eq("Alex Drennen")
     end
 
   end

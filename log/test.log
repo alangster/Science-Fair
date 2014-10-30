@@ -1,0 +1,1313 @@
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.5ms)[0m  CREATE TABLE "comments" ("id" serial primary key, "text" text, "user_id" integer, "points" integer DEFAULT 0, "commentable_id" integer, "commentable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "poster_tags" ("id" serial primary key, "poster_id" integer, "tag_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "posters" ("id" serial primary key, "title" text, "abstract" text, "filepath" character varying(255), "points" integer DEFAULT 0, "creator_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "tags" ("id" serial primary key, "discipline" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "user_posters" ("id" serial primary key, "user_id" integer, "poster_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying(255), "last_name" character varying(255), "email" character varying(255), "password_hash" character varying(255), "institution" character varying(255), "linkedin_url" character varying(255), "profile_pic" character varying(255), "degree" character varying(255), "points" integer DEFAULT 0, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141029233003')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141029232859')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141029232903')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141029232912')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141029232949')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141029232953')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPoster Load (0.4ms)[0m  SELECT  "posters".* FROM "posters"   ORDER BY "posters"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPoster Load (0.2ms)[0m  [1mSELECT  "posters".* FROM "posters"   ORDER BY "posters"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tags" ("created_at", "discipline", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 16:09:54.685384"], ["discipline", "Biology"], ["updated_at", "2014-10-30 16:09:54.685384"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-10-30 16:09:54.718166"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["last_name", "Drennen"], ["password_hash", "ad"], ["updated_at", "2014-10-30 16:09:54.718166"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'drennen42@gmail.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:09:54.728338"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:09:54.728338"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:09:54.735619"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:09:54.735619"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:09:54.741094"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:09:54.741094"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:09:54.745965"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:09:54.745965"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:09:54.750391"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:09:54.750391"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:09:54.753979"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:09:54.753979"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:09:54.757518"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:09:54.757518"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:11:10.491854"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:11:10.491854"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:11:10.499395"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:11:10.499395"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:11:10.502056"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:11:10.502056"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:11:10.504483"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:11:10.504483"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:11:10.507516"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:11:10.507516"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPoster Load (0.4ms)[0m  SELECT  "posters".* FROM "posters"   ORDER BY "posters"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPoster Load (0.3ms)[0m  [1mSELECT  "posters".* FROM "posters"   ORDER BY "posters"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tags" ("created_at", "discipline", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 16:11:10.521853"], ["discipline", "Biology"], ["updated_at", "2014-10-30 16:11:10.521853"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-10-30 16:11:10.545238"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["last_name", "Drennen"], ["password_hash", "ad"], ["updated_at", "2014-10-30 16:11:10.545238"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'drennen42@gmail.com' AND "users"."id" != 9) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:11:10.552109"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:11:10.552109"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:11:10.556430"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:11:10.556430"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:11:10.560016"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:11:10.560016"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:11:10.563552"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:11:10.563552"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:11:10.567079"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:11:10.567079"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:11:10.570589"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:11:10.570589"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:11:10.574171"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:11:10.574171"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (42.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:12:42.456858"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:12:42.456858"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:12:42.476862"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:12:42.476862"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:12:42.482068"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:12:42.482068"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:12:42.493790"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:12:42.493790"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:12:42.498322"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:12:42.498322"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:12:42.501119"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:12:42.501119"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:12:42.503683"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:12:42.503683"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:12:42.506239"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:12:42.506239"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPoster Load (0.7ms)[0m  [1mSELECT  "posters".* FROM "posters"   ORDER BY "posters"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPoster Load (0.2ms)[0m  SELECT  "posters".* FROM "posters"   ORDER BY "posters"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tags" ("created_at", "discipline", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-10-30 16:12:42.521232"], ["discipline", "Biology"], ["updated_at", "2014-10-30 16:12:42.521232"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2014-10-30 16:12:42.529120"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["last_name", "Drennen"], ["password_hash", "ad"], ["updated_at", "2014-10-30 16:12:42.529120"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'drennen42@gmail.com' AND "users"."id" != 20) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:12:42.535121"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:12:42.535121"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:12:42.538814"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:12:42.538814"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:12:42.542406"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:12:42.542406"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:12:42.545959"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:12:42.545959"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:12:42.550192"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:12:42.550192"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:12:42.553878"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:12:42.553878"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:12:42.558168"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:12:42.558168"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:13:21.515231"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:13:21.515231"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:13:21.520254"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:13:21.520254"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:13:21.523763"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:13:21.523763"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:13:21.526609"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:13:21.526609"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:13:21.528886"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:13:21.528886"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPoster Load (0.5ms)[0m  [1mSELECT  "posters".* FROM "posters"   ORDER BY "posters"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPoster Load (0.2ms)[0m  SELECT  "posters".* FROM "posters"   ORDER BY "posters"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tags" ("created_at", "discipline", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-10-30 16:13:21.542554"], ["discipline", "Biology"], ["updated_at", "2014-10-30 16:13:21.542554"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2014-10-30 16:13:21.568240"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["last_name", "Drennen"], ["password_hash", "ad"], ["updated_at", "2014-10-30 16:13:21.568240"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'drennen42@gmail.com' AND "users"."id" != 28) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:13:21.575232"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:13:21.575232"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:13:21.579240"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:13:21.579240"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:13:21.582821"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:13:21.582821"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:13:21.586448"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:13:21.586448"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:13:21.636345"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:13:21.636345"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:13:21.641576"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:13:21.641576"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["created_at", "2014-10-30 16:13:21.646260"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:13:21.646260"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:14:24.356885"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:14:24.356885"], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:14:24.364499"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:14:24.364499"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:14:24.367186"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:14:24.367186"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:14:24.380153"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:14:24.380153"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:14:24.385562"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:14:24.385562"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:14:24.388115"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:14:24.388115"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:14:24.390821"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:14:24.390821"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:14:24.393707"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:14:24.393707"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPoster Load (0.5ms)[0m  SELECT  "posters".* FROM "posters"   ORDER BY "posters"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPoster Load (0.2ms)[0m  [1mSELECT  "posters".* FROM "posters"   ORDER BY "posters"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("created_at", "discipline", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 16:14:24.405870"], ["discipline", "Biology"], ["updated_at", "2014-10-30 16:14:24.405870"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-10-30 16:14:24.430027"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["last_name", "Drennen"], ["password_hash", "ad"], ["updated_at", "2014-10-30 16:14:24.430027"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'drennen42@gmail.com' AND "users"."id" != 36) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:24.436828"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:24.436828"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:24.440742"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:24.440742"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:24.444577"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:24.444577"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:24.448180"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:24.448180"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:24.451730"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:24.451730"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:24.455299"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:24.455299"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:24.458913"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:24.458913"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:14:35.315800"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:14:35.315800"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:14:35.321502"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:14:35.321502"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:14:35.324154"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:14:35.324154"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:14:35.335317"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:14:35.335317"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:14:35.340434"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:14:35.340434"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:14:35.343579"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:14:35.343579"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:14:35.346602"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:14:35.346602"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:14:35.349125"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:14:35.349125"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPoster Load (0.5ms)[0m  SELECT  "posters".* FROM "posters"   ORDER BY "posters"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPoster Load (0.2ms)[0m  [1mSELECT  "posters".* FROM "posters"   ORDER BY "posters"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("created_at", "discipline", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 16:14:35.361434"], ["discipline", "Biology"], ["updated_at", "2014-10-30 16:14:35.361434"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-10-30 16:14:35.388042"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["last_name", "Drennen"], ["password_hash", "ad"], ["updated_at", "2014-10-30 16:14:35.388042"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'drennen42@gmail.com' AND "users"."id" != 44) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:35.395113"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:35.395113"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:35.399006"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:35.399006"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:35.403044"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:35.403044"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:35.406633"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:35.406633"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:35.410250"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:35.410250"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:35.413766"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:35.413766"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:14:35.417284"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:14:35.417284"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:15:21.989310"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:15:21.989310"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:15:21.995041"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:15:21.995041"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:15:21.997650"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:15:21.997650"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:15:22.011639"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:15:22.011639"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:15:22.016806"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:15:22.016806"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:15:22.019631"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:15:22.019631"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:15:22.022122"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:15:22.022122"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:15:22.024561"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:15:22.024561"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "poster_tags" ("created_at", "poster_id", "tag_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-10-30 16:15:22.032857"], ["poster_id", 1], ["tag_id", 1], ["updated_at", "2014-10-30 16:15:22.032857"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poster_tags" ("created_at", "poster_id", "tag_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-10-30 16:15:22.036826"], ["poster_id", 1], ["tag_id", 1], ["updated_at", "2014-10-30 16:15:22.036826"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("created_at", "discipline", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 16:15:22.044281"], ["discipline", "Biology"], ["updated_at", "2014-10-30 16:15:22.044281"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-10-30 16:15:22.068846"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["last_name", "Drennen"], ["password_hash", "ad"], ["updated_at", "2014-10-30 16:15:22.068846"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'drennen42@gmail.com' AND "users"."id" != 52) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:15:22.075226"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:15:22.075226"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:15:22.079304"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:15:22.079304"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:15:22.082913"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:15:22.082913"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:15:22.133444"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:15:22.133444"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:15:22.137489"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:15:22.137489"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:15:22.141122"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:15:22.141122"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:15:22.144736"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:15:22.144736"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:16:01.250370"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:16:01.250370"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:16:01.256170"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:16:01.256170"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:16:01.258727"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:16:01.258727"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:16:01.270236"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:16:01.270236"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:16:01.276719"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:16:01.276719"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:16:01.279685"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:16:01.279685"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:16:01.282604"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:16:01.282604"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:16:01.285214"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:16:01.285214"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "poster_tags" ("created_at", "poster_id", "tag_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-10-30 16:16:01.294160"], ["poster_id", 1], ["tag_id", 1], ["updated_at", "2014-10-30 16:16:01.294160"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poster_tags" ("created_at", "poster_id", "tag_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-10-30 16:16:01.298254"], ["poster_id", 1], ["tag_id", 1], ["updated_at", "2014-10-30 16:16:01.298254"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("created_at", "discipline", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 16:16:01.305698"], ["discipline", "Biology"], ["updated_at", "2014-10-30 16:16:01.305698"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-10-30 16:16:01.332143"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["last_name", "Drennen"], ["password_hash", "ad"], ["updated_at", "2014-10-30 16:16:01.332143"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'drennen42@gmail.com' AND "users"."id" != 60) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:16:01.338773"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:16:01.338773"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:16:01.342607"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:16:01.342607"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:16:01.346231"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:16:01.346231"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:16:01.398881"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:16:01.398881"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:16:01.402735"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:16:01.402735"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:16:01.406355"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:16:01.406355"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:16:01.410274"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:16:01.410274"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:18:22.171063"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:18:22.171063"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:18:22.176844"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:18:22.176844"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:18:22.179437"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:18:22.179437"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:18:22.190525"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:18:22.190525"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:18:22.194453"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:18:22.194453"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:18:22.197318"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:18:22.197318"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:18:22.199778"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:18:22.199778"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:18:22.202154"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:18:22.202154"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "poster_tags" ("created_at", "poster_id", "tag_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-10-30 16:18:22.211412"], ["poster_id", 1], ["tag_id", 1], ["updated_at", "2014-10-30 16:18:22.211412"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poster_tags" ("created_at", "poster_id", "tag_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-10-30 16:18:22.215643"], ["poster_id", 1], ["tag_id", 1], ["updated_at", "2014-10-30 16:18:22.215643"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("created_at", "discipline", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 16:18:22.223928"], ["discipline", "Biology"], ["updated_at", "2014-10-30 16:18:22.223928"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "user_posters" ("created_at", "poster_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-10-30 16:18:22.233747"], ["poster_id", 1], ["updated_at", "2014-10-30 16:18:22.233747"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "user_posters" ("created_at", "poster_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-10-30 16:18:22.237186"], ["poster_id", 1], ["updated_at", "2014-10-30 16:18:22.237186"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-10-30 16:18:22.307236"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["last_name", "Drennen"], ["password_hash", "ad"], ["updated_at", "2014-10-30 16:18:22.307236"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'drennen42@gmail.com' AND "users"."id" != 68) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:18:22.315338"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:18:22.315338"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:18:22.319467"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:18:22.319467"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:18:22.323147"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:18:22.323147"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:18:22.326846"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:18:22.326846"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:18:22.330580"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:18:22.330580"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:18:22.334114"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:18:22.334114"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:18:22.337736"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:18:22.337736"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:19:13.674165"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:19:13.674165"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:19:13.681733"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:19:13.681733"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:19:13.684638"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:19:13.684638"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:19:13.696093"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:19:13.696093"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:19:13.700878"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:19:13.700878"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:19:13.703591"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:19:13.703591"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:19:13.706321"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:19:13.706321"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:19:13.710127"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:19:13.710127"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "poster_tags" ("created_at", "poster_id", "tag_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-10-30 16:19:13.721522"], ["poster_id", 1], ["tag_id", 1], ["updated_at", "2014-10-30 16:19:13.721522"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poster_tags" ("created_at", "poster_id", "tag_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-10-30 16:19:13.724903"], ["poster_id", 1], ["tag_id", 1], ["updated_at", "2014-10-30 16:19:13.724903"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tags" ("created_at", "discipline", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 16:19:13.732502"], ["discipline", "Biology"], ["updated_at", "2014-10-30 16:19:13.732502"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "user_posters" ("created_at", "poster_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-10-30 16:19:13.743736"], ["poster_id", 1], ["updated_at", "2014-10-30 16:19:13.743736"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "user_posters" ("created_at", "poster_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-10-30 16:19:13.746841"], ["poster_id", 1], ["updated_at", "2014-10-30 16:19:13.746841"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-10-30 16:19:13.811684"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["last_name", "Drennen"], ["password_hash", "ad"], ["updated_at", "2014-10-30 16:19:13.811684"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'drennen42@gmail.com' AND "users"."id" != 76) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:19:13.819601"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:19:13.819601"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:19:13.823720"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:19:13.823720"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:19:13.827476"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:19:13.827476"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:19:13.831175"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:19:13.831175"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:19:13.834748"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:19:13.834748"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:19:13.838407"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:19:13.838407"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:19:13.841939"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:19:13.841939"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:20:26.597435"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:20:26.597435"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:20:26.603189"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:20:26.603189"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:20:26.606116"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:20:26.606116"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:20:26.619721"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:20:26.619721"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:20:26.624475"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:20:26.624475"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:20:26.627205"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:20:26.627205"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:20:26.629784"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:20:26.629784"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:20:26.632738"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:20:26.632738"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "poster_tags" ("created_at", "poster_id", "tag_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-10-30 16:20:26.642098"], ["poster_id", 1], ["tag_id", 1], ["updated_at", "2014-10-30 16:20:26.642098"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poster_tags" ("created_at", "poster_id", "tag_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-10-30 16:20:26.645244"], ["poster_id", 1], ["tag_id", 1], ["updated_at", "2014-10-30 16:20:26.645244"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tags" ("created_at", "discipline", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 16:20:26.652576"], ["discipline", "Biology"], ["updated_at", "2014-10-30 16:20:26.652576"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "user_posters" ("created_at", "poster_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-10-30 16:20:26.663334"], ["poster_id", 1], ["updated_at", "2014-10-30 16:20:26.663334"], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "user_posters" ("created_at", "poster_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-10-30 16:20:26.668455"], ["poster_id", 1], ["updated_at", "2014-10-30 16:20:26.668455"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:20:26.737471"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:20:26.737471"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:20:26.742514"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:20:26.742514"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:20:26.746431"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:20:26.746431"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:20:26.750081"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:20:26.750081"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:20:26.753732"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:20:26.753732"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:20:26.757300"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:20:26.757300"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:20:26.760950"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:20:26.760950"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:21:23.427455"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:21:23.427455"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:21:23.433247"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:21:23.433247"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 16:21:23.435861"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 16:21:23.435861"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:21:23.447152"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:21:23.447152"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:21:23.452165"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:21:23.452165"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:21:23.455014"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:21:23.455014"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:21:23.457435"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:21:23.457435"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "creator_id", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["abstract", "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects."], ["created_at", "2014-10-30 16:21:23.459793"], ["creator_id", 2], ["filepath", "../uploads/images/poster.jpeg"], ["title", "The Disturbing Negative Effects On The Brain Of Development Bootcamps"], ["updated_at", "2014-10-30 16:21:23.459793"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "poster_tags" ("created_at", "poster_id", "tag_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-10-30 16:21:23.468846"], ["poster_id", 1], ["tag_id", 1], ["updated_at", "2014-10-30 16:21:23.468846"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poster_tags" ("created_at", "poster_id", "tag_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-10-30 16:21:23.473168"], ["poster_id", 1], ["tag_id", 1], ["updated_at", "2014-10-30 16:21:23.473168"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tags" ("created_at", "discipline", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 16:21:23.481257"], ["discipline", "Biology"], ["updated_at", "2014-10-30 16:21:23.481257"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "user_posters" ("created_at", "poster_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-10-30 16:21:23.492976"], ["poster_id", 1], ["updated_at", "2014-10-30 16:21:23.492976"], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "user_posters" ("created_at", "poster_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-10-30 16:21:23.497067"], ["poster_id", 1], ["updated_at", "2014-10-30 16:21:23.497067"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:21:23.565846"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:21:23.565846"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:21:23.570998"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:21:23.570998"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:21:23.574821"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:21:23.574821"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:21:23.578413"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:21:23.578413"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:21:23.582112"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:21:23.582112"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:21:23.585694"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:21:23.585694"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'drennen42@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "degree", "email", "first_name", "institution", "last_name", "linkedin_url", "password_hash", "profile_pic", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["created_at", "2014-10-30 16:21:23.589336"], ["degree", "Double Masters"], ["email", "drennen42@gmail.com"], ["first_name", "Alex"], ["institution", "DevBootcamp"], ["last_name", "Drennen"], ["linkedin_url", "http://www.linkedin.com/drennen42"], ["password_hash", "ad"], ["profile_pic", nil], ["updated_at", "2014-10-30 16:21:23.589336"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
