@@ -9,4 +9,6 @@ class Poster < ActiveRecord::Base
   has_many :tags, through: :poster_tags, source: :tag
 
   validates :title, :abstract, :filepath, presence: true
+
+
 end

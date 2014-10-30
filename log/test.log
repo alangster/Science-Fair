@@ -1,0 +1,280 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (7.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:27:41.058517"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:27:41.058517"], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:27:41.074090"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:27:41.074090"], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:27:41.077998"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:27:41.077998"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:29:35.137500"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:29:35.137500"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:29:35.146931"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:29:35.146931"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:29:35.150190"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:29:35.150190"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("created_at", "text", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 21:29:35.155804"], ["text", "A"], ["updated_at", "2014-10-30 21:29:35.155804"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 100], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:29:35.170788"], ["text", "1"], ["updated_at", "2014-10-30 21:29:35.170788"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commentable_id", 100], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:29:35.173385"], ["text", "2"], ["updated_at", "2014-10-30 21:29:35.173385"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 100], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 101], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 102], ["commentable_type", "Comment"]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:29:53.993538"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:29:53.993538"], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:29:54.001806"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:29:54.001806"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:29:54.005535"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:29:54.005535"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("created_at", "text", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 21:29:54.010292"], ["text", "A"], ["updated_at", "2014-10-30 21:29:54.010292"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 106], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:29:54.027681"], ["text", "1"], ["updated_at", "2014-10-30 21:29:54.027681"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commentable_id", 106], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:29:54.031182"], ["text", "2"], ["updated_at", "2014-10-30 21:29:54.031182"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 106], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 107], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 108], ["commentable_type", "Comment"]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:31:28.293552"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:31:28.293552"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:31:28.301902"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:31:28.301902"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:31:28.305116"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:31:28.305116"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("created_at", "text", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 21:31:28.310257"], ["text", "A"], ["updated_at", "2014-10-30 21:31:28.310257"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 112], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:31:28.326971"], ["text", "1"], ["updated_at", "2014-10-30 21:31:28.326971"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commentable_id", 112], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:31:28.330394"], ["text", "2"], ["updated_at", "2014-10-30 21:31:28.330394"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 113], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:31:28.332849"], ["text", "1a"], ["updated_at", "2014-10-30 21:31:28.332849"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commentable_id", 113], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:31:28.335318"], ["text", "1b"], ["updated_at", "2014-10-30 21:31:28.335318"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:31:41.536519"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:31:41.536519"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:31:41.544644"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:31:41.544644"], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:31:41.548199"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:31:41.548199"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("created_at", "text", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 21:31:41.553014"], ["text", "A"], ["updated_at", "2014-10-30 21:31:41.553014"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 120], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:31:41.566434"], ["text", "1"], ["updated_at", "2014-10-30 21:31:41.566434"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commentable_id", 120], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:31:41.570066"], ["text", "2"], ["updated_at", "2014-10-30 21:31:41.570066"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 121], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:31:41.572966"], ["text", "1a"], ["updated_at", "2014-10-30 21:31:41.572966"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commentable_id", 121], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:31:41.575112"], ["text", "1b"], ["updated_at", "2014-10-30 21:31:41.575112"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 122], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:31:41.577920"], ["text", "2a"], ["updated_at", "2014-10-30 21:31:41.577920"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 120], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 121], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 123], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 124], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 122], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 125], ["commentable_type", "Comment"]]
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:32:25.414274"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:32:25.414274"], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:32:25.422502"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:32:25.422502"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:32:25.426103"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:32:25.426103"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("created_at", "text", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 21:32:25.431346"], ["text", "A"], ["updated_at", "2014-10-30 21:32:25.431346"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 129], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:32:25.446289"], ["text", "1"], ["updated_at", "2014-10-30 21:32:25.446289"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commentable_id", 129], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:32:25.449646"], ["text", "2"], ["updated_at", "2014-10-30 21:32:25.449646"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 130], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:32:25.452361"], ["text", "1a"], ["updated_at", "2014-10-30 21:32:25.452361"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commentable_id", 130], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:32:25.454395"], ["text", "1b"], ["updated_at", "2014-10-30 21:32:25.454395"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 131], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:32:25.457277"], ["text", "2a"], ["updated_at", "2014-10-30 21:32:25.457277"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 129], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 130], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 132], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 133], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 131], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 134], ["commentable_type", "Comment"]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:33:16.742179"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:33:16.742179"], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:33:16.749950"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:33:16.749950"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:33:16.753752"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:33:16.753752"], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("created_at", "text", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 21:33:16.759726"], ["text", "A"], ["updated_at", "2014-10-30 21:33:16.759726"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 138], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:33:16.776229"], ["text", "1"], ["updated_at", "2014-10-30 21:33:16.776229"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commentable_id", 139], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:33:16.779381"], ["text", "1b"], ["updated_at", "2014-10-30 21:33:16.779381"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 138], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:33:16.781360"], ["text", "2"], ["updated_at", "2014-10-30 21:33:16.781360"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commentable_id", 141], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:33:16.784345"], ["text", "2a"], ["updated_at", "2014-10-30 21:33:16.784345"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 139], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:33:16.786747"], ["text", "1a"], ["updated_at", "2014-10-30 21:33:16.786747"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 138], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 139], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 140], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 143], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 141], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 142], ["commentable_type", "Comment"]]
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:34:09.745631"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:34:09.745631"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:34:09.755713"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:34:09.755713"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-10-30 21:34:09.759456"], ["text", "I really like your poster!  It is an extremely accurrate portrayal of the terrible, horrible effects that bootcamps have on people's brains.  I myself took a develmeptal cmapboot and now I have bursts of paralysing pain in my fingertips when I type.  Many times for those bursts I completely spell wdrods grwon nda notd vene ntioce.  Shit."], ["updated_at", "2014-10-30 21:34:09.759456"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("created_at", "text", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-10-30 21:34:09.765000"], ["text", "A"], ["updated_at", "2014-10-30 21:34:09.765000"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 147], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:34:09.779213"], ["text", "1"], ["updated_at", "2014-10-30 21:34:09.779213"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.4ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commentable_id", 147], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:34:09.782456"], ["text", "2"], ["updated_at", "2014-10-30 21:34:09.782456"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 149], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:34:09.793582"], ["text", "2a"], ["updated_at", "2014-10-30 21:34:09.793582"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commentable_id", 148], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:34:09.796390"], ["text", "1a"], ["updated_at", "2014-10-30 21:34:09.796390"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["commentable_id", 148], ["commentable_type", "Comment"], ["created_at", "2014-10-30 21:34:09.799147"], ["text", "1b"], ["updated_at", "2014-10-30 21:34:09.799147"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 147], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 148], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 151], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 152], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 149], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 150], ["commentable_type", "Comment"]]
+  [1m[35m (0.2ms)[0m  ROLLBACK

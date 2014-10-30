@@ -18,4 +18,18 @@ RSpec.describe Comment, :type => :model do
   it "should know what it is a comment on (what it's commentable_type is)." do
     expect(comment.commentable_type).to eq("Poster")
   end
+
+  it 'should know all its sub-comments' do
+    commentA = Comment.create(text: "A")
+    comment1 = commentA.comments.create(text: "1")
+    comment2 = commentA.comments.create(text: "2")
+    comment2a = comment2.comments.create(text: "2a")
+    comment1a = comment1.comments.create(text: "1a")
+    comment1b = comment1.comments.create(text: "1b")
+
+    commentA.get_all_subcomments.each do |c|
+      p c.text
+    end
+    expect(commentA.get_all_subcomments).to eq([commentA, comment1, comment1a, comment1b, comment2, comment2a])
+  end
 end
