@@ -1,11 +1,10 @@
 class CreateComments < ActiveRecord::Migration
   def change
     create_table :comments do |t|
-      t.belongs_to :user
       t.text :text
-      t.integer :points
+      t.belongs_to :user
+      t.integer :points, deafault: 0
       t.references :commentable, polymorphic: true
-
 
       t.timestamps
     end
