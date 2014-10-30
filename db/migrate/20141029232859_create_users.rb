@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :linkedin_url
       t.string :profile_pic
       t.string :degree
-      t.integer :points, deafault: 0
+      t.integer :points, default: 0
 
       t.timestamps
     end
