@@ -10,7 +10,7 @@ class Comment < ActiveRecord::Base
   end
 
   def get_user_responded_to
-    return User.find_by(id: Comment.find(self.commentable_id).user_id).name
+    return self.commentable.user.name
   end
 
   private

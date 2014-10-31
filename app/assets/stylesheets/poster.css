@@ -1,6 +1,10 @@
 /*Some CSS*/
 * {margin: 0; padding: 0; border: 0;}
-.pic_magnify {width: 200px; margin: 50px auto; position: relative;}
+.magnify {
+  width: 50%;
+  margin: 50px auto;
+  position: fixed;
+}
 
 
 /*Lets create the magnifying glass*/
@@ -15,7 +19,7 @@
   inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
 
   /*Lets load up the large image first*/
-  background: url('http://thecodeplayer.com/uploads/media/iphone.jpg') no-repeat;
+  background: url('/assets/cookie_squirrel.jpg') no-repeat;
 
   /*hide the glass by default*/
   display: none;
@@ -24,11 +28,13 @@
 /*To solve overlap bug at the edges during magnification*/
 .pic_small {
   /*display: none;*/
-  height: 200px;
-  width: 400px;
-  position: fixed;
-  top: 0;
+  /*height: 200px;
+  width: 400px;*/
+  /*position: fixed;*/
+  /*margin-top: 4em;*/
+  top: 4em;
   left: 0;
+  right: 20px;
 }
 
 .right_side_bar_before {
@@ -47,7 +53,7 @@
     bottom: 0px;
     color: red;
     background-color: #FF423E;
-    width: 80%;
+    width: 90%;
     height: 20px;
     left: 10%;
 }
@@ -55,28 +61,27 @@
 .right_side_bar_after {
     display: none;
     position: relative;
-    top: -2em;
+    top: 4em;
     right: 0px;
     /*color: red;*/
     border: 10px solid #FF423E;
-    background-color: #FFFF0;
+    border-bottom: 20px solid #FF423E;
+    background-color: #FFFFF0;
     width: 33%;
     float: right;
-    /*height: 110%;*/
+    height: 100%;
     padding-bottom: 3em;
     /*z-index: -1;*/
 }
 
 .bottom_bar_after {
-    display: none;
-    position: fixed;
-    bottom: 0px;
-    color: red;
-    border: 10px solid #FF423E;
-    background-color: #FF423E;
-    width: 80%;
-    height: 33%;
-    left: 10%;
+
+
+    /*color: red;*/
+
+
+    /*background-color: #FF423E;*/
+
 }
 
 .comments_bar {
@@ -96,4 +101,30 @@
 .subcomment {
   padding-left: 1.5em;
   border-left: 2px solid black;
+}
+.bottom_bar_after {
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  padding-left: 1em;
+  border: 10px solid #FF423E;
+  border-bottom-width: 20px;
+  background-color: #FFFFF0;
+  width: 80%;
+  height: 33%;
+  left: 10%;
+}
+
+.bottom_bar_after h2 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.bottom_bar_after ul {
+  list-style: none;
+  margin-top: 1em;
+}
+
+.bottom_bar_after ul li {
+  display: inline-block;
 }

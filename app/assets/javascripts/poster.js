@@ -85,7 +85,10 @@ $(document).ready(function(){
 
   $(".bottom_bar_after a").on("click", function(event) {
     // event.preventDefault();
-    $(this).toggle();
+    $(".bottom_bar_after").toggle();
   });
+
+  console.log(window.innerHeight);
+  $(".pic_small").css("height", window.innerHeight);
 })
 
