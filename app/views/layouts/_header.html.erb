@@ -5,14 +5,14 @@
     <span class="login-link"><%= link_to "Login", "" %></span>
     <span class="sign-up-link"><%= link_to "Sign Up", "" %></span>
     <% else %>
-    <span class="logout-link"><%=  link_to "Logout", sessions %></span>
+    <span class="logout-link"><%=  link_to "Logout", logout_path %></span>
     <span class="profile-link"><%= link_to "Profile", current_user %></span>
     <% end %>
   </nav>
 </header>
 <div class="login-form">
   <table>
-    <%= form_tag login_path do %>
+    <%= form_tag login_path, remote: true do %>
       <tr>
         <td><%= label_tag :email %></td>
         <td><%= text_field_tag :email %></td>

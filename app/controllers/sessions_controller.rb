@@ -3,8 +3,9 @@ require 'debugger'
 class SessionsController < ApplicationController
 
   def create
-    debugger
+    # debugger
     @user = User.find_by(email: params[:email])
+    p @user
     if @user && @user.password == params[:password]
       session[:user_id] = @user.id
       # render "/layouts/header", layout: false
