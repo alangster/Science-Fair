@@ -1,0 +1,35 @@
+div.col-2-12 {
+	height: 20em;
+	margin-bottom: 3em;
+}
+
+div.col-8-12.user-container {
+	border: 4px solid #C41E3A;
+	height: 20em;
+
+}
+
+div.col-8-12.user-info {
+	height: 20em;
+	padding-left: 6em;
+	padding-top: 5em;
+}
+
+div.col-8-12.user-info h2.user-name {
+	color: #C41E3A;
+	font-size: 33px
+}
+
+div.col-8-12.user-info p {
+	color: #C41E3A;
+	font-size: 24px
+}
+
+div.col-8-12.user-info a {
+	color: grey;
+}
+
+div.col-4-12.user-pic {
+	border: 1px solid black;
+	height: 19.5em;
+}

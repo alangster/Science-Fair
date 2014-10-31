@@ -40,7 +40,11 @@ div.title{
 div.title h3 {
     font-size: 50px;
     margin-top: 0em;
-    color: #FFFFF0;
+}
+
+div.title h3 a {
+    text-decoration: none;
+    color: #FFFFF0;   
 }
 
 div.login-form {
@@ -121,4 +125,9 @@ input {
 
 label {
     color: #FFFFF0;
+}
+
+div.login-form table tr td.error {
+    color: #FFFFF0;
+    padding-left: 5.3em; 
 }

@@ -5,26 +5,31 @@ $(function() {
       $('.sign-up-form').toggle();
     };
     $('.login-form form')[0].reset();
+    if ($('.error')) {
+      $('td.error').hide();
+    };
     $('.login-form').toggle();
   });
 
   $('.login-form form').on('submit', function(e) {
     e.preventDefault();
     var form = $('.login-form form');
-    console.log(form.serialize());
     var data = form.serialize();
-    console.log(data);
     $.ajax({
       url: "/log_in",
       type: "POST",
       dataType: "html",
       data: data,
       success: function(response) {
-        console.log('success');
         console.log(response);
-        $('header').html(response);
+        // $('header').html(response);
       },
-      });
+      error: function(response) {
+        console.log(response);
+        $(".login-form").find("table").append("<tr><td colspan='2' class='error'>" + response["responseText"] + "</td></tr>");
+        $('.login-form form')[0].reset();
+      }
+    });
   });
 
   $('.sign-up-link').on('click', function(e){
@@ -35,6 +40,23 @@ $(function() {
     $('.sign-up-form form')[0].reset();
     $('.sign-up-form').toggle();
   });
+
+  // $('.sign-up-form form').on('submit', function(e) {
+  //   e.preventDefault();
+  //   var form = $('.sign-up-form form');
+  //   var data = form.serialize();
+  //   console.log(data);
+  //   $.ajax({
+  //     url: "/users",
+  //     type: "POST",
+  //     dataType: "html",
+  //     data: data,
+  //     success: function(response) {
+  //       console.log(response);
+  //       // $('header').html(response);
+  //     },
+  //     });
+  // });
 
 
 });

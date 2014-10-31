@@ -1,0 +1,16 @@
+<div class="col-2-12"></div>
+<div class="col-8-12 user-container">
+	<div class="col-8-12 user-info">
+		<h2 class="user-name"><%= @user.name %><% if @user.degree %>, <%= @user.degree %> <% end %></h2></br>
+		<p>Institution: <%= @user.institution %></p></br>
+		<% if @user.linkedin_url %>
+		<p>LinkedIn: <%= link_to "#{@user.linkedin_url}", @user.linkedin_url %></p></br>
+		<% end %>
+		<% if @user == current_user %>
+		<%= link_to "Edit", edit_user_path(@user) %>
+		<% end %>
+	</div>
+	<div class="col-4-12 user-pic"></div>
+</div>
+<div class="col-2-12"></div>
+<%= render partial: "posters/poster", collection: @posters %>
