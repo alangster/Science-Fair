@@ -2,8 +2,9 @@ header {
     background-color: #C41E3A;
     height: 4em;
     width: 100%;
-/*     position: absolute; */
+    position: fixed;
     margin-bottom: 2em;
+    z-index: 9;
 }
 
 nav a {
@@ -44,7 +45,7 @@ div.title h3 {
 
 div.title h3 a {
     text-decoration: none;
-    color: #FFFFF0;   
+    color: #FFFFF0;
 }
 
 div.login-form {
@@ -95,7 +96,7 @@ div.sign-up-form {
 
 div.sign-up-form tr {
     margin-top: 1em;
-   
+
 }
 
 div.sign-up-form td {
@@ -129,5 +130,5 @@ label {
 
 div.login-form table tr td.error {
     color: #FFFFF0;
-    padding-left: 5.3em; 
+    padding-left: 5.3em;
 }
