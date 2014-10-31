@@ -1,0 +1,74 @@
+/*Some CSS*/
+* {margin: 0; padding: 0; border: 0;}
+.pic_magnify {width: 200px; margin: 50px auto; position: relative;}
+
+
+/*Lets create the magnifying glass*/
+.pic_large {
+  width: 500px; height: 500px;
+  position: absolute;
+  border-radius: 100%;
+
+  /*Multiple box shadows to achieve the glass effect*/
+  box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85),
+  0 0 7px 7px rgba(0, 0, 0, 0.25),
+  inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+
+  /*Lets load up the large image first*/
+  background: url('http://thecodeplayer.com/uploads/media/iphone.jpg') no-repeat;
+
+  /*hide the glass by default*/
+  display: none;
+}
+
+/*To solve overlap bug at the edges during magnification*/
+.pic_small {
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.right_side_bar_before {
+  position: fixed;
+  top: 30px;
+  right: 0px;
+  color: red;
+  background-color: #FF423E;
+  width: 20px;
+  height: 80%;
+}
+
+.bottom_bar_before {
+    position: fixed;
+    bottom: 0px;
+    color: red;
+    background-color: #FF423E;
+    width: 80%;
+    height: 20px;
+    left: 10%;
+}
+
+.right_side_bar_after {
+    position: fixed;
+    top: 30px;
+    right: 0px;
+    color: red;
+    border: 10px solid #FF423E;
+    background-color: #FF423E;
+    width: 33%;
+    height: 80%;
+}
+
+.bottom_bar_after {
+    position: fixed;
+    bottom: 0px;
+    color: red;
+    border: 10px solid #FF423E;
+    background-color: #FF423E;
+    width: 80%;
+    height: 33%;
+    left: 10%;
+}
