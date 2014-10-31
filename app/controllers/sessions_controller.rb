@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       end
     else
       @error = "That wasn't quite right"
+      render json: @error, status: 422
     end
   end
 

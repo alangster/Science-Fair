@@ -122,3 +122,8 @@ input {
 label {
     color: #FFFFF0;
 }
+
+div.login-form table tr td.error {
+    color: #FFFFF0;
+    padding-left: 5.3em; 
+}

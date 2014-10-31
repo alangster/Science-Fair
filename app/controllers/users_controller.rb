@@ -4,10 +4,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			session[:user_id] = @user.id 
-			respond_to do |format|
-				format.html { redirect_to :back }
-				format.js
-			end
+			redirect_to @user
 		else
 			@error = "Unsuccessful"
 		end
