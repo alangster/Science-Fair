@@ -1,5 +1,4 @@
 div.col-2-12 {
-/* 	border: 1px solid black; */
 	height: 20em;
 	margin-bottom: 3em;
 }
@@ -11,7 +10,6 @@ div.col-8-12.user-container {
 }
 
 div.col-8-12.user-info {
-/* 	border: 4px solid #C41E3A; */
 	height: 20em;
 	padding-left: 6em;
 	padding-top: 5em;

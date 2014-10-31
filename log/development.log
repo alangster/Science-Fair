@@ -9963,3 +9963,146 @@ Completed 200 OK in 201ms (Views: 195.0ms | ActiveRecord: 3.1ms)
 
 
 Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:23:53 -0500
+
+
+Started POST "/log_in" for 127.0.0.1 at 2014-10-31 07:24:54 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>"aslhkn", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'aslhkn' LIMIT 1[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/log_in" for 127.0.0.1 at 2014-10-31 07:24:54 -0500
+Processing by SessionsController#create as JS
+  Parameters: {"utf8"=>"✓", "email"=>"aslhkn", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'aslhkn' LIMIT 1
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-10-31 07:25:16 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LvR4sTYekHF7yBjkeXeS75qMm5ZzgV/K0fKyuaoZO4k=", "user"=>{"first_name"=>"Abbey", "last_name"=>"White", "email"=>"abbers@iwu.edu", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'abbers@iwu.edu' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-10-31 12:25:16.860303"], ["email", "abbers@iwu.edu"], ["first_name", "Abbey"], ["last_name", "White"], ["password_hash", "$2a$10$8CFaJp2lTKNmDPHLQW7jI.GYM6BfV/FuTyWhPZfi3TZrFbxB0iye6"], ["updated_at", "2014-10-31 12:25:16.860303"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/60
+Completed 302 Found in 101ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/users/60" for 127.0.0.1 at 2014-10-31 07:25:16 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"60"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 60]]
+  [1m[35mPoster Load (0.3ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 60]]
+  Rendered posters/_poster.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 60 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 60 LIMIT 1
+  Rendered layouts/_header.html.erb (6.0ms)
+Completed 200 OK in 96ms (Views: 92.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:25:17 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:25:17 -0500
+
+
+Started GET "/users/60" for 127.0.0.1 at 2014-10-31 07:25:39 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"60"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 60]]
+  [1m[35mPoster Load (0.7ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 60]]
+  Rendered posters/_poster.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 60 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 60 LIMIT 1
+  Rendered layouts/_header.html.erb (5.2ms)
+Completed 200 OK in 116ms (Views: 112.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:25:39 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:25:39 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:25:39 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:25:39 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:25:39 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:25:39 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:25:39 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:25:39 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:25:39 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:25:39 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:25:39 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:25:39 -0500
+
+
+Started GET "/users/60" for 127.0.0.1 at 2014-10-31 07:27:30 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"60"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 60]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 60 LIMIT 1
+  [1m[36mPoster Load (0.3ms)[0m  [1mSELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1[0m  [["user_id", 60]]
+  Rendered posters/_poster.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (5.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 60 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 60 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (5.8ms)
+Completed 200 OK in 99ms (Views: 95.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:27:30 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:27:30 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:27:30 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:27:30 -0500
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:27:30 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:27:30 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:27:30 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:27:30 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:27:30 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:27:30 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:27:30 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:27:30 -0500
