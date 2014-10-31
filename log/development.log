@@ -12414,3 +12414,180 @@ Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 15:22:34 -050
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 15:22:34 -0500
+
+
+Started POST "/posters" for 127.0.0.1 at 2014-10-31 15:25:38 -0500
+Processing by PostersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SzTOURQDRiZ42cRKZrDpZou+YNmU0u+8H5jzm1c/hAw=", "poster"=>{"title"=>"", "abstract"=>""}, "commit"=>"Submit poster"}
+
+
+Started GET "/posters/new" for 127.0.0.1 at 2014-10-31 15:31:11 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostersController#new as HTML
+  Rendered posters/new.html.erb within layouts/application (420.0ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (27.2ms)
+Completed 200 OK in 698ms (Views: 675.0ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 15:31:12 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 15:31:12 -0500
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-10-31 15:31:12 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 15:31:12 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 15:31:12 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 15:31:12 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 15:31:12 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 15:31:12 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 15:31:12 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 15:31:12 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 15:31:12 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 15:31:12 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 15:31:12 -0500
+
+
+Started POST "/posters" for 127.0.0.1 at 2014-10-31 15:36:26 -0500
+Processing by PostersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SzTOURQDRiZ42cRKZrDpZou+YNmU0u+8H5jzm1c/hAw=", "poster"=>{"title"=>"", "abstract"=>""}, "commit"=>"Submit poster"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Redirected to http://localhost:3000posters/index
+Completed 500 Internal Server Error in 2ms
+
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  app/controllers/posters_controller.rb:19:in `create'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.9ms)
+
+
+Started GET "/posters/new" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+Processing by PostersController#new as HTML
+  Rendered posters/new.html.erb within layouts/application (8.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (75.9ms)
+Completed 200 OK in 186ms (Views: 171.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 15:38:39 -0500
+
+
+Started POST "/posters" for 127.0.0.1 at 2014-10-31 15:38:53 -0500
+Processing by PostersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SzTOURQDRiZ42cRKZrDpZou+YNmU0u+8H5jzm1c/hAw=", "poster"=>{"filepath"=>#<ActionDispatch::Http::UploadedFile:0x007fee3254a678 @tempfile=#<Tempfile:/var/folders/0f/ds7zc5hj3bv1yk8cpx_9vdbw0000gn/T/RackMultipart20141031-56251-1j3ric9>, @original_filename="diamond.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"poster[filepath]\"; filename=\"diamond.png\"\r\nContent-Type: image/png\r\n">, "title"=>"i am a photo", "abstract"=>"ia adsasafasf"}, "commit"=>"Submit poster"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Redirected to http://localhost:3000posters/index
+Completed 500 Internal Server Error in 3ms
+
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  app/controllers/posters_controller.rb:19:in `create'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.5ms)
+
+
+Started POST "/posters" for 127.0.0.1 at 2014-10-31 15:39:46 -0500
+Processing by PostersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SzTOURQDRiZ42cRKZrDpZou+YNmU0u+8H5jzm1c/hAw=", "poster"=>{"filepath"=>#<ActionDispatch::Http::UploadedFile:0x007fee328d9078 @tempfile=#<Tempfile:/var/folders/0f/ds7zc5hj3bv1yk8cpx_9vdbw0000gn/T/RackMultipart20141031-56251-xornuc>, @original_filename="diamond.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"poster[filepath]\"; filename=\"diamond.png\"\r\nContent-Type: image/png\r\n">, "title"=>"asdsadasdasdas", "abstract"=>"asdasdasdasd"}, "commit"=>"Submit poster"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://localhost:3000posters/index
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "posters" ("abstract", "created_at", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["abstract", "asdasdasdasd"], ["created_at", "2014-10-31 20:39:46.400084"], ["filepath", "diamond.png"], ["title", "asdsadasdasdas"], ["updated_at", "2014-10-31 20:39:46.400084"]]
+  [1m[35m (16.3ms)[0m  COMMIT
+Redirected to 
+Completed 500 Internal Server Error in 130ms
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/posters_controller.rb:22:in `create'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.1ms)
+
+
+Started POST "/posters" for 127.0.0.1 at 2014-10-31 15:40:10 -0500
+Processing by PostersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SzTOURQDRiZ42cRKZrDpZou+YNmU0u+8H5jzm1c/hAw=", "poster"=>{"filepath"=>#<ActionDispatch::Http::UploadedFile:0x007fee323aa048 @tempfile=#<Tempfile:/var/folders/0f/ds7zc5hj3bv1yk8cpx_9vdbw0000gn/T/RackMultipart20141031-56251-1pgch27>, @original_filename="diamond.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"poster[filepath]\"; filename=\"diamond.png\"\r\nContent-Type: image/png\r\n">, "title"=>"asdsadas", "abstract"=>"dasdsadsadsada"}, "commit"=>"Submit poster"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Redirected to http://localhost:3000posters/index
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posters" ("abstract", "created_at", "filepath", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["abstract", "dasdsadsadsada"], ["created_at", "2014-10-31 20:40:10.328438"], ["filepath", "diamond.png"], ["title", "asdsadas"], ["updated_at", "2014-10-31 20:40:10.328438"]]
+  [1m[36m (15.7ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 48ms
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/posters_controller.rb:22:in `create'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.6ms)

@@ -22,6 +22,7 @@ div.new-poster-form table td{
 div.new-poster-form label{
     color: #C41E3A;
     font-size: 1.2em;
+    font-weight: bold;
 }
 
 
@@ -41,9 +42,10 @@ div.new-poster-form #poster_abstract{
 
 div.new-poster-form #poster_filepath{
     width: 25em;
-    background-color: #C41E3A;
     border: 2px solid #FFFFF0;
-    color: #FFFFF0;
+    color: #C41E3A;
+    font-size: 1em;
+    font-weight: bold;
 
 }
 

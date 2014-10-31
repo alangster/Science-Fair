@@ -1,6 +1,4 @@
-require 'debugger'
 class PostersController < ApplicationController
-
   def index
     @posters = Poster.all
   end
@@ -11,15 +9,14 @@ class PostersController < ApplicationController
   end
 
   def new
+     unless current_user
+      redirect_to "posters/index"
+    end
     @poster = Poster.new
   end
 
   def create
-    debugger
-    unless current_user
-      redirect_to "posters/index"
-    end
-    @poster = Poster.new(params[:poster])
+    @poster = Poster.new(poster_params)
     @poster.creator = current_user
       if @poster.save
         redirect_to @poster
@@ -27,5 +24,10 @@ class PostersController < ApplicationController
         @error = "The poster was not created"
         #render error
       end
+  end
+  private
+
+  def poster_params
+    params.require(:poster).permit(:title, :abstract, :filepath)
   end
 end
