@@ -17,6 +17,7 @@ class PostersController < ApplicationController
   end
 
   def create
+    debugger
     @poster = Poster.new(poster_params)
     @poster.creator = current_user
       if @poster.save
@@ -29,6 +30,6 @@ class PostersController < ApplicationController
   private
 
   def poster_params
-    params.require(:poster).permit(:title, :abstract, :filepath)
+    params.require(:poster).permit(:title, :abstract, :filepath, user_attributes:[:email] )
   end
 end

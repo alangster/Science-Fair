@@ -12,11 +12,18 @@
         </tr>
         <tr>
           <%= f.fields_for :user do |ff| %>
-            <td><%= ff.label :email %></td>
-            <td><%= ff.text_field :email %></td>
-           <% end%>
+          <td><label for="poster_user_email">Email</label></td>
+          <td><span class="poster-user-email"><input id="poster_user_email" name="poster[user][email]" type="text"></span></td>
+          <tr><td class="hidden"><label for="poster_user_email">Email</label></td>
+          <td class="hidden"><span class="poster-user-email"><input id="poster_user_email" name="poster[user][email]" type="text"></span></td></tr>
+            <tr><td class="hidden"><label for="poster_user_email">Email</label></td>
+          <td class="hidden"><span class="poster-user-email"><input id="poster_user_email" name="poster[user][email]" type="text"></span></td></tr>
+            <tr><td class="hidden"><label for="poster_user_email">Email</label></td>
+          <td class="hidden"><span class="poster-user-email"><input id="poster_user_email" name="poster[user][email]" type="text"></span></td></tr>
+            <td><%= f.submit "Add Author", :class => 'author-button' %></td>
+          <% end%>
         </tr>
-        <tr>
+        <tr class="abstract-row">
           <td><%= f.label :abstract %></td>
           <td><span class="abstract-input"><%= f.text_area :abstract, size: "42x12" %></span></td>
         </tr>
