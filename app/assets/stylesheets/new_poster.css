@@ -2,29 +2,49 @@ div.new-poster-form {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    background-color: #b0e0e6;
+    background-color: #FFFFF0;
+    border: 6px solid #C41E3A;
+
 }
 
 div.new-poster-form table{
-    margin-left: auto;
+    margin-left: 4em;
     margin-right: auto;
     width: 50%;
-    background-color: #b0e0e6;
+    color: #C41E3A;
+}
+
+div.new-poster-form table td{
+    color: #C41E3A;
+    padding: 1em;
+}
+
+div.new-poster-form label{
+    color: #C41E3A;
+    font-size: 1.2em;
 }
 
 
-div.new-poster-form .submit-button {
+
+div.new-poster-form #poster_title{
+    height: 1.5em;
+    width: 25em;
+}
+
+div.new-poster-form #poster_abstract{
+    height: 15em;
+    width: 25em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+div.new-poster-form #poster_filepath{
+    width: 25em;
     background-color: #C41E3A;
     border: 2px solid #FFFFF0;
-    width: 6em;
     color: #FFFFF0;
-    margin-left: 5em;
-}
 
-div.new-poster-form .submit-button:hover {
-    background-color: #FFFFF0;
-    color: #C41E3A;
-    font-weight: bold;
 }
 
 
@@ -33,7 +53,7 @@ div.new-poster-form .submit-button {
     border: 2px solid #FFFFF0;
     width: 7em;
     color: #FFFFF0;
-    margin-left: 5.5em;
+    margin-left: 14em;
 }
 
 div.new-poster-form .submit-button:hover {
@@ -41,3 +61,5 @@ div.new-poster-form .submit-button:hover {
     color: #C41E3A;
     font-weight: bold;
 }
+
+
