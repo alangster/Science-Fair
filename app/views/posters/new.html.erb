@@ -1,0 +1,23 @@
+<body>
+  <div class="new-poster-form">
+   <table>
+      <%= form_for Poster.new do |f| %>
+        <tr>
+          <td><%= f.label :file %></td>
+           <td><%= f.file_field :filepath  %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :title %></td>
+          <td><%= f.text_field :title %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :abstract %></td>
+          <td><%= f.text_field :abstract %></td>
+        </tr>
+        <tr>
+        <td colspan="2"><%= f.submit "Submit poster", :class => 'submit-button' %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</body>

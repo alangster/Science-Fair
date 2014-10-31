@@ -1,0 +1,43 @@
+div.new-poster-form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: #b0e0e6;
+}
+
+div.new-poster-form table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: #b0e0e6;
+}
+
+
+div.new-poster-form .submit-button {
+    background-color: #C41E3A;
+    border: 2px solid #FFFFF0;
+    width: 6em;
+    color: #FFFFF0;
+    margin-left: 5em;
+}
+
+div.new-poster-form .submit-button:hover {
+    background-color: #FFFFF0;
+    color: #C41E3A;
+    font-weight: bold;
+}
+
+
+div.new-poster-form .submit-button {
+    background-color: #C41E3A;
+    border: 2px solid #FFFFF0;
+    width: 7em;
+    color: #FFFFF0;
+    margin-left: 5.5em;
+}
+
+div.new-poster-form .submit-button:hover {
+    background-color: #FFFFF0;
+    color: #C41E3A;
+    font-weight: bold;
+}
