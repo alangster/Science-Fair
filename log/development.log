@@ -8817,3 +8817,1149 @@ Processing by SessionsController#create as JS
   Parameters: {"utf8"=>"✓", "email"=>"dflhk", "password"=>"[FILTERED]"}
   [1m[36mUser Load (3.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'dflhk' LIMIT 1[0m
 Completed 422 Unprocessable Entity in 5ms (Views: 0.1ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/log_in" for 127.0.0.1 at 2014-10-31 06:48:33 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>"aslnh", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (2.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'aslnh' LIMIT 1
+Completed 422 Unprocessable Entity in 4ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/log_in" for 127.0.0.1 at 2014-10-31 06:48:33 -0500
+Processing by SessionsController#create as JS
+  Parameters: {"utf8"=>"✓", "email"=>"aslnh", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (3.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'aslnh' LIMIT 1[0m
+Completed 422 Unprocessable Entity in 5ms (Views: 0.1ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/log_in" for 127.0.0.1 at 2014-10-31 06:48:39 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>"alkn", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'alkn' LIMIT 1
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/log_in" for 127.0.0.1 at 2014-10-31 06:48:39 -0500
+Processing by SessionsController#create as JS
+  Parameters: {"utf8"=>"✓", "email"=>"alkn", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'alkn' LIMIT 1[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.1ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-10-31 06:50:28 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LvR4sTYekHF7yBjkeXeS75qMm5ZzgV/K0fKyuaoZO4k=", "user"=>{"first_name"=>"chloe", "last_name"=>"staub", "email"=>"chloe@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'chloe@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2014-10-31 11:50:28.837145"], ["email", "chloe@gmail.com"], ["first_name", "chloe"], ["last_name", "staub"], ["password_hash", "$2a$10$zpIyyHq4yNy2nfR/wRUsMekL9Mjx7.kZnP8MzmhQxOA1pkGI0FkTe"], ["updated_at", "2014-10-31 11:50:28.837145"]]
+  [1m[36m (879.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/59
+Completed 302 Found in 1006ms (ActiveRecord: 882.8ms)
+
+
+Started GET "/users/59" for 127.0.0.1 at 2014-10-31 06:50:29 -0500
+
+AbstractController::ActionNotFound (The action 'show' could not be found for UsersController):
+  actionpack (4.1.6) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jadelang/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jadelang/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jadelang/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-31 07:02:02 -0500
+Processing by PostersController#index as HTML
+  [1m[35mPoster Load (0.5ms)[0m  SELECT "posters".* FROM "posters"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 2]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 3]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 4]]
+  [1m[35mTag Load (0.4ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 5]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 5]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 6]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 7]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 8]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 8]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 9]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 10]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 10]]
+  Rendered posters/_poster.html.erb (94.9ms)
+  Rendered posters/index.html.erb within layouts/application (107.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 59 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 59 LIMIT 1
+  Rendered layouts/_header.html.erb (5.8ms)
+Completed 200 OK in 207ms (Views: 178.7ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:02:02 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:02:02 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:02:02 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:02:02 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:02:02 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:02:02 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:02:02 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:02:02 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:02:02 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:02:02 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:02:02 -0500
+
+
+Started GET "/log_out" for 127.0.0.1 at 2014-10-31 07:02:04 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-31 07:02:04 -0500
+Processing by PostersController#index as HTML
+  [1m[36mPoster Load (0.4ms)[0m  [1mSELECT "posters".* FROM "posters"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 2]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 3]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 4]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 4]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 5]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 6]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 6]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 7]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 7]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 8]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 8]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 9]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 9]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 10]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 10]]
+  Rendered posters/_poster.html.erb (44.5ms)
+  Rendered posters/index.html.erb within layouts/application (47.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (4.8ms)
+Completed 200 OK in 129ms (Views: 122.6ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:02:04 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:02:04 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:02:04 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:02:04 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:02:04 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:02:04 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:02:04 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:02:04 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:02:04 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:02:04 -0500
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:02:04 -0500
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPoster Load (0.7ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 1]]
+
+
+Started POST "/log_in" for 127.0.0.1 at 2014-10-31 07:02:49 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>"cordia@reynoldskilback.org", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'cordia@reynoldskilback.org' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 100ms (ActiveRecord: 3.2ms)
+
+
+Started POST "/log_in" for 127.0.0.1 at 2014-10-31 07:02:49 -0500
+Processing by SessionsController#create as JS
+  Parameters: {"utf8"=>"✓", "email"=>"cordia@reynoldskilback.org", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'cordia@reynoldskilback.org' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered layouts/_header.html.erb (8.3ms)
+  Rendered sessions/create.js.erb (11.1ms)
+Completed 200 OK in 125ms (Views: 33.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-31 07:02:49 -0500
+Processing by PostersController#index as HTML
+  [1m[36mPoster Load (1.7ms)[0m  [1mSELECT "posters".* FROM "posters"[0m
+  [1m[35mUser Load (2.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mTag Load (0.5ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 2]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 3]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 4]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 4]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 5]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 6]]
+  [1m[36mTag Load (0.5ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 6]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 7]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 7]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 8]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 8]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 9]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 9]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 10]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 10]]
+  Rendered posters/_poster.html.erb (52.3ms)
+  Rendered posters/index.html.erb within layouts/application (62.6ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (9.5ms)
+Completed 200 OK in 255ms (Views: 243.2ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-31 07:02:52 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 9ms
+
+SyntaxError (/Users/jadelang/alangster/phase-3/five-day/Science-Fair/app/views/users/show.html.erb:14: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/jadelang/alangster/phase-3/five-day/Science-Fair/app/views/users/show.html.erb:16: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/users/show.html.erb:14: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/users/show.html.erb:16: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (29.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-31 07:04:16 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 6ms
+
+SyntaxError (/Users/jadelang/alangster/phase-3/five-day/Science-Fair/app/views/users/show.html.erb:14: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/jadelang/alangster/phase-3/five-day/Science-Fair/app/views/users/show.html.erb:16: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/users/show.html.erb:14: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/users/show.html.erb:16: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-31 07:04:56 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 6ms
+
+SyntaxError (/Users/jadelang/alangster/phase-3/five-day/Science-Fair/app/views/users/show.html.erb:14: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/jadelang/alangster/phase-3/five-day/Science-Fair/app/views/users/show.html.erb:16: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/users/show.html.erb:14: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/users/show.html.erb:16: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-31 07:05:58 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/jadelang/alangster/phase-3/five-day/Science-Fair/app/views/users/show.html.erb:14: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/jadelang/alangster/phase-3/five-day/Science-Fair/app/views/users/show.html.erb:16: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/users/show.html.erb:14: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/users/show.html.erb:16: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-31 07:06:47 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionView::Template::Error (undefined method `Institution' for #<User:0x007ff6282129d0>):
+    2: <div class="col-8-12">
+    3: 	<div class="col-8-12 user-info">
+    4: 		<h2><%= @user.name %><% if @user.degree %>, <%= @user.degree %> <% end %></h2>
+    5: 		<p>Institution: <%= @user.Institution %></p>
+    6: 		<% if @user.linkedin_url %>
+    7: 		<p>LinkedIn: <%= link_to "#{@user.linkedin_url}", @user.linkedin_url %></p>
+    8: 		<% end %>
+  app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___2861171197962111112_70347605988500'
+
+
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (99.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-31 07:06:58 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPoster Load (0.4ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (Missing partial users/_poster, application/_poster with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/jadelang/alangster/phase-3/five-day/Science-Fair/app/views"
+):
+    10: 	<div class="col-4-12 user-pic"></div>
+    11: </div>
+    12: <div class="col-2-12"></div>
+    13: <%= render partial: "poster", collection: @posters %>
+  app/views/users/show.html.erb:13:in `_app_views_users_show_html_erb___2861171197962111112_70347592579880'
+
+
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/jadelang/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-31 07:07:11 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPoster Load (0.5ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 1]]
+  Rendered posters/_poster.html.erb (6.1ms)
+  Rendered users/show.html.erb within layouts/application (10.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered layouts/_header.html.erb (6.9ms)
+Completed 200 OK in 97ms (Views: 93.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:07:11 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:07:11 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:07:11 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:07:11 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:07:11 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:07:11 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:07:11 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:07:11 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:07:11 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:07:11 -0500
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:07:11 -0500
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-31 07:09:15 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPoster Load (1.3ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 1]]
+  Rendered posters/_poster.html.erb (5.5ms)
+  Rendered users/show.html.erb within layouts/application (10.5ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered layouts/_header.html.erb (8.2ms)
+Completed 200 OK in 232ms (Views: 227.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:09:15 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:09:15 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:09:15 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:09:15 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:09:15 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:09:15 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:09:15 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:09:15 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:09:15 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:09:15 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:09:15 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:09:15 -0500
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-31 07:11:22 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPoster Load (0.5ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 1]]
+  Rendered posters/_poster.html.erb (6.0ms)
+  Rendered users/show.html.erb within layouts/application (10.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered layouts/_header.html.erb (7.6ms)
+Completed 200 OK in 217ms (Views: 213.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:11:23 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:11:23 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:11:23 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:11:23 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:11:23 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:11:23 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:11:23 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:11:23 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:11:23 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:11:23 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:11:23 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:11:23 -0500
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-31 07:14:40 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPoster Load (0.9ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 1]]
+  Rendered posters/_poster.html.erb (5.5ms)
+  Rendered users/show.html.erb within layouts/application (10.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered layouts/_header.html.erb (6.0ms)
+Completed 200 OK in 123ms (Views: 118.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:14:40 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:14:40 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:14:40 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:14:40 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:14:40 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:14:40 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:14:40 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:14:40 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:14:40 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:14:40 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:14:40 -0500
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:14:40 -0500
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-31 07:20:42 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPoster Load (0.5ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 1]]
+  Rendered posters/_poster.html.erb (6.3ms)
+  Rendered users/show.html.erb within layouts/application (10.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered layouts/_header.html.erb (6.4ms)
+Completed 200 OK in 135ms (Views: 130.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:20:42 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:20:42 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:20:42 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:20:42 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:20:42 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:20:42 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:20:42 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:20:42 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:20:42 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:20:42 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:20:42 -0500
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:20:42 -0500
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mPoster Load (0.6ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 2]]
+
+
+Started GET "/users/2" for 127.0.0.1 at 2014-10-31 07:21:36 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mPoster Load (0.9ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 2]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 4]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 4]]
+  Rendered posters/_poster.html.erb (17.8ms)
+  Rendered users/show.html.erb within layouts/application (21.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  Rendered layouts/_header.html.erb (5.3ms)
+Completed 200 OK in 205ms (Views: 200.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:37 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:37 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:37 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:37 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:37 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:37 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:37 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:37 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:37 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:37 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:37 -0500
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:37 -0500
+
+
+Started GET "/log_out" for 127.0.0.1 at 2014-10-31 07:21:46 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-31 07:21:46 -0500
+Processing by PostersController#index as HTML
+  [1m[36mPoster Load (0.4ms)[0m  [1mSELECT "posters".* FROM "posters"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 2]]
+  [1m[36mTag Load (0.4ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 3]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 4]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 4]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 5]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 5]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 6]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 6]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 7]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 7]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 8]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 8]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 9]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 9]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 10]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 10]]
+  Rendered posters/_poster.html.erb (43.5ms)
+  Rendered posters/index.html.erb within layouts/application (46.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (5.2ms)
+Completed 200 OK in 136ms (Views: 129.5ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:46 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:46 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:46 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:46 -0500
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:46 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:46 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:46 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:46 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:47 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:47 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:47 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:47 -0500
+
+
+Started POST "/log_in" for 127.0.0.1 at 2014-10-31 07:21:56 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>"alex@alex.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'alex@alex.com' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 99ms (ActiveRecord: 0.9ms)
+
+
+Started POST "/log_in" for 127.0.0.1 at 2014-10-31 07:21:57 -0500
+Processing by SessionsController#create as JS
+  Parameters: {"utf8"=>"✓", "email"=>"alex@alex.com", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (2.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'alex@alex.com' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 51 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 51 LIMIT 1
+  Rendered layouts/_header.html.erb (5.6ms)
+  Rendered sessions/create.js.erb (7.0ms)
+Completed 200 OK in 105ms (Views: 9.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-31 07:21:57 -0500
+Processing by PostersController#index as HTML
+  [1m[36mPoster Load (3.7ms)[0m  [1mSELECT "posters".* FROM "posters"[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 2]]
+  [1m[36mTag Load (0.7ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 3]]
+  [1m[36mTag Load (0.4ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 4]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 4]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 5]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 5]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 6]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 6]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 7]]
+  [1m[36mTag Load (0.4ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 7]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 8]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 8]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 9]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 9]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 10]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 10]]
+  Rendered posters/_poster.html.erb (49.3ms)
+  Rendered posters/index.html.erb within layouts/application (59.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 51 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 51 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (5.4ms)
+Completed 200 OK in 158ms (Views: 146.3ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/users/51" for 127.0.0.1 at 2014-10-31 07:21:58 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 51]]
+  [1m[36mPoster Load (0.4ms)[0m  [1mSELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1[0m  [["user_id", 51]]
+  Rendered posters/_poster.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 51 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 51 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (5.8ms)
+Completed 200 OK in 94ms (Views: 91.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:59 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:59 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:59 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:59 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:59 -0500
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:59 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:59 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:59 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:59 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:21:59 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:59 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:21:59 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-31 07:22:03 -0500
+Processing by PostersController#index as HTML
+  [1m[35mPoster Load (0.4ms)[0m  SELECT "posters".* FROM "posters"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 2]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 3]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 4]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 5]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 5]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 6]]
+  [1m[35mTag Load (0.5ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 6]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 7]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 8]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 8]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 9]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 10]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 10]]
+  Rendered posters/_poster.html.erb (44.1ms)
+  Rendered posters/index.html.erb within layouts/application (46.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 51 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 51 LIMIT 1
+  Rendered layouts/_header.html.erb (7.1ms)
+Completed 200 OK in 137ms (Views: 129.6ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:03 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:04 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:04 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:04 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:04 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:04 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:04 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:04 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:04 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:04 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:04 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:04 -0500
+
+
+Started GET "/users/51" for 127.0.0.1 at 2014-10-31 07:22:07 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 51]]
+  [1m[35mPoster Load (0.4ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 51]]
+  Rendered posters/_poster.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 51 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 51 LIMIT 1
+  Rendered layouts/_header.html.erb (5.6ms)
+Completed 200 OK in 184ms (Views: 181.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:08 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:08 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:08 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:08 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:08 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:08 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:08 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:08 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:08 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:08 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:08 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:08 -0500
+
+
+Started GET "/log_out" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+Processing by PostersController#index as HTML
+  [1m[36mPoster Load (0.4ms)[0m  [1mSELECT "posters".* FROM "posters"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 2]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 3]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 4]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 4]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 5]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 5]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 6]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 6]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 7]]
+  [1m[36mTag Load (1.0ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 7]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 8]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 8]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 9]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 9]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 10]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 10]]
+  Rendered posters/_poster.html.erb (46.2ms)
+  Rendered posters/index.html.erb within layouts/application (48.8ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (4.6ms)
+Completed 200 OK in 139ms (Views: 131.0ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:22:09 -0500
+
+
+Started GET "/users/2" for 127.0.0.1 at 2014-10-31 07:23:38 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mPoster Load (0.3ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 2]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 4]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1  [["poster_id", 4]]
+  Rendered posters/_poster.html.erb (15.1ms)
+  Rendered users/show.html.erb within layouts/application (17.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (4.4ms)
+Completed 200 OK in 230ms (Views: 223.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-31 07:23:38 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:23:38 -0500
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:23:38 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-10-31 07:23:38 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-31 07:23:38 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-10-31 07:23:38 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-31 07:23:38 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-31 07:23:38 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-10-31 07:23:38 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-10-31 07:23:38 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-31 07:23:38 -0500
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-10-31 07:23:38 -0500
+
+
+Started GET "/users/5" for 127.0.0.1 at 2014-10-31 07:23:53 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mPoster Load (0.3ms)[0m  [1mSELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 5]]
+  [1m[36mTag Load (0.5ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 5]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 5]]
+  Rendered posters/_poster.html.erb (11.7ms)
+  Rendered users/show.html.erb within layouts/application (14.1ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (6.9ms)
+Completed 200 OK in 201ms (Views: 195.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-10-31 07:23:53 -0500

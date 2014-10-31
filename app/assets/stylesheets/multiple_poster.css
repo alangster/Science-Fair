@@ -64,6 +64,8 @@ div.poster-tags ul {
   float: left;
   clear: both;
   width: 35em;
+  margin-top: 1em;
+  margin-left: 1em;
 /*   border: 1px solid black; */
   height: 3em;
   list-style: none;
