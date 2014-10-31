@@ -11,8 +11,14 @@
           <td><%= f.text_field :title %></td>
         </tr>
         <tr>
+          <%= f.fields_for :user do |ff| %>
+            <td><%= ff.label :email %></td>
+            <td><%= ff.text_field :email %></td>
+           <% end%>
+        </tr>
+        <tr>
           <td><%= f.label :abstract %></td>
-          <td><span class="abstract-input"><%= f.text_field :abstract %></span></td>
+          <td><span class="abstract-input"><%= f.text_area :abstract, size: "42x12" %></span></td>
         </tr>
         <tr>
         <td colspan="2"><%= f.submit "Submit poster", :class => 'submit-button' %></td>

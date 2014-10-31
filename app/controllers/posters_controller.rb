@@ -4,15 +4,16 @@ class PostersController < ApplicationController
   end
 
   def show
-    @poster = Poster.find(params[:poster_id])
+    @poster = Poster.find(params[:id])
     @comments = @poster.comments
   end
 
   def new
-     unless current_user
-      redirect_to "posters/index"
-    end
+    #  unless current_user
+    #   render "posters"
+    # end
     @poster = Poster.new
+    @user = User.new
   end
 
   def create
