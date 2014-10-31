@@ -53,7 +53,6 @@ div.login-form {
     right: 2em;
     top: 4.02em;
     padding-top: 1em;
-    color: #FFFFF0;
 }
 
 div.login-form tr {
@@ -64,10 +63,11 @@ div.login-form td {
     padding: .3em;
 }
 
-div.login-form .submit-button {
+.submit-button {
     background-color: #C41E3A;
     border: 2px solid #FFFFF0;
     width: 6em;
+    color: #FFFFF0;
     margin-left: 5em;
 }
 
@@ -87,11 +87,11 @@ div.sign-up-form {
     right: 13.9em;
     top: 4.02em;
     padding-top: 1em;
-    color: #FFFFF0;
 }
 
 div.sign-up-form tr {
     margin-top: 1em;
+   
 }
 
 div.sign-up-form td {
@@ -99,10 +99,13 @@ div.sign-up-form td {
     padding-left: 0.5em;
 }
 
+
+
 div.sign-up-form .submit-button {
     background-color: #C41E3A;
     border: 2px solid #FFFFF0;
     width: 6em;
+    color: #FFFFF0;
     margin-left: 5.5em;
 }
 
@@ -110,4 +113,12 @@ div.sign-up-form .submit-button:hover {
     background-color: #FFFFF0;
     color: #C41E3A;
     font-weight: bold;
+}
+
+input {
+    color: black;
+}
+
+label {
+    color: #FFFFF0;
 }

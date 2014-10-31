@@ -2,17 +2,17 @@
   <div class="title"><h3>ScienceFair</h3></div>
   <nav>
     <% if !current_user %>
-    <span class="login-link"><%= link_to "Login", new_session_path %></span>
-    <span class="sign-up-link"><%= link_to "Sign Up", new_user_path %></span>
+    <span class="login-link"><%= link_to "Login", "" %></span>
+    <span class="sign-up-link"><%= link_to "Sign Up", "" %></span>
     <% else %>
-    <span class="logout-link"><%=  link_to "Logout", session, method: :delete %></span>
+    <span class="logout-link"><%=  link_to "Logout", sessions %></span>
     <span class="profile-link"><%= link_to "Profile", current_user %></span>
     <% end %>
   </nav>
 </header>
 <div class="login-form">
   <table>
-    <%= form_tag sessions_path do %>
+    <%= form_tag login_path do %>
       <tr>
         <td><%= label_tag :email %></td>
         <td><%= text_field_tag :email %></td>

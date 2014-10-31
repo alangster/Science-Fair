@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
  resources :tags, only: [:show]
 
- resources :sessions, only: [:new, :create, :destroy]
+ post 'log_in', to: 'sessions#create', as: :login
+ get 'log_out', to: 'sessions#destroy', as: :logout
 
 end
