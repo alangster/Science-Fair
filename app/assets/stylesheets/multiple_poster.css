@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FFFFF0;
+}
+
+div.poster {
+/*   margin-top: 4em; */
+  height: 22em;
+  padding: 1em 2em 1em 10em;
+/*   border: 1px solid black; */
+}
+
+div.poster:nth-child(even) {
+  height: 22em;
+  padding: 1em 2em 1em 1em;
+/*   border: 1px solid red; */
+}
+
+div.poster-container {
+  border: 6px solid #C41E3A;
+  width: 40em;
+  height: 19em;
+  background-color: #FFFFF0;
+}
+
+div.poster-pic {
+  border: 3px solid #C41E3A;
+  height: 14em;
+  width: 18em;
+  margin-top: 1em;
+  margin-left: 2em;
+  float: left;
+}
+
+div.poster-info {
+  width: 16em;
+  margin-top: 1em;
+  margin-left: 1em;
+/*   border: 1px solid black; */
+  float: left;
+}
+
+div.poster-info p {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+div.poster-info ul {
+  list-style: none;
+/*   border: 1px solid black; */
+  padding-left: 2em;
+  font-size: 15px;
+}
+
+div.poster-container a {
+  text-decoration: none;
+  color: #C41E3A;
+}
+
+div.poster-tags ul {
+  float: left;
+  clear: both;
+  width: 35em;
+/*   border: 1px solid black; */
+  height: 3em;
+  list-style: none;
+  text-align: left;
+
+}
+
+div.poster-tags ul li {
+  display: inline;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 1em; 
+}

@@ -1,0 +1,22 @@
+<div class="col-1-2 poster">
+  <div class="poster-container">
+    <div class="poster-pic">
+    </div>
+    <div class="poster-info">
+      <p><%= link_to "#{poster.title}", poster %></p>
+      <ul>
+        <% poster.users.each do |user| %>
+        <li><%= link_to "#{user.name}", user %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="poster-tags">
+      <ul>
+        <% poster.tags.each do |tag| %>
+        <li><%= link_to "#{tag.discipline}", tag %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+

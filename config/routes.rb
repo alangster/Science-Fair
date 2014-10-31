@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "posters#index"
+ root "posters#index"
 
  resources :posters
 
@@ -9,5 +9,8 @@ Rails.application.routes.draw do
  resources :users, except: [:destroy]
 
  resources :tags, only: [:show]
+
+ post 'log_in', to: 'sessions#create', as: :login
+ get 'log_out', to: 'sessions#destroy', as: :logout
 
 end

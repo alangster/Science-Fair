@@ -1,0 +1,57 @@
+<header>
+  <div class="title"><h3>ScienceFair</h3></div>
+  <nav>
+    <% if !current_user %>
+    <span class="login-link"><%= link_to "Login", "" %></span>
+    <span class="sign-up-link"><%= link_to "Sign Up", "" %></span>
+    <% else %>
+    <span class="logout-link"><%=  link_to "Logout", sessions %></span>
+    <span class="profile-link"><%= link_to "Profile", current_user %></span>
+    <% end %>
+  </nav>
+</header>
+<div class="login-form">
+  <table>
+    <%= form_tag login_path do %>
+      <tr>
+        <td><%= label_tag :email %></td>
+        <td><%= text_field_tag :email %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag :password %></td>
+        <td><%= password_field_tag :password %></td>
+      </tr>
+      <tr>
+      <td colspan="2"><%= submit_tag "Login", :class => 'submit-button' %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<div class="sign-up-form">
+ <table>
+    <%= form_for User.new do |f| %>
+      <tr>
+        <td><%= f.label :first_name %></td>
+        <td><%= f.text_field :first_name %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :last_name %></td>
+        <td><%= f.text_field :last_name %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :email %></td>
+        <td><%= f.text_field :email %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :password %></td>
+        <td><%= f.password_field :password %></td>
+      </tr>
+      <tr>
+      <td colspan="2"><%= f.submit "Login", :class => 'submit-button' %></td>
+      </tr>
+    <% end %>
+  </table>
+
+
+</div>
+
