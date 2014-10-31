@@ -39,7 +39,7 @@ gem 'paperclip', '~> 4.2.0'
 
 gem 'faker'
 gem 'carrierwave'
-# gem 'font-awesome-sass'
+gem 'font-awesome-sass'
 
 # Use debugger
 gem 'debugger', group: [:development, :test]

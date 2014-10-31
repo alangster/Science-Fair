@@ -29,7 +29,7 @@
 </div>
 <div class="sign-up-form">
  <table>
-    <%= form_for User.new do |f| %>
+    <%= form_for User.new, remote: true do |f| %>
       <tr>
         <td><%= f.label :first_name %></td>
         <td><%= f.text_field :first_name %></td>
