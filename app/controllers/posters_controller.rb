@@ -5,7 +5,7 @@ class PostersController < ApplicationController
   end
 
   def show
-    @poster = Poster.find(params[:poster_id])
+    @poster = Poster.find(params[:id])
     @comments = @poster.comments
   end
 

@@ -23,9 +23,9 @@
 
 /*To solve overlap bug at the edges during magnification*/
 .pic_small {
-  min-height: 100%;
-  min-width: 100%;
-  height: auto;
+  /*display: none;*/
+  height: 200px;
+  width: 400px;
   position: fixed;
   top: 0;
   left: 0;
@@ -33,12 +33,13 @@
 
 .right_side_bar_before {
   position: fixed;
-  top: 30px;
+  top: 4em;
   right: 0px;
   color: red;
   background-color: #FF423E;
   width: 20px;
-  height: 80%;
+  height: 100%;
+  /*z-index: -1;*/
 }
 
 .bottom_bar_before {
@@ -52,17 +53,22 @@
 }
 
 .right_side_bar_after {
-    position: fixed;
-    top: 30px;
+    display: none;
+    position: relative;
+    top: -2em;
     right: 0px;
-    color: red;
+    /*color: red;*/
     border: 10px solid #FF423E;
-    background-color: #FF423E;
+    background-color: #FFFF0;
     width: 33%;
-    height: 80%;
+    float: right;
+    /*height: 110%;*/
+    padding-bottom: 3em;
+    /*z-index: -1;*/
 }
 
 .bottom_bar_after {
+    display: none;
     position: fixed;
     bottom: 0px;
     color: red;
@@ -71,4 +77,23 @@
     width: 80%;
     height: 33%;
     left: 10%;
+}
+
+.comments_bar {
+  color: black;
+  position: relative;
+  padding: 1em;
+}
+
+.comments_bar ul {
+  list-style: none;
+}
+
+.comments_bar ul li {
+  margin: 0.5em;
+}
+
+.subcomment {
+  padding-left: 1.5em;
+  border-left: 2px solid black;
 }

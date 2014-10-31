@@ -10,12 +10,12 @@ $(document).ready(function(){
     //are available, the script will show the zoomed version.
     if(!native_width && !native_height)
     {
-      //This will create a new image object with the same image as that in .small
+      //This will create a new image object with the same image as that in .pic_small
       //We cannot directly get the dimensions from .small because of the
       //width specified to 200px in the html. To get the actual dimensions we have
       //created this image object.
       var image_object = new Image();
-      image_object.src = $(".small").attr("src");
+      image_object.src = $(".pic_small").attr("src");
 
       //This code is wrapped in the .load function which is important.
       //width and height of the object would return 0 if accessed before
@@ -37,33 +37,55 @@ $(document).ready(function(){
       //Finally the code to fade out the glass if the mouse is outside the container
       if(mx < $(this).width() && my < $(this).height() && mx > 0 && my > 0)
       {
-        $(".large").fadeIn(100);
+        $(".pic_large").fadeIn(100);
       }
       else
       {
-        $(".large").fadeOut(100);
+        $(".pic_large").fadeOut(100);
       }
-      if($(".large").is(":visible"))
+      if($(".pic_large").is(":visible"))
       {
-        //The background position of .large will be changed according to the position
-        //of the mouse over the .small image. So we will get the ratio of the pixel
+        //The background position of .pic_large will be changed according to the position
+        //of the mouse over the .pic_small image. So we will get the ratio of the pixel
         //under the mouse pointer with respect to the image and use that to position the
-        //large image inside the magnifying glass
-        var rx = Math.round(mx/$(".small").width()*native_width - $(".large").width()/2)*-1;
-        var ry = Math.round(my/$(".small").height()*native_height - $(".large").height()/2)*-1;
+        //pic_large image inside the magnifying glass
+        var rx = Math.round(mx/$(".pic_small").width()*native_width - $(".pic_large").width()/2)*-1;
+        var ry = Math.round(my/$(".pic_small").height()*native_height - $(".pic_large").height()/2)*-1;
         var bgp = rx + "px " + ry + "px";
 
         //Time to move the magnifying glass with the mouse
-        var px = mx - $(".large").width()/2;
-        var py = my - $(".large").height()/2;
+        var px = mx - $(".pic_large").width()/2;
+        var py = my - $(".pic_large").height()/2;
         //Now the glass moves with the mouse
         //The logic is to deduct half of the glass's width and height from the
         //mouse coordinates to place it with its center at the mouse coordinates
 
         //If you hover on the image now, you should see the magnifying glass in action
-        $(".large").css({left: px, top: py, backgroundPosition: bgp});
+        $(".pic_large").css({left: px, top: py, backgroundPosition: bgp});
       }
     }
   })
+
+  $(".right_side_bar_before a").on("click", function(event) {
+    // event.preventDefault();
+    // $(this).toggle();
+    $(".right_side_bar_after").toggle();
+  });
+
+  $(".right_side_bar_after a").on("click", function(event) {
+    // event.preventDefault();
+    $(".right_side_bar_after").toggle();
+  });
+
+  $(".bottom_bar_before a").on("click", function(event) {
+    // event.preventDefault();
+    // $(this).toggle();
+    $(".bottom_bar_after").toggle();
+  });
+
+  $(".bottom_bar_after a").on("click", function(event) {
+    // event.preventDefault();
+    $(this).toggle();
+  });
 })
 
