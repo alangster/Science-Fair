@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			session[:user_id] = @user.id 
+			session[:user_id] = @user.id
 			redirect_to @user
 		else
 			# @error = "Unsuccessful"
@@ -30,6 +30,13 @@ class UsersController < ApplicationController
 			render :edit
 		end
 	end
+
+	 def add_point
+    user = User.find_by(id: params[:user_id])
+    user.increment!(:points)
+    @points = user.points
+    render json: @points, status: 200
+  end
 
 	private
 

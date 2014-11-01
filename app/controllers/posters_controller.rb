@@ -50,6 +50,13 @@ class PostersController < ApplicationController
     end
   end
 
+  def add_point
+    poster = Poster.find_by(id: params[:poster_id])
+    poster.increment!(:points)
+    @points = poster.points
+    render json: @points, status: 200
+  end
+
   private
 
   def poster_params
