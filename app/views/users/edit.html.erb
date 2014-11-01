@@ -2,8 +2,19 @@
 
 <div class="col-8-12 user-edit-container">
 	<div class="col-8-12 user-edit-info">
+		<% if current_user %>
 		<h2 class="user-name">Edit profile for <%= @user.name %></h2></br>
-		<%= form_for @user, url: {action: "update"} do |f| %>
+		<% else %>
+		<h2 class="user-name">Create an Account</h2></br>
+		<ul>
+			<% @user.errors.messages.each do |attrib, err_array| %>
+	      <% err_array.each do |msg| %>
+	      	<li><%= attrib.to_s.capitalize %> <%= msg %></li>
+	      <% end %>
+    <% end %>
+		</ul>
+		<% end %>
+		<%= form_for @user, method: "post" do |f| %>
 			<%= f.label :profile_pic %>
 			<%= f.file_field :profile_pic %>
 			<%= f.label :first_name %>

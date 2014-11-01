@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 			redirect_to @user
 		else
 			# @error = "Unsuccessful"
-			render # "profile page" for unregistered user, show errors and allow to re-attempt sign-up
+			render "users/edit"# "profile page" for unregistered user, show errors and allow to re-attempt sign-up
 		end
 	end
 
