@@ -122,3 +122,7 @@
 .right_side_bar_arrow:hover, .bottom_bar_arrow:hover {
   cursor: pointer;
 }
+
+#poster_comment_reply_form {
+  display: none;
+}
