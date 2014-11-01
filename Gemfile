@@ -38,10 +38,9 @@ gem 'paperclip', '~> 4.2.0'
 # gem 'capistrano-rails', group: :development
 
 gem 'faker'
-gem 'carrierwave'
+gem "mini_magick"
+gem "carrierwave"
 gem 'font-awesome-sass'
-gem 'mini_magick'
-# gem 'rmagick'
 # Use debugger
 gem 'debugger', group: [:development, :test]
 

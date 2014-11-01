@@ -8,6 +8,7 @@
 		<% end %>
 		<% if @user == current_user %>
 		<%= link_to "Edit your profile", edit_user_path(@user) %>
+		<%= link_to "New Poster", new_poster_path %>
 		<% end %>
 	</div>
 	<div class="col-4-12 user-pic"></div>
