@@ -1,0 +1,94 @@
+div.new-poster-form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: #FFFFF0;
+    border: 6px solid #C41E3A;
+
+}
+
+div.new-poster-form table{
+    margin-left: 4em;
+    margin-right: auto;
+    width: 50%;
+    color: #C41E3A;
+}
+
+div.new-poster-form table td{
+    color: #C41E3A;
+    padding: 1em;
+}
+
+div.new-poster-form label{
+    color: #C41E3A;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+
+div.new-poster-form #poster_title{
+    height: 1.5em;
+    width: 25em;
+    color: black;
+    border: 2px solid #C41E3A;
+}
+
+div.new-poster-form #poster_abstract{
+  color: black;
+  border: 2px solid #C41E3A;
+}
+
+
+div.new-poster-form #poster_filepath{
+    width: 25em;
+    border: 2px solid #FFFFF0;
+    color: #C41E3A;
+    font-size: 1em;
+    font-weight: bold;
+
+}
+
+div.new-poster-form .poster_user_email{
+  width: 25em;
+  border: 2px solid #C41E3A;
+  color: black;
+  font-size: 1em;
+
+}
+
+
+
+div.new-poster-form .submit-button {
+    background-color: #C41E3A;
+    border: 2px solid #FFFFF0;
+    width: 7em;
+    color: #FFFFF0;
+    margin-left: 14em;
+}
+
+div.new-poster-form .submit-button:hover {
+    background-color: #FFFFF0;
+    color: #C41E3A;
+    font-weight: bold;
+}
+
+p.error-message {
+  color: #C41E3A;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+input.poster_user_email {
+  height: 1.5em;
+}
+
+input.author-button {
+  padding: 0.25em;
+  border: 1px solid #C41E3A;
+  background-color: #FFFFF0 
+}

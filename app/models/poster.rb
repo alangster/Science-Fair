@@ -5,6 +5,7 @@ class Poster < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :user_posters
   has_many :users, through: :user_posters, source: :user
+  # accepts_nested_attributes_for :users
   has_many :poster_tags
   has_many :tags, through: :poster_tags, source: :tag
 
