@@ -13,8 +13,8 @@ $(function() {
 
   $('.login-form form').on('submit', function(e) {
     e.preventDefault();
-    var form = $('.login-form form');
-    var data = form.serialize();
+    var data = $(this).serialize();
+    console.log(data);
     $.ajax({
       url: "/log_in",
       type: "POST",
@@ -22,7 +22,8 @@ $(function() {
       data: data,
       success: function(response) {
         console.log(response);
-        // $('header').html(response);
+        $(".attempt").html(response);
+        $('.login-form form')[0].reset();
       },
       error: function(response) {
         console.log(response);
