@@ -1,0 +1,114 @@
+$ivory_color: #FFFFF0;
+$strong_red_color: #C41E3A;
+$strong_cyan_color: #1EC4A8;
+$strong_red_gradient_color: #fbe6e9;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /*background-color: $ivory_color;*/ 
+}
+
+.all-posters{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.poster {
+  height: 22em;
+  padding: 0;
+  position:relative;
+  text-align: center;
+  /*border: 1px solid lightgray;*/
+  /*padding: 1em 2em 1em 10em;*/
+}
+
+div.landing_picture {
+ display: block;
+ width: 5em;
+ height: 3em;
+}
+
+/*div.poster:nth-child(even) {
+  height: 22em;
+  padding: 1em 2em 1em 1em;
+}*/
+
+div.poster a{
+  color: black;
+  text-decoration: none;
+}
+
+div.poster ul{
+  list-style: none;
+}
+
+.poster-thumbnail {
+  max-width:100%;
+  max-height:100%;
+  height:auto;
+}
+
+div.poster-info {
+/*  background-color: $strong_red_gradient_color;
+  opacity: 0.5;*/
+  position:absolute;
+  top: 5px;
+  width: 100%;
+  
+}
+
+div.poster-info *{
+/*  opacity: 1;*/
+}
+
+div.poster-info .poster-authors ul li{
+  display: inline;
+  padding-right: 10px;
+  font-style:italic;
+}
+
+div.poster-tags{
+  position:absolute;
+  bottom:5px;
+  width: 100%;
+}
+
+div.poster-tags ul li{
+  display: inline;
+  padding-right: 10px;
+  font-style:italic;
+}
+/*
+div.poster-info ul {
+  list-style: none;
+  padding-left: 2em;
+  font-size: 15px;
+}
+
+div.poster-container a {
+  text-decoration: none;
+  color: $strong_red_color;
+}
+
+div.poster-tags ul {
+  float: left;
+  clear: both;
+  width: 35em;
+  margin-top: 1em;
+  margin-left: 1em;
+  height: 3em;
+  list-style: none;
+  text-align: left;
+
+}
+
+div.poster-tags ul li {
+  display: inline;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 1em;
+}*/
