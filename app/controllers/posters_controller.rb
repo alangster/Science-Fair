@@ -17,18 +17,37 @@ class PostersController < ApplicationController
   end
 
   def create
-    p params
     @poster = Poster.new(poster_params)
     @poster.creator = current_user
       if @poster.save
-        credit_where_it_is_due(params)
+        @poster.credit_where_it_is_due(params)
         redirect_to @poster
       else
         @error = "The poster was not saved"
         @errors = @poster.errors.messages
         render "new"
-        #render error
       end
+  end
+
+  def edit
+    @poster = Poster.find(params[:id])
+    @author_emails = @poster.author_emails
+  end
+
+  def update
+    p poster_params
+    @poster = Poster.find(params[:id])
+    @poster.filepath = nil
+    @poster.update_attributes(poster_params)
+    if @poster.save
+      @poster.update_credit(params)
+      redirect_to @poster
+    else
+      @author_emails = @poster.author_emails
+      @error = "The poster was not saved"
+      @errors = @poster.errors.messages
+      render "edit"
+    end
   end
 
   private
@@ -37,12 +56,5 @@ class PostersController < ApplicationController
     params.require(:poster).permit(:title, :abstract, :filepath)
   end
 
-  def credit_where_it_is_due(params)
-    params.each do |key, value|
-      if /email\d/.match(key) && value != ""
-        UserPoster.create!(poster: @poster, user: User.find_by(email: value))
-      end
-    end
-  end
-
 end
+
