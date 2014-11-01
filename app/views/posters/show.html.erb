@@ -1,17 +1,9 @@
 <div class="magnify">
-      <!-- This is the magnifying glass which will contain the original/large version -->
       <div class="pic_large">
       </div>
-
-      <!-- This is the small image -->
       <%= image_tag(@poster.filepath, class: "pic_small") %>
-
 </div>
-
-  <!-- Loading prefixfree to handle CSS3 vendor prefixes -->
   <script src="http://thecodeplayer.com/uploads/js/prefixfree.js" type="text/javascript"></script>
-  <!-- This can alternatively be downloaded from http://leaverou.github.com/prefixfree/ -->
-
 
   <div class="right_side_bar_before">
     <a class="right_side_bar_arrow" style="top: 500">&#8660;</a>
@@ -22,36 +14,7 @@
     <a class="right_side_bar_arrow">&#8660;</a>
     <div class="comments_bar">
       <h2>Comments</h2>
-      <ul>
-        <% @poster.comments.each do |comment| %>
-        <li>
-          <%= link_to "#{comment.user.name}", user_path(comment.user)%> - <%= comment.text %></br>Points: <span class="points"><%=comment.points%></span>
-          <div class="comment-points">
-            <% if current_user && current_user != comment.user%>
-              <%= form_for comment, url: add_point_comment_path(comment), method: "post" do |f|%>
-                <%= f.submit 'Add' %>
-              <% end %>
-            <% end %>
-          </div>
-        </li>
-          <% if comment.get_all_subcomments != nil %>
-            <ul>
-              <% comment.get_all_subcomments.each do |c| %>
-              <li class="subcomment">
-                <%= link_to "#{c.user.name}", user_path(c.user) %> @<%= c.get_user_responded_to %></br><%= c.text %></br>Points: <span class="points"><%=c.points%></span>
-                <div class="comment-points">
-                  <% if current_user && current_user != c.user %>
-                    <%= form_for c, url: add_point_comment_path(c), method: "post" do |f|%>
-                      <%= f.submit 'Add' %>
-                    <% end %>
-                  <% end %>
-                </div>
-              </li></br>
-              <% end %>
-            </ul>
-          <% end %>
-        <% end %>
-      </ul>
+      <%= render partial: "list_comments", locals: { poster: @poster, comment: @comment } %>
     </div>
     <!-- <i class="fa fa-arrow-circle-left fa-2x fa-rotate-180"></i> -->
   </div>

@@ -1,5 +1,23 @@
 $(document).ready(function(){
 
+  $("#poster_comment_reply_button").on("click", function(event){
+    $("#poster_comment_reply_form").toggle();
+  });
+
+  $(".poster_comment_form").on("submit", ".new_comment", function(event){
+    event.preventDefault();
+    var form = $(this).serialize();
+    $.ajax({
+      url: "/comments",
+      type: "POST",
+      data: form,
+      success: function(response){
+        console.log(response);
+        $("#poster_comment_list_ul").append("<li>"+response+"</li>");
+      }
+    });
+  });
+
   var native_width = 0;
   var native_height = 0;
 

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :posters
 
-  resources :comment, only: [:create, :destroy]
+ resources :comments, only: [:create, :destroy]
 
   resources :users, except: [:destroy]
 
