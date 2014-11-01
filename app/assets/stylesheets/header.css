@@ -67,7 +67,7 @@ div.login-form td {
     padding: .3em;
 }
 
-.submit-button {
+div.login-form .submit-button {
     background-color: #C41E3A;
     border: 2px solid #FFFFF0;
     width: 6em;
@@ -104,7 +104,6 @@ div.sign-up-form td {
 }
 
 
-
 div.sign-up-form .submit-button {
     background-color: #C41E3A;
     border: 2px solid #FFFFF0;
@@ -119,11 +118,20 @@ div.sign-up-form .submit-button:hover {
     font-weight: bold;
 }
 
-input {
+
+.sign-up-form input {
     color: black;
 }
 
-label {
+.login-form input {
+    color: black;
+}
+
+.sign-up-form label {
+    color: #FFFFF0;
+}
+
+.login-form label {
     color: #FFFFF0;
 }
 
