@@ -11,9 +11,9 @@
     </ul>
   <% end %>
   <table>
-      <%= form_for @poster do |f| %>
+      <%= form_for @poster, html: { multipart: true }  do |f| %>
       <tr>
-        <td><%= f.label :file %></td>
+        <td><%= f.label :filepath %></td>
          <td><%= f.file_field :filepath  %></td>
       </tr>
       <tr>

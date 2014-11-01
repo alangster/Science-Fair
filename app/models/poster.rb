@@ -1,7 +1,6 @@
 class Poster < ActiveRecord::Base
-  mount_uploader :filepath, ProfilePicUploader
-
   belongs_to :creator, class_name: "User", foreign_key: :creator_id
+  mount_uploader :filepath, ProfilePicUploader
   has_many :comments, as: :commentable
   has_many :user_posters
   has_many :users, through: :user_posters, source: :user
