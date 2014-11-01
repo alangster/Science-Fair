@@ -17,10 +17,11 @@ class PostersController < ApplicationController
   end
 
   def create
-    debugger
+    p params
     @poster = Poster.new(poster_params)
     @poster.creator = current_user
       if @poster.save
+        credit_where_it_is_due(params)
         redirect_to @poster
       else
         @error = "The poster was not created"
@@ -30,6 +31,15 @@ class PostersController < ApplicationController
   private
 
   def poster_params
-    params.require(:poster).permit(:title, :abstract, :filepath, user_attributes:[:email] )
+    params.require(:poster).permit(:title, :abstract, :filepath)
   end
+
+  def credit_where_it_is_due(params)
+    params.each do |key, value|
+      if /email\d/.match(key) && value != ""
+        UserPoster.create!(poster: @poster, user: User.find_by(email: value))
+      end
+    end
+  end
+
 end

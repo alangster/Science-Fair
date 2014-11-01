@@ -49,7 +49,7 @@ div.new-poster-form #poster_filepath{
 
 }
 
-div.new-poster-form #poster_user_email{
+div.new-poster-form .poster_user_email{
   width: 25em;
   border: 2px solid #C41E3A;
   color: black;
