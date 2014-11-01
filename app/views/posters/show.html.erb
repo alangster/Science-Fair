@@ -27,10 +27,25 @@
   <div class="bottom_bar_after">
     <a class="bottom_bar_arrow">&#8661;</a>
     <h2><%= @poster.title %></h2>
+    Points: <span class="poster-points-number"><%=@poster.points%></span>
+    <div class="poster-points">
+      <% if current_user && current_user != @poster.creator%>
+        <%= form_for @poster, url: add_point_poster_path(@poster), method: "post" do |f|%>
+        <%= f.submit 'Add' %>
+        <% end %>
+      <% end %>
     <p><%= @poster.abstract %></p>
+
     <ul>
       <% @poster.users.each do |user| %>
-      <li><%= link_to "#{user.name}", user %></li>
+      <li><%= link_to "#{user.name}", user %></li><br>
+      Points: <span class="points"><%=user.points%></span>
+        <div class="user-points">
+          <% if current_user && current_user != user%>
+           <%= form_for user, url: add_point_user_path(user), method: "post" do |f|%>
+           <%= f.submit 'Add' %>
+          <% end %>
+        <%end%>
       <% end %>
     </ul>
     <!-- <i class="fa fa-arrow-circle-left fa-2x fa-rotate-270"></i> -->
