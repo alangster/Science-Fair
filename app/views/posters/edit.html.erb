@@ -1,4 +1,4 @@
-
+<div class="col-1-1"></div>
 <div class="new-poster-form">
 <% if @error %>
   <p class="big-error-message"><%= @error %></p>
@@ -10,7 +10,7 @@
     <% end %>
   </ul>
 <% end %>
-<table>
+  <table>
     <%= form_for @poster do |f| %>
     <tr>
       <td><%= f.label :file %></td>
@@ -20,33 +20,32 @@
       <td><%= f.label :title %></td>
       <td><%= f.text_field :title, class: 'poster-title' %></td>
     </tr>
-    <tr class="email-row">
+    <% num = @author_emails.count %>
+    <% @author_emails.each_with_index do |author, i| %>
+      <tr class="email-row">
+        <td><label for="poster_user_email">Email</label></td>
+        <td><span class="poster-user-email"><input class="poster_user_email" name="email<%= i+1 %>" type="text" value="<%= author %>"></span></td>
+      </tr>
+    <% end %>
+    <tr class="hidden-email">
       <td><label for="poster_user_email">Email</label></td>
-      <td><span class="poster-user-email"><input class="poster_user_email" name="email1" type="text"></span></td>
+      <td><span class="poster-user-email"><input class="poster_user_email" name="email<%= num + 1 %>" type="text"></span></td>
     </tr>
     <tr class="hidden-email">
       <td><label for="poster_user_email">Email</label></td>
-      <td><span class="poster-user-email"><input class="poster_user_email" name="email2" type="text"></span></td>
+      <td><span class="poster-user-email"><input class="poster_user_email" name="email<%= num + 2 %>" type="text"></span></td>
     </tr>
     <tr class="hidden-email">
       <td><label for="poster_user_email">Email</label></td>
-      <td><span class="poster-user-email"><input class="poster_user_email" name="email3" type="text"></span></td>
+      <td><span class="poster-user-email"><input class="poster_user_email" name="email<%= num + 3 %>" type="text"></span></td>
     </tr>
     <tr class="hidden-email">
       <td><label for="poster_user_email">Email</label></td>
-      <td><span class="poster-user-email"><input class="poster_user_email" name="email4" type="text"></span></td>
+      <td><span class="poster-user-email"><input class="poster_user_email" name="email<%= num + 4 %>" type="text"></span></td>
     </tr>
     <tr class="hidden-email">
       <td><label for="poster_user_email">Email</label></td>
-      <td><span class="poster-user-email"><input class="poster_user_email" name="email5" type="text"></span></td>
-    </tr>
-    <tr class="hidden-email">
-      <td><label for="poster_user_email">Email</label></td>
-      <td><span class="poster-user-email"><input class="poster_user_email" name="email6" type="text"></span></td>
-    </tr>
-    <tr class="hidden-email">
-      <td><label for="poster_user_email">Email</label></td>
-      <td><span class="poster-user-email"><input class="poster_user_email" name="email7" type="text"></span></td>
+      <td><span class="poster-user-email"><input class="poster_user_email" name="email<%= num + 5 %>" type="text"></span></td>
     </tr>
     <tr>
       <td><%= f.submit "Add Author", :class => 'author-button' %></td>
@@ -56,9 +55,8 @@
       <td><span class="abstract-input"><%= f.text_area :abstract, size: "42x12" %></span></td>
     </tr>
     <tr>
-      <td colspan="2"><%= f.submit "Submit poster", :class => 'submit-button' %></td>
+      <td colspan="2"><%= f.submit "Update Poster", :class => 'submit-button' %></td>
     </tr>
     <% end %>
   </table>
 </div>
-
