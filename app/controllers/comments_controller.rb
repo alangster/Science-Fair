@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     #   @errors = @poster.errors.messages
       # redirect_to @poster
     # end
-  end
+  ends
 
 
   def comment_params
