@@ -90,5 +90,10 @@ $(document).ready(function(){
 
   console.log(window.innerHeight);
   $(".pic_small").css("height", window.innerHeight);
-})
 
+
+  $(window).on("resize", function() {
+    console.log(window.innerHeight);
+    $(".pic_small").css("height", window.innerHeight);
+  });
+})

@@ -9,9 +9,9 @@
 
 /*Lets create the magnifying glass*/
 .pic_large {
-  width: 500px; height: 500px;
+  width: 300px; height: 300px;
   position: absolute;
-  border-radius: 100%;
+  border-radius: 10%;
 
   /*Multiple box shadows to achieve the glass effect*/
   box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85),
@@ -27,11 +27,6 @@
 
 /*To solve overlap bug at the edges during magnification*/
 .pic_small {
-  /*display: none;*/
-  /*height: 200px;
-  width: 400px;*/
-  /*position: fixed;*/
-  /*margin-top: 4em;*/
   top: 4em;
   left: 0;
   right: 20px;
@@ -42,17 +37,18 @@
   top: 4em;
   right: 0px;
   color: red;
-  background-color: #FF423E;
+  border: 2px solid black;
+  background-color: #C41E3A;
   width: 20px;
   height: 100%;
-  /*z-index: -1;*/
 }
 
 .bottom_bar_before {
     position: fixed;
     bottom: 0px;
     color: red;
-    background-color: #FF423E;
+    border: 2px solid black;
+    background-color: #C41E3A;
     width: 90%;
     height: 20px;
     left: 10%;
@@ -63,25 +59,13 @@
     position: relative;
     top: 4em;
     right: 0px;
-    /*color: red;*/
-    border: 10px solid #FF423E;
-    border-bottom: 20px solid #FF423E;
+    border: 10px solid #C41E3A;
+    border-bottom: 20px solid #C41E3A;
     background-color: #FFFFF0;
     width: 33%;
     float: right;
     height: 100%;
     padding-bottom: 3em;
-    /*z-index: -1;*/
-}
-
-.bottom_bar_after {
-
-
-    /*color: red;*/
-
-
-    /*background-color: #FF423E;*/
-
 }
 
 .comments_bar {
@@ -102,12 +86,13 @@
   padding-left: 1.5em;
   border-left: 2px solid black;
 }
+
 .bottom_bar_after {
   display: none;
   position: fixed;
   bottom: 0px;
   padding-left: 1em;
-  border: 10px solid #FF423E;
+  border: 10px solid #C41E3A;
   border-bottom-width: 20px;
   background-color: #FFFFF0;
   width: 80%;
@@ -127,4 +112,13 @@
 
 .bottom_bar_after ul li {
   display: inline-block;
+}
+
+.right_side_bar_arrow, .bottom_bar_arrow {
+  color: black;
+  font-weight: bold;
+}
+
+.right_side_bar_arrow:hover, .bottom_bar_arrow:hover {
+  cursor: pointer;
 }
