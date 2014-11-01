@@ -1,0 +1,26 @@
+<div class="col-2-12"></div>
+
+<div class="col-8-12 user-edit-container">
+	<div class="col-8-12 user-edit-info">
+		<h2 class="user-name">Edit profile for <%= @user.name %><% end %></h2></br>
+		<%= form_for @user, url: {action: "update"} do |f| %>
+			<%= f.label :first_name %>
+			<%= f.text_field :first_name %>
+			<%= f.label :last_name %>
+			<%= f.text_field :last_name %>
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+			<%= f.label :password %>
+			<%= f.password_field :password %>	
+			<%= f.label :institution %>
+			<%= f.text_field :institution %>
+
+			<%= f.submit %>
+		<% end %>
+	</div>
+
+	<div class="col-4-12 user-pic">
+	</div>
+</div>
+
+<div class="col-2-12"></div>
