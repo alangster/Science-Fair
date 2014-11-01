@@ -30,8 +30,11 @@ div.col-8-12.user-info a {
 }
 
 div.col-4-12.user-pic {
-	border: 1px solid black;
-	height: 19.5em;
+	/*border: 1px solid black;*/
+	width: 303;
+	height: auto;
+	margin-top: 3em;
+	/*height: 19.5em;*/
 }
 
 div.col-8-12.user-edit-container {

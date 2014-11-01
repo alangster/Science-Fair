@@ -4,6 +4,8 @@
 	<div class="col-8-12 user-edit-info">
 		<h2 class="user-name">Edit profile for <%= @user.name %></h2></br>
 		<%= form_for @user, url: {action: "update"} do |f| %>
+			<%= f.label :profile_pic %>
+			<%= f.file_field :profile_pic %>
 			<%= f.label :first_name %>
 			<%= f.text_field :first_name %>
 			<%= f.label :last_name %>
@@ -11,7 +13,7 @@
 			<%= f.label :email %>
 			<%= f.text_field :email %>
 			<%= f.label :password %>
-			<%= f.password_field :password %>	
+			<%= f.password_field :password %>
 			<%= f.label :institution %>
 			<%= f.text_field :institution %>
 
