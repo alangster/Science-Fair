@@ -22,6 +22,12 @@
     <a class="right_side_bar_arrow">&#8660;</a>
     <div class="comments_bar">
       <h2>Comments</h2>
+      <%= form_for(@comment_at_poster, url: comments_path(@comment_at_poster), html: {method: "POST"}) do |f| %>
+      <%= f.text_field :text %>
+      <%= f.hidden_field :commentable_type, value: "Poster" %>
+      <%= f.hidden_field :commentable_id, value: @poster.id %>
+      <%= f.submit "Comment" %>
+      <% end %>
       <ul>
         <% @poster.comments.each do |comment| %>
           <li><%= link_to "#{comment.user.name}", user_path(comment.user)%> - <%= comment.text %></li>

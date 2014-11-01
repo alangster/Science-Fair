@@ -6,6 +6,7 @@ class PostersController < ApplicationController
   def show
     @poster = Poster.find(params[:id])
     @comments = @poster.comments
+    @comment_at_poster = Comment.new(commentable: @poster)
   end
 
   def new
