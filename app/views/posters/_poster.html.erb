@@ -1,17 +1,18 @@
 <div class="col-1-2 poster">
-    <%= link_to image_tag(poster.filepath, class:"poster-thumbnail"), poster %>
-
-    <div class="poster-info">
-      <div class="poster-title">
+    <div class="poster-title">
         <h2><%= link_to "#{poster.title}", poster %></h2>
-      </div>
-      <div class="poster-authors">
-        <ul>
-          <% poster.users.each do |user| %>
-          <li><%= link_to "#{user.name}", user %></li>
-          <% end %>
-        </ul>
-      </div>
+    </div>
+
+    <div class="poster-authors">
+      <ul>
+        <% poster.users.each do |user| %>
+        <li><%= link_to "#{user.name}", user %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="poster-picture">
+      <%= link_to image_tag(poster.filepath, class:"poster-thumbnail"), poster %>
     </div>
 
     <div class="poster-tags">

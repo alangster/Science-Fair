@@ -8,16 +8,18 @@ $strong_red_gradient_color: #fbe6e9;
 }
 
 body {
-  /*background-color: $ivory_color;*/ 
+  background-color: $ivory_color; 
 }
 
 .all-posters{
+  display: block;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
 
 div.poster {
+  margin-top: 1em;
   height: 22em;
   padding: 0;
   position:relative;
@@ -37,6 +39,11 @@ div.landing_picture {
   padding: 1em 2em 1em 1em;
 }*/
 
+div.poster-picture{
+  height: 17em;
+  max-width: 100%;
+}
+
 div.poster a{
   color: black;
   text-decoration: none;
@@ -50,31 +57,30 @@ div.poster ul{
   max-width:100%;
   max-height:100%;
   height:auto;
+  width: auto;
+  bottom: 1em;
 }
 
 div.poster-info {
 /*  background-color: $strong_red_gradient_color;
   opacity: 0.5;*/
-  position:absolute;
-  top: 5px;
   width: 100%;
-  
 }
 
 div.poster-info *{
 /*  opacity: 1;*/
 }
 
-div.poster-info .poster-authors ul li{
+div.poster-authors ul li{
   display: inline;
   padding-right: 10px;
   font-style:italic;
 }
 
 div.poster-tags{
-  position:absolute;
-  bottom:5px;
   width: 100%;
+  position: absolute;
+  bottom: 10px;
 }
 
 div.poster-tags ul li{
