@@ -1,6 +1,7 @@
 <div class="col-1-2 poster">
   <div class="poster-container">
     <div class="poster-pic">
+      <%= image_tag(poster.filepath, width: "282", height: "218") %>
     </div>
     <div class="poster-info">
       <p><%= link_to "#{poster.title}", poster %></p>
