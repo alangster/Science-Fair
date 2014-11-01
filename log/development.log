@@ -13230,3 +13230,61 @@ Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-01 12:25:47 -050
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-01 12:25:47 -0500
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'drennen43@gmail.com' LIMIT 1[0m
+
+
+Started GET "/users/51/edit" for 127.0.0.1 at 2014-11-01 13:28:14 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"51"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 51]]
+  Rendered users/edit.html.erb within layouts/application (466.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 51 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 51 LIMIT 1
+  Rendered layouts/_header.html.erb (9.0ms)
+Completed 200 OK in 751ms (Views: 720.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-01 13:28:15 -0500
