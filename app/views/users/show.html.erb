@@ -8,9 +8,12 @@
 		<% end %>
 		<% if @user == current_user %>
 		<%= link_to "Edit your profile", edit_user_path(@user) %>
+		<%= link_to "New Poster", new_poster_path %>
 		<% end %>
 	</div>
-	<div class="col-4-12 user-pic"></div>
+	<div class="col-4-12 user-pic">
+		<%= image_tag(@user.profile_pic, width: "303", height: "auto") %>
+	</div>
 </div>
 <div class="col-2-12"></div>
 <%= render partial: "posters/poster", collection: @posters %>

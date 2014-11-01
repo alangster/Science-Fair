@@ -5,6 +5,8 @@ $(document).ready(function(){
 
 
   $(".magnify").mousemove(function(e){
+    var pic_source = $(".pic_small").attr("src");
+    $(".pic_large").css("background-image", 'url('+pic_source+')');
     //When the user hovers on the image, the script will first calculate
     //the native dimensions if they don't exist. Only after the native dimensions
     //are available, the script will show the zoomed version.
