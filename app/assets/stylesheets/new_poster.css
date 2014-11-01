@@ -73,4 +73,22 @@ div.new-poster-form .submit-button:hover {
     font-weight: bold;
 }
 
+p.error-message {
+  color: #C41E3A;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 
+
+input.poster_user_email {
+  height: 1.5em;
+}
+
+input.author-button {
+  padding: 0.25em;
+  border: 1px solid #C41E3A;
+  background-color: #FFFFF0 
+}

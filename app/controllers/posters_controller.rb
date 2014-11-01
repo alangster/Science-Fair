@@ -24,10 +24,13 @@ class PostersController < ApplicationController
         credit_where_it_is_due(params)
         redirect_to @poster
       else
-        @error = "The poster was not created"
+        @error = "The poster was not saved"
+        @errors = @poster.errors.messages
+        render "new"
         #render error
       end
   end
+
   private
 
   def poster_params
