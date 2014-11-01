@@ -2,8 +2,9 @@ header {
     background-color: #C41E3A;
     height: 4em;
     width: 100%;
-/*     position: absolute; */
+    position: fixed;
     margin-bottom: 2em;
+    z-index: 9;
 }
 
 nav a {
@@ -44,7 +45,7 @@ div.title h3 {
 
 div.title h3 a {
     text-decoration: none;
-    color: #FFFFF0;   
+    color: #FFFFF0;
 }
 
 div.login-form {
@@ -67,7 +68,7 @@ div.login-form td {
     padding: .3em;
 }
 
-.submit-button {
+div.login-form .submit-button {
     background-color: #C41E3A;
     border: 2px solid #FFFFF0;
     width: 6em;
@@ -95,14 +96,13 @@ div.sign-up-form {
 
 div.sign-up-form tr {
     margin-top: 1em;
-   
+
 }
 
 div.sign-up-form td {
     padding: .3em;
     padding-left: 0.5em;
 }
-
 
 
 div.sign-up-form .submit-button {
@@ -119,15 +119,24 @@ div.sign-up-form .submit-button:hover {
     font-weight: bold;
 }
 
-input {
+
+.sign-up-form input {
     color: black;
 }
 
-label {
+.login-form input {
+    color: black;
+}
+
+.sign-up-form label {
+    color: #FFFFF0;
+}
+
+.login-form label {
     color: #FFFFF0;
 }
 
 div.login-form table tr td.error {
     color: #FFFFF0;
-    padding-left: 5.3em; 
+    padding-left: 5.3em;
 }

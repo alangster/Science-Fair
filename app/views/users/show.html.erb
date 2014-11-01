@@ -7,7 +7,7 @@
 		<p>LinkedIn: <%= link_to "#{@user.linkedin_url}", @user.linkedin_url %></p></br>
 		<% end %>
 		<% if @user == current_user %>
-		<%= link_to "Edit", edit_user_path(@user) %>
+		<%= link_to "Edit your profile", edit_user_path(@user) %>
 		<% end %>
 	</div>
 	<div class="col-4-12 user-pic"></div>
