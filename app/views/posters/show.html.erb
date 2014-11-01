@@ -24,11 +24,29 @@
       <h2>Comments</h2>
       <ul>
         <% @poster.comments.each do |comment| %>
-          <li><%= link_to "#{comment.user.name}", user_path(comment.user)%> - <%= comment.text %></li>
+        <li>
+          <%= link_to "#{comment.user.name}", user_path(comment.user)%> - <%= comment.text %></br>Points: <span class="points"><%=comment.points%></span>
+          <div class="comment-points">
+            <% if current_user && current_user != comment.user%>
+              <%= form_for comment, url: add_point_comment_path(comment), method: "post" do |f|%>
+                <%= f.submit 'Add' %>
+              <% end %>
+            <% end %>
+          </div>
+        </li>
           <% if comment.get_all_subcomments != nil %>
             <ul>
               <% comment.get_all_subcomments.each do |c| %>
-              <li class="subcomment"><%= link_to "#{c.user.name}", user_path(c.user) %> @<%= c.get_user_responded_to %></br></br><%= c.text %></li></br>
+              <li class="subcomment">
+                <%= link_to "#{c.user.name}", user_path(c.user) %> @<%= c.get_user_responded_to %></br><%= c.text %></br>Points: <span class="points"><%=c.points%></span>
+                <div class="comment-points">
+                  <% if current_user && current_user != c.user %>
+                    <%= form_for c, url: add_point_comment_path(c), method: "post" do |f|%>
+                      <%= f.submit 'Add' %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </li></br>
               <% end %>
             </ul>
           <% end %>
