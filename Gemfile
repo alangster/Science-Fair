@@ -40,6 +40,7 @@ gem 'paperclip', '~> 4.2.0'
 gem 'faker'
 gem 'carrierwave'
 gem 'font-awesome-sass'
+gem 'mini_magick'
 # gem 'rmagick'
 # Use debugger
 gem 'debugger', group: [:development, :test]

@@ -26,7 +26,6 @@ class PostersController < ApplicationController
         @error = "The poster was not saved"
         @errors = @poster.errors.messages
         render "new"
-        #render error
       end
   end
 
@@ -36,12 +35,18 @@ class PostersController < ApplicationController
   end
 
   def update
+    p poster_params
     @poster = Poster.find(params[:id])
+    @poster.filepath = nil
     @poster.update_attributes(poster_params)
     if @poster.save
       @poster.update_credit(params)
+      redirect_to @poster
     else
-
+      @author_emails = @poster.author_emails
+      @error = "The poster was not saved"
+      @errors = @poster.errors.messages
+      render "edit"
     end
   end
 
@@ -50,24 +55,6 @@ class PostersController < ApplicationController
   def poster_params
     params.require(:poster).permit(:title, :abstract, :filepath)
   end
-
-  # def credit_where_it_is_due(params)
-  #   filter_emails(params).each do |key, value|
-  #     if value != "" && user = User.find_by(email: value)
-  #       UserPoster.create!(poster: @poster, user: user)
-  #     end
-  #   end
-  # end
-
-  # def update_credit(params)
-    
-  # end
-
-  # def filter_emails(params)
-  #   params.select do |key|
-  #     /email\d/.match(key)
-  #   end
-  # end
 
 end
 
