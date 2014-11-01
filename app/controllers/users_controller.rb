@@ -32,6 +32,13 @@ class UsersController < ApplicationController
 		end
 	end
 
+	 def add_point
+    user = User.find_by(id: params[:user_id])
+    user.increment!(:points)
+    @points = user.points
+    render json: @points, status: 200
+  end
+
 	private
 
 	def user_params

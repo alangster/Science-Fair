@@ -6,6 +6,8 @@ class PostersController < ApplicationController
   def show
     @poster = Poster.find(params[:id])
     @comments = @poster.comments
+    @comment_at_poster = Comment.new(commentable: @poster)
+    @comment_at_comment = Comment.new()
   end
 
   def new
@@ -47,6 +49,13 @@ class PostersController < ApplicationController
       @errors = @poster.errors.messages
       render "edit"
     end
+  end
+
+  def add_point
+    poster = Poster.find_by(id: params[:poster_id])
+    poster.increment!(:points)
+    @points = poster.points
+    render json: @points, status: 200
   end
 
   private
