@@ -1,5 +1,5 @@
+<div class="col-1-1"></div>
 <div class="col-2-12"></div>
-
 <div class="col-8-12 user-edit-container">
 	<div class="col-8-12 user-edit-info">
 		<% if current_user %>
@@ -15,7 +15,7 @@
 		</ul>
 		<% end %>
 		<% if current_user %>
-			<%= form_for @user, method: "put", class: "create-user" do |f| %>
+			<%= form_for @user, method: "put" do |f| %>
 				<%= f.label :profile_pic %>
 				<%= f.file_field :profile_pic %>
 				<%= f.label :first_name %>
