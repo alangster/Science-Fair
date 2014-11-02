@@ -3,7 +3,7 @@ header {
     height: 4em;
     width: 100%;
     position: relative;
-    margin-bottom: 2em;
+    /*margin-bottom: 2em;*/
     z-index: 9;
 }
 
@@ -12,7 +12,7 @@ nav a {
     border-bottom: none;
     display: inline-block;
     width: 8em;
-    height: 2.5em;
+    height: 4em;
     text-align: center;
     padding-top: 0.6em;
     font-size: 20px;
@@ -35,7 +35,7 @@ div.title{
     display: block;
     height: 4em;
     width: 30em;
-    padding-left: 6em;
+    padding-left: 1em;
 }
 
 div.title h3 {

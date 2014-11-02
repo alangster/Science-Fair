@@ -6,8 +6,7 @@ class UsersController < ApplicationController
 			session[:user_id] = @user.id
 			redirect_to @user
 		else
-			# @error = "Unsuccessful"
-			render "users/edit"# "profile page" for unregistered user, show errors and allow to re-attempt sign-up
+			render "users/edit"
 		end
 	end
 

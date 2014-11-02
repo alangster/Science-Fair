@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
 
   def create
-    # @comment = current_user.comments.build_comment(comment_params)
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
@@ -10,15 +9,9 @@ class CommentsController < ApplicationController
     else
       @error = "Comment unable to be posted"
       render json: @error, status: 422
-    #   p @comment
-    #   @poster = Poster.find(@comment.commentable_id)
-    #   redirect_to @poster
-    # else
-    #   @error = "The comment was not saved"
-    #   @errors = @poster.errors.messages
-      # redirect_to @poster
     end
   end
+
 
 
   def comment_params
