@@ -25,6 +25,7 @@
   </div>
 
   <div class="bottom_bar_after">
+    <%= audio_tag("awesome.mp3", autoplay: true, controls: true) %>
     <h2><%= @poster.title %></h2>
     <p><%= @poster.abstract %></p>
     <span class="points-tag">Points: </span><span class="poster-points-number"><%=@poster.points%></span>

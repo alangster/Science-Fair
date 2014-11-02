@@ -17,7 +17,7 @@ class ProfilePicUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-    %w(pdf pptx jpg png)
+    %w(pdf pptx jpg png gif mp3)
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

@@ -111,21 +111,10 @@ $(".poster_comment_reply_form > form").on("submit", function(event){
     }
   })
 
-  $(".right_side_bar_before a").on("click", function(event) {
-    $(".right_side_bar_after").toggle();
-  });
-
-  $(".right_side_bar_after a").on("click", function(event) {
-    $(".right_side_bar_after").toggle();
-  });
-
   $(".bottom_bar_before").on("click", function(event) {
     $(".bottom_bar_after").toggle();
   });
 
-  $(".bottom_bar_after a").on("click", function(event) {
-    $(".bottom_bar_after").toggle();
-  });
 
   $(".pic_small").css("max-width", $(".pic_small_container").width());
 
