@@ -132,16 +132,28 @@ div.bottom_bar_after h2 {
   text-align: center;
   font-size: 2em;
   margin-bottom: 0.5em;
+  margin-top: 1em;
 }
 
 div.bottom_bar_after p {
   line-height: 1.25em;
   margin-bottom: 0.3em;
+  font-size: 1.25em;
 /*   border: 1px solid black; */
 }
 
-div.comments_bar a {
+div.comments_bar a, div.bottom_bar_after a {
+  -webkit-transition: color .4s linear;
+     -moz-transition: color .4s linear;
+      -ms-transition: color .4s linear;
+       -o-transition: color .4s linear;
+          transition: color .4s linear;
   text-decoration: none;
+  color: grey;
+}
+
+div.comments_bar a:hover, div.bottom_bar_after a:hover {
+   color: #C41E3A;
 }
 
 div.comment-points {
