@@ -1,18 +1,25 @@
 $(document).ready(function(){
+   var currentPage = $('.current-page').html();
 
-  // var posters = $(".poster");
-  // var poster_authors = $(".poster-authors");
-  // var poster_tags = $(".poster-tags");
+  $('.select-control').on('change', function (e) {
+    var option_data = {
+      filter: $('.select-filter option:selected').html(),
+      sort: $('.select-sort option:selected').html(),
+      page: currentPage,
+    }
+    $.ajax({
+      url: "/filter_sort",
+      type: "GET",
+      data: option_data,
+      success: function(response){
+        var allPosters= $('.all-posters');
+        allPosters.empty();
+        allPosters.append(response);
+      },
+      error: function(response){
+        console.log(response);
+      }
+    });
+  });
 
-  // poster_authors.hide();
-  // poster_tags.hide();
-
-  // posters.mouseover(function(event){
-  //   $(this).find(".poster-authors").show();
-  //   $(this).find(".poster-tags").show(); 
-  // });
-  // posters.mouseout(function(event){
-  //   $(this).find(".poster-authors").hide();
-  //   $(this).find(".poster-tags").hide(); 
-  // });
 })

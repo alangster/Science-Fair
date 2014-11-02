@@ -1,5 +1,16 @@
 
-<div class="landing_picture"></div>
+<div class="col-3-8"></div>
+<div class="col-1-4 posters-control">
+	<p class="hidden current-page">index</p>
+	<div class="col-1-2 posters-control-filter">
+		<p class="posters-control-status">Showing:</p>
+		<%= select("tag", "discipline", Tag.all.map{|tag| tag.discipline}.unshift("All disciplines"), {}, class: "select-control select-filter") %>
+	</div>
+	<div class="col-1-2 posters-control-sort">
+		<p class="posters-control-status">Sort by:</p>
+		<%= select("tag", "discipline", ["Most recent","Upvote points"], {}, class: "select-control select-sort") %>
+	</div>
+</div>
 <div class="all-posters">
   <%= render partial: "poster", collection: @posters %>
 </div>

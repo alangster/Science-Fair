@@ -58,6 +58,13 @@ class PostersController < ApplicationController
     render json: @points, status: 200
   end
 
+  def filter_sort
+    filter_option = params[:filter]
+    sort_option = params[:sort]
+    @posters = Poster.filter_sort(filter_option, sort_option)
+    return render partial: "poster", collection: @posters, layout: false
+  end
+
   private
 
   def poster_params

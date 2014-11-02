@@ -32,6 +32,22 @@ class Poster < ActiveRecord::Base
   	end
   end
 
+  def self.filter_sort(filter_option, sort_option)
+    #filter
+    if filter_option == 'All disciplines'
+      processed_posters = Poster.all
+    else
+      processed_posters = Tag.where(discipline: filter_option)[0].posters
+    end
+    #sort
+    case sort_option
+    when "Most recent"
+      processed_posters.sort{|poster1, poster2| poster2.created_at <=> poster1.created_at}
+    when "Upvote points"
+      processed_posters.sort{|poster1, poster2| poster2.points <=> poster1.points}
+    end
+  end
+
   private
 
   def get_ups
@@ -50,4 +66,20 @@ class Poster < ActiveRecord::Base
 	  end
   end
 
+  def self.custom_filter(filter_option)
+    if filter_option = 'All disciplines'
+      Tag.all
+    else
+      Tag.where(discipline: filter_option).posters
+    end
+  end
+
+  def custom_sort(sort_option)
+    case sort_option
+    when "Most recent"
+      self.order('created_at DESC')
+    when "Upvote points"
+      self.order('points DESC')
+    end
+  end
 end
