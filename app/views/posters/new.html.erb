@@ -57,6 +57,10 @@
       <td><span class="abstract-input"><%= f.text_area :abstract, size: "42x12" %></span></td>
     </tr>
     <tr>
+      <td colspan="2"><%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :discipline) %></td>
+      <!-- <p><%= (Tag.all.map {|tag| tag.discipline }) %></p> -->
+    </tr>
+    <tr>
       <td colspan="2"><%= f.submit "Submit poster", :class => 'submit-button' %></td>
     </tr>
     <% end %>

@@ -14,15 +14,20 @@ class PostersController < ApplicationController
     #  unless current_user
     #   render "posters"
     # end
+    @tags = Tag.all
     @poster = Poster.new
     @user = User.new
   end
 
   def create
+    p params
     @poster = Poster.new(poster_params)
     @poster.creator = current_user
       if @poster.save
         @poster.credit_where_it_is_due(params)
+        params[:poster][:tag_ids].each do |id|
+          PosterTag.create!(poster: @poster, tag: Tag.find(id.to_i)) unless id == ""
+        end
         redirect_to @poster
       else
         @error = "The poster was not saved"
