@@ -1,30 +1,49 @@
+@viewport{
+    zoom: 1.0;
+    width: device-width;
+}
+
+div.col-1-1 {
+  /*border: 1px solid black;*/
+  height: 2em;
+}
+div.col-4-12 {
+  /*border: 1px solid black;*/
+  height: 2em;
+}
+
 div.new-poster-form {
-    position: absolute;
-    margin-top: 7em;
+    /*position: absolute;*/
+/*    margin-top: 7em;
     margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+    margin-right: auto;*/
+    /*width: 50%;*/
     background-color: #FFFFF0;
     border: 6px solid #C41E3A;
-
+    height: auto;
 }
 
 div.new-poster-form table{
-    margin-left: 4em;
-    margin-right: auto;
-    width: 50%;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    /*margin-right: auto;*/
+    width: 100%;
     color: #C41E3A;
+    position: relative;
 }
 
 div.new-poster-form table td{
     color: #C41E3A;
     padding: 1em;
+    width: 100%;
+    position: relative;
 }
 
 div.new-poster-form label{
     color: #C41E3A;
     font-size: 1.2em;
     font-weight: bold;
+    position: relative;
 }
 
 
@@ -56,15 +75,12 @@ div.new-poster-form .poster_user_email{
   border: 2px solid #C41E3A;
   color: black;
   font-size: 1em;
-
 }
-
-
 
 div.new-poster-form .submit-button {
     background-color: #C41E3A;
     border: 2px solid #FFFFF0;
-    width: 7em;
+    width: 8em;
     color: #FFFFF0;
     margin-left: 14em;
 }
@@ -72,16 +88,23 @@ div.new-poster-form .submit-button {
 div.new-poster-form .submit-button:hover {
     background-color: #FFFFF0;
     color: #C41E3A;
+    border: 1px solid #C41E3A;
     font-weight: bold;
 }
 
-p.error-message {
+p.big-error-message {
   color: #C41E3A;
   font-size: 24px;
   font-weight: bold;
   text-align: center;
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+ul.small-error-messages {
+  color: #C41E3A;
+  list-style: none;
+  text-align: center;
 }
 
 
@@ -93,4 +116,14 @@ input.author-button {
   padding: 0.25em;
   border: 1px solid #C41E3A;
   background-color: #FFFFF0;
+}
+
+input.author-button:hover {
+  /*border: 1px solid #C41E3A;*/
+  color: #FFFFF0;
+  background-color: #C41E3A;
+}
+
+.file-submit input[type=submit] {
+  border: 1px solid #C41E3A;
 }
