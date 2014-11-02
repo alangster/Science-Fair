@@ -25,6 +25,7 @@
   </div>
 
   <div class="bottom_bar_after">
+    <%= audio_tag("awesome.mp3", autoplay: true, controls: true) %>
     <h2><%= @poster.title %></h2>
     <%= link_to "Download", poster_download_path(@poster) %>
     <p><%= @poster.abstract %></p>
