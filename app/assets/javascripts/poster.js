@@ -4,16 +4,23 @@ $(document).ready(function(){
     $("#poster_comment_reply_form").toggle();
   });
 
-  $(".poster_comment_form").on("submit", ".new_comment", function(event){
+  $(".poster_comment_form > form").on("submit", function(event){
     event.preventDefault();
+    console.log($(this));
     var form = $(this).serialize();
     $.ajax({
       url: "/comments",
       type: "POST",
+      dataType: "json",
       data: form,
       success: function(response){
+        console.log("success");
         console.log(response);
-        $("#poster_comment_list_ul").append("<li>"+response+"</li>");
+        $("#poster_comment_list_ul").after("<li>"+ response +"</li>");
+      },
+      error: function(response) {
+        console.log(response);
+        console.log("fail so hard");
       }
     });
   });
@@ -113,7 +120,7 @@ $(document).ready(function(){
 
 
   $(window).on("resize", function() {
-    console.log(window.innerHeight);
+    // console.log(window.innerHeight);
     $(".pic_small").css("height", window.innerHeight);
   });
 })
