@@ -1,5 +1,6 @@
-
-<div class="new-poster-form">
+<div class="col-1-1"></div>
+<div class="col-4-12"></div>
+<div class="col-4-12 new-poster-form">
 <% if @error %>
   <p class="big-error-message"><%= @error %></p>
   <ul class="small-error-messages">
@@ -10,11 +11,11 @@
     <% end %>
   </ul>
 <% end %>
-<table>
+  <table>
     <%= form_for @poster do |f| %>
     <tr>
-      <td><%= f.label :filepath %></td>
-       <td><%= f.file_field :filepath  %></td>
+      <td><%= f.label :filepath, "File" %></td>
+      <td><%= f.file_field :filepath, class: "file-submit" %></td>
     </tr>
     <tr>
       <td><%= f.label :title %></td>
@@ -61,3 +62,4 @@
     <% end %>
   </table>
 </div>
+<div class="col-4-12"></div>

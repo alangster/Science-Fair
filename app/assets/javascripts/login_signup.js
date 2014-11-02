@@ -18,7 +18,7 @@ $(function() {
     $.ajax({
       url: "/log_in",
       type: "POST",
-      dataType: "html",
+      // dataType: "html",
       data: data,
       success: function(response) {
         console.log(response);
