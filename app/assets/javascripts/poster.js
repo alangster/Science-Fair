@@ -17,7 +17,7 @@ $(".poster_comment_reply_form > form").on("submit", function(event){
       data: form,
       success: function(response){
         that[0].reset();
-        that.after("<li>Your Comment: "+ response.text +"</li>");
+        that.after("<li class=\"subcomment\"><a href=\"/users/" + response.user_id + "\">" + response.name + "</a> @" + response.commented_on +"<br>" + response.text + "<br><span class=\"points-tag\">Points: </span><span class=\"points\">0</span><div class=\"comment-points\"></div></li>");
       },
       error: function(response){
       }
@@ -41,9 +41,6 @@ $(".poster_comment_reply_form > form").on("submit", function(event){
       }
     });
   });
-
-
-
 
 
   var native_width = 0;
