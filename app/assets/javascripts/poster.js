@@ -1,12 +1,33 @@
 $(document).ready(function(){
+  $(".poster_comment_reply_form").hide();
+  $(".poster_comment_reply_button").on("click", function(event){
+    event.preventDefault();
+    $(this).next(".poster_comment_reply_form").toggle();
+  });
 
-  $("#poster_comment_reply_button").on("click", function(event){
-    $("#poster_comment_reply_form").toggle();
+
+$(".poster_comment_reply_form > form").on("submit", function(event){
+  event.preventDefault();
+  var that = $(this);
+  var form = that.serialize();
+  $.ajax({
+      url: "/comments",
+      type: "POST",
+      dataType: "json",
+      data: form,
+      success: function(response){
+        that[0].reset();
+
+
+        $(".subcomment").first().before("<li class=\"subcomment\"><a href=\"/users/" + response.user_id + "\">" + response.name + "</a> @" + response.commented_on +"<br>" + response.text + "<br><span class=\"points-tag\">Points: </span><span class=\"points\">0</span><div class=\"comment-points\"></div></li>");
+      },
+      error: function(response){
+      }
+    });
   });
 
   $(".poster_comment_form > form").on("submit", function(event){
     event.preventDefault();
-    console.log($(this));
     var form = $(this).serialize();
     $.ajax({
       url: "/comments",
@@ -14,24 +35,23 @@ $(document).ready(function(){
       dataType: "json",
       data: form,
       success: function(response){
-        console.log("success");
-        console.log(response);
-        $("#poster_comment_list_ul").after("<li>"+ response +"</li>");
+        $('.poster_comment_form > form')[0].reset();
+        $("#poster_comment_list_ul").before("<br>" +"<a href = \"/users/" + response.user_id + "\">" + response.name + "</a> - "+ response.text + "<br><span class=\"points-tag\">Points: </span><span class=\"points\">0</span><div class=\"comment-points\"></div>");
       },
       error: function(response) {
-        console.log(response);
-        console.log("fail so hard");
+        console.log("failure");
       }
     });
   });
 
+
   var native_width = 0;
   var native_height = 0;
 
-
   $(".magnify").mousemove(function(e){
     var pic_source = $(".pic_small").attr("src");
-    $(".pic_large").css("background-image", 'url('+pic_source+')');
+    $(".pic_large").css("background-image", "url('"+pic_source+"')");
+    $(".pic_large").css("background-repeat", "no-repeat");
     //When the user hovers on the image, the script will first calculate
     //the native dimensions if they don't exist. Only after the native dimensions
     //are available, the script will show the zoomed version.
@@ -94,33 +114,21 @@ $(document).ready(function(){
   })
 
   $(".right_side_bar_before a").on("click", function(event) {
-    // event.preventDefault();
-    // $(this).toggle();
     $(".right_side_bar_after").toggle();
   });
 
   $(".right_side_bar_after a").on("click", function(event) {
-    // event.preventDefault();
     $(".right_side_bar_after").toggle();
   });
 
-  $(".bottom_bar_before a").on("click", function(event) {
-    // event.preventDefault();
-    // $(this).toggle();
+  $(".bottom_bar_before").on("click", function(event) {
     $(".bottom_bar_after").toggle();
   });
 
   $(".bottom_bar_after a").on("click", function(event) {
-    // event.preventDefault();
     $(".bottom_bar_after").toggle();
   });
 
-  console.log(window.innerHeight);
-  $(".pic_small").css("height", window.innerHeight);
+  $(".pic_small").css("max-width", $(".pic_small_container").width());
 
-
-  $(window).on("resize", function() {
-    // console.log(window.innerHeight);
-    $(".pic_small").css("height", window.innerHeight);
-  });
 })

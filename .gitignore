@@ -2,6 +2,7 @@
 capybara-*.html
 .rspec
 /log
+/log/*
 /tmp
 /db/*.sqlite3
 /public/system
@@ -11,6 +12,7 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 .DS_Store
+/public/uploads
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :user_posters
   has_many :authored_posters, through: :user_posters, source: :poster
 
-  validates :password_hash, :last_name, :first_name, :email, presence: true
+  validates :password, :last_name, :first_name, :email, presence: true
 
   validates :email, uniqueness: true
 

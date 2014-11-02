@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   post 'comment/:comment_id/point', to: 'comments#add_point', as: :add_point_comment
   post 'user/:user_id/point', to: 'users#add_point', as: :add_point_user
   post 'poster/:poster_id/point', to: 'posters#add_point', as: :add_point_poster
+
+  get 'poster/:id/download', to: 'posters#download', as: :poster_download
 end

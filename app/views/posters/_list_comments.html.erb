@@ -1,3 +1,4 @@
+<% if current_user %>
 <div class="poster_comment_form">
   <%= form_for(@comment_at_poster, url: comments_path(@comment_at_poster), html: {method: "POST"}) do |f| %>
       <%= f.text_field :text %>
@@ -6,45 +7,50 @@
       <%= f.submit "Comment" %>
   <% end %>
 </div>
+<% end %>
 <div class="poster_comment_list">
   <ul id="poster_comment_list_ul">
     <% @poster.comments.each do |comment| %>
-      <li id="poster_comment">
-        <%= link_to "#{comment.user.name}", user_path(comment.user)%> - <%= comment.text %></br>Points: <span class="points"><%=comment.points%></span>
+      <li class="poster_comment"></br>
+        <%= link_to "#{comment.user.name}", user_path(comment.user)%> - <%= comment.text %></br><span class="points-tag">Points: </span><span class="points"><%=comment.points%></span>
         <div class="comment-points">
           <% if current_user && current_user != comment.user%>
             <%= form_for comment, url: add_point_comment_path(comment), method: "post" do |f|%>
-              <%= f.submit 'Add' %>
+              <%= f.submit 'Add', class: "add" %>
             <% end %>
           <% end %>
         </div>
       </li>
-      <li id="poster_comment_reply_button"><button type="button">Reply</button></li>
-      <li id="poster_comment_reply_form">
-        <%= form_for(@comment_at_comment, url: comments_path(@comment_at_comment), html: {method: "POST"}) do |f| %>
-          <%= f.text_field :text %>
-          <%= f.hidden_field :commentable_type, value: "Comment" %>
-          <%= f.hidden_field :commentable_id, value: comment.id %>
-          <%= f.submit "Submit" %>
-        <% end %>
-      </li>
+      <% if current_user %>
+        <li class="poster_comment_reply_button">
+          <button type="button">Reply</button>
+        </li>
+        <li class="poster_comment_reply_form">
+          <%= form_for(@comment_at_comment, url: comments_path(@comment_at_comment), html: {method: "POST"}) do |f| %>
+            <%= f.text_field :text %>
+            <%= f.hidden_field :commentable_type, value: "Comment" %>
+            <%= f.hidden_field :commentable_id, value: comment.id %>
+            <%= f.submit "Submit" %>
+          <% end %>
+        </li>
+      <% end %>
       <% if comment.get_all_subcomments != nil %>
-        <ul>
+        <ul class="subcomments">
           <% comment.get_all_subcomments.each do |c| %>
           <li class="subcomment">
-            <%= link_to "#{c.user.name}", user_path(c.user) %> @<%= c.get_user_responded_to %></br></br><%= c.text %></br>Points: <span class="points"><%=c.points%></span>
+            <%= link_to "#{c.user.name}", user_path(c.user) %> @<%= c.get_user_responded_to %></br><%= c.text %></br><span class="points-tag">Points: </span><span class="points"><%=c.points%></span>
             <div class="comment-points">
               <% if current_user && current_user != c.user %>
                 <%= form_for c, url: add_point_comment_path(c), method: "post" do |f|%>
-                  <%= f.submit 'Add' %>
+                  <%= f.submit 'Add', class: "add" %>
                 <% end %>
               <% end %>
             </div>
-          </li></br>
-
+          </li>
           <% end %>
         </ul>
       <% end %>
     <% end %>
+    <span class="subcomment"></span>
   </ul>
 </div>

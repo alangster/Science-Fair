@@ -1,12 +1,12 @@
+<div class="col-1-1"></div>
 <div class="col-2-12"></div>
-
 <div class="col-8-12 user-edit-container">
 	<div class="col-8-12 user-edit-info">
 		<% if current_user %>
 		<h2 class="user-name">Edit profile for <%= @user.name %></h2></br>
 		<% else %>
 		<h2 class="user-name">Create an Account</h2></br>
-		<ul>
+		<ul class="error-list">
 			<% @user.errors.messages.each do |attrib, err_array| %>
 	      <% err_array.each do |msg| %>
 	      	<li><%= attrib.to_s.capitalize %> <%= msg %></li>
