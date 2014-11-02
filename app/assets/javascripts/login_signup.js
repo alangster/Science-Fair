@@ -22,8 +22,8 @@ $(function() {
       data: data,
       success: function(response) {
         console.log(response);
-        $(".attempt").html(response);
-        $('.login-form form')[0].reset();
+        $("body").html("")
+        $("body").html(response);
       },
       error: function(response) {
         console.log(response);

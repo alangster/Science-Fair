@@ -1,8 +1,15 @@
+@viewport{
+    zoom: 1.0;
+    width: device-width;
+}
+
 /*Some CSS*/
 * {margin: 0; padding: 0; border: 0;}
 .magnify {
   width: 50%;
-  margin: 50px auto;
+  /*margin: 50px auto;*/
+  margin-top: 0.2em;
+  margin-left: 0.2em;
   position: fixed;
 }
 
@@ -28,45 +35,173 @@
 .pic_small {
   top: 4em;
   left: 0;
-  right: 20px;
+  right: 4em;
 }
 
-.right_side_bar_before {
+div.right_side_bar_before {
   position: fixed;
-  top: 4em;
-  right: 0px;
-  color: red;
-  border: 2px solid black;
+  right: 0;
+  width: 1.5em;
   background-color: #C41E3A;
-  width: 20px;
   height: 100%;
+  display: none;
 }
 
-.bottom_bar_before {
-    position: fixed;
-    bottom: 0px;
-    color: red;
-    border: 2px solid black;
-    background-color: #C41E3A;
-    width: 90%;
-    height: 20px;
-    left: 10%;
+div.bottom_bar_before {
+  background-color: #C41E3A;
+  border-radius: 1em 1em 0em 0em;
+  width: 4%;
+  bottom: 0;
+  right: 36%;
+  height: 3em;
+  position: fixed;
 }
 
-.right_side_bar_after {
-    display: none;
-    position: relative;
-    top: 4em;
-    right: 0px;
-    border: 10px solid #C41E3A;
-    border-bottom: 20px solid #C41E3A;
-    background-color: #FFFFF0;
-    width: 33%;
-    float: right;
-    height: 100%;
-    padding-bottom: 3em;
+div.bottom_bar_before p.poster-info-tag {
+  color: #FFFFF0;
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  font-size: 1.3em;
 }
 
+div.right_side_bar_after {
+  /*border-left: 0.5em solid #C41E3A;*/
+  position: fixed;
+  right: 0;
+  width: 33%;
+  height: 100%;
+  overflow: scroll;
+  padding-left: 2.5em;
+  padding-right: 1em;
+  padding-top: 2em;
+  padding-bottom: 6em;
+  font-size: 2em;
+  line-height: 1.5em;
+}
+
+div.right_side_bar_after ul#poster_comment_list_ul {
+  list-style: none;
+}
+
+input {
+  border: 1px solid grey;
+  margin: 0.25em;
+}
+
+input[type=submit] {
+  padding: 0.5em 0.75em 0.5em 0.75em;
+  border: 1px solid #C41E3A;
+  background-color: #FFFFF0;
+}
+
+ul.subcomments {
+  list-style: none;
+  padding-left: 1em;
+}
+
+button {
+  padding: 0.25em 0.75em 0.25em 0.75em;
+  border: 1px solid #C41E3A;
+  background-color: #FFFFF0;
+}
+
+span.points, .points-tag {
+  font-size: 0.75em;
+}
+
+input.add {
+  padding: 0em 0.05em 0em 0.05em;
+  width: 2.5em;
+  font-size: 0.75em;
+}
+
+div.bottom_bar_after {
+/*   border: 1px solid black; */
+  border: 0.25em solid #C41E3A;
+  border-bottom: none;
+  height: 25%;
+  width: 58.9%;
+  position: fixed;
+  bottom: 0;
+  padding: 0.5em 4em 0.5em 4em;
+  background-color: #FFFFF0;
+}
+
+div.bottom_bar_after h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+div.bottom_bar_after p {
+  line-height: 1.25em;
+  margin-bottom: 0.3em;
+  font-size: 1.25em;
+/*   border: 1px solid black; */
+}
+
+div.comments_bar a, div.bottom_bar_after a {
+  -webkit-transition: color .4s linear;
+     -moz-transition: color .4s linear;
+      -ms-transition: color .4s linear;
+       -o-transition: color .4s linear;
+          transition: color .4s linear;
+  text-decoration: none;
+  color: grey;
+}
+
+div.comments_bar a:hover, div.bottom_bar_after a:hover {
+   color: #C41E3A;
+}
+
+div.comment-points {
+  width: 3.5em;
+  display: inline-block;
+  padding-bottom: 0.5em;
+}
+
+div.poster_comment_list ul#poster_comment_list_ul li.poster_comment_reply_button {
+  padding-bottom: 0.75em;
+}
+
+div.poster-points {
+  width: 2.8em;
+  display: inline-block;
+  margin-bottom: 0.2em;
+}
+
+div.bottom_bar_after ul.poster-users {
+   /*border: 1px solid black;*/
+  text-align: center;
+  list-style: none;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+}
+
+div.bottom_bar_after ul.poster-users li {
+  display: inline-block;
+  margin: 0.2em;
+}
+
+div.user-points {
+/*   border: 1px solid black; */
+  width: 2.8em;
+  display: inline-block;
+}
+
+div.user-points input[type=submit] {
+  border: 1px solid #C41E3A;
+  padding: 0em 0.05em 0em 0.05em;
+  width: 2.5em;
+  font-size: 0.75em;
+}
+
+li.poster_comment_reply_form {
+  display: none;
+}
+
+/*
 .comments_bar {
   color: black;
   position: relative;
@@ -124,4 +259,4 @@
 
 #poster_comment_reply_form {
   display: none;
-}
+}*/

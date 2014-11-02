@@ -54,3 +54,11 @@ form.edit_user input{
 	padding: 3px;
 	border-radius: 2px;
 }
+
+ul.error-list {
+	list-style: none;
+	color: #C41E3A;
+	font-size: 1.5em;
+}
+
+form.create
