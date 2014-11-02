@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Poster, :type => :model do
 
-  let(:alex) {User.create!(first_name: "Alex", last_name: "Drennen", email: "drennen42@gmail.com", password_hash: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
-  let(:vince) {User.create!(first_name: "Vince", last_name: "Li", email: "vince@gmail.com", password_hash: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
-  let(:user) {User.create!(first_name: "User", last_name: "Li", email: "user@gmail.com", password_hash: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
-  let(:user_2) {User.create!(first_name: "User2", last_name: "Li", email: "user2@gmail.com", password_hash: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
-  let(:user_3) {User.create!(first_name: "User3", last_name: "Li", email: "user3@gmail.com", password_hash: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
-  let(:user_4) {User.create!(first_name: "User4", last_name: "Li", email: "user4@gmail.com", password_hash: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
+  let(:alex) {User.create!(first_name: "Alex", last_name: "Drennen", email: "drennen42@gmail.com", password: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
+  let(:vince) {User.create!(first_name: "Vince", last_name: "Li", email: "vince@gmail.com", password: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
+  let(:user) {User.create!(first_name: "User", last_name: "Li", email: "user@gmail.com", password: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
+  let(:user_2) {User.create!(first_name: "User2", last_name: "Li", email: "user2@gmail.com", password: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
+  let(:user_3) {User.create!(first_name: "User3", last_name: "Li", email: "user3@gmail.com", password: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
+  let(:user_4) {User.create!(first_name: "User4", last_name: "Li", email: "user4@gmail.com", password: "ad", institution: "DevBootcamp", linkedin_url: "http://www.linkedin.com/drennen42", profile_pic: "../uploads/adrennen.jpg", degree: "Double Masters")}
   let(:poster) {Poster.create!(title: "The Disturbing Negative Effects On The Brain Of Development Bootcamps", abstract: "Deveopment bootcamps place a great amount strain on the brains of subjects.  Development bootcamp subjects are commonly referred to by the bootcamp instructiors as 'boots'.  We believe this nickname was created due to the demeanor in which the instructors treat the subjects.", filepath: "../uploads/images/poster.jpeg", creator: alex)}
   
   before do 
@@ -57,8 +57,8 @@ RSpec.describe Poster, :type => :model do
       user_2
       expect do  
         poster.credit_where_it_is_due({"id" => 1, "email1" => "user2@gmail.com", "email2" => "user@gmail.com", "whatever" => "kajbg@srjng", "email3" => "", "email4" => "skajhn@kjs.com"})
-      end.to change{UserPoster.count}.by(2)
-      expect(UserPoster.last(2).map {|up| up.user_id}).to eq([user_2.id, user.id])
+      end.to change{UserPoster.count}.by(3)
+      expect(UserPoster.last(3).map {|up| up.user_id}).to eq([user_2.id, user.id, alex.id])
     end
 
   end

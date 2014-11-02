@@ -5,12 +5,11 @@ class SessionsController < ApplicationController
   def create
 
     @user = User.find_by(email: params[:email])
-
     if @user && @user.password == params[:password]
       session[:user_id] = @user.id
       respond_to do |format|
         format.html { redirect_to :back }
-        format.js {render :layout => false}
+        format.js #{render :layout => false}
       end
     else
       @error = "That wasn't quite right"

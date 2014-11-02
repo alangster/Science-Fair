@@ -17,10 +17,18 @@ class Poster < ActiveRecord::Base
   end
 
   def credit_where_it_is_due(params)
-    filter_emails(params).each do |key, value|
+    emails = filter_emails(params)
+    emails.each do |key, value|
       if value != "" && user = User.find_by(email: value)
         UserPoster.create!(poster: self, user: user)
       end
+    end
+    email_array = []
+    emails.each do |key, value|
+      email_array << value
+    end
+    if !email_array.include?(self.creator.email)
+      UserPoster.create!(poster: self, user: self.creator)
     end
   end
 
