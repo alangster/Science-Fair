@@ -31,6 +31,7 @@
   <div class="bottom_bar_after">
     <!-- <a class="bottom_bar_arrow">&#8661;</a> -->
     <h2><%= @poster.title %></h2>
+    <%= link_to "Download", poster_download_path(@poster) %>
     <p><%= @poster.abstract %></p>
     <span class="points-tag">Points: </span><span class="poster-points-number"><%=@poster.points%></span>
     <div class="poster-points">
