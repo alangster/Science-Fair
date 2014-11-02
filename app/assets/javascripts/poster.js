@@ -47,7 +47,8 @@ $(".poster_comment_reply_form > form").on("submit", function(event){
 
   $(".magnify").mousemove(function(e){
     var pic_source = $(".pic_small").attr("src");
-    $(".pic_large").css("background-image", 'url('+pic_source+')');
+    $(".pic_large").css("background-image", "url('"+pic_source+"')");
+    $(".pic_large").css("background-repeat", "no-repeat");
     //When the user hovers on the image, the script will first calculate
     //the native dimensions if they don't exist. Only after the native dimensions
     //are available, the script will show the zoomed version.
@@ -110,33 +111,21 @@ $(".poster_comment_reply_form > form").on("submit", function(event){
   })
 
   $(".right_side_bar_before a").on("click", function(event) {
-    // event.preventDefault();
-    // $(this).toggle();
     $(".right_side_bar_after").toggle();
   });
 
   $(".right_side_bar_after a").on("click", function(event) {
-    // event.preventDefault();
     $(".right_side_bar_after").toggle();
   });
 
   $(".bottom_bar_before").on("click", function(event) {
-    // event.preventDefault();
-    // $(this).toggle();
     $(".bottom_bar_after").toggle();
   });
 
   $(".bottom_bar_after a").on("click", function(event) {
-    // event.preventDefault();
     $(".bottom_bar_after").toggle();
   });
 
-  console.log(window.innerHeight);
-  $(".pic_small").css("height", window.innerHeight);
+  $(".pic_small").css("max-width", $(".pic_small_container").width());
 
-
-  $(window).on("resize", function() {
-    // console.log(window.innerHeight);
-    $(".pic_small").css("height", window.innerHeight);
-  });
 })
