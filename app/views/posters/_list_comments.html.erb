@@ -1,3 +1,4 @@
+<% if current_user %>
 <div class="poster_comment_form">
   <%= form_for(@comment_at_poster, url: comments_path(@comment_at_poster), html: {method: "POST"}) do |f| %>
       <%= f.text_field :text %>
@@ -6,10 +7,11 @@
       <%= f.submit "Comment" %>
   <% end %>
 </div>
+<% end %>
 <div class="poster_comment_list">
   <ul id="poster_comment_list_ul">
     <% @poster.comments.each do |comment| %>
-      <li class="poster_comment">
+      <li class="poster_comment"></br>
         <%= link_to "#{comment.user.name}", user_path(comment.user)%> - <%= comment.text %></br><span class="points-tag">Points: </span><span class="points"><%=comment.points%></span>
         <div class="comment-points">
           <% if current_user && current_user != comment.user%>
@@ -19,15 +21,19 @@
           <% end %>
         </div>
       </li>
-      <li class="poster_comment_reply_button"><button type="button">Reply</button></li>
-      <li class="poster_comment_reply_form">
-        <%= form_for(@comment_at_comment, url: comments_path(@comment_at_comment), html: {method: "POST"}) do |f| %>
-          <%= f.text_field :text %>
-          <%= f.hidden_field :commentable_type, value: "Comment" %>
-          <%= f.hidden_field :commentable_id, value: comment.id %>
-          <%= f.submit "Submit" %>
-        <% end %>
-      </li>
+      <% if current_user %>
+        <li class="poster_comment_reply_button">
+          <button type="button">Reply</button>
+        </li>
+        <li class="poster_comment_reply_form">
+          <%= form_for(@comment_at_comment, url: comments_path(@comment_at_comment), html: {method: "POST"}) do |f| %>
+            <%= f.text_field :text %>
+            <%= f.hidden_field :commentable_type, value: "Comment" %>
+            <%= f.hidden_field :commentable_id, value: comment.id %>
+            <%= f.submit "Submit" %>
+          <% end %>
+        </li>
+      <% end %>
       <% if comment.get_all_subcomments != nil %>
         <ul class="subcomments">
           <% comment.get_all_subcomments.each do |c| %>

@@ -110,8 +110,8 @@ input.add {
 
 div.bottom_bar_after {
 /*   border: 1px solid black; */
-  border-top: 0.25em solid grey;
-  border-right: 0.25em solid grey;
+  border: 0.25em solid grey;
+  border-bottom: none;
   height: 25%;
   width: 58.9%;
   position: fixed;
@@ -139,6 +139,11 @@ div.comments_bar a {
 div.comment-points {
   width: 3.5em;
   display: inline-block;
+  padding-bottom: 0.5em;
+}
+
+div.poster_comment_list ul#poster_comment_list_ul li.poster_comment_reply_button {
+  padding-bottom: 0.75em;
 }
 
 div.poster-points {
@@ -170,6 +175,10 @@ div.user-points input[type=submit] {
   padding: 0em 0.05em 0em 0.05em;
   width: 2.5em;
   font-size: 0.75em;
+}
+
+li.poster_comment_reply_form {
+  display: none;
 }
 
 /*
