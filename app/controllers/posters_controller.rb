@@ -63,6 +63,13 @@ class PostersController < ApplicationController
     render json: @points, status: 200
   end
 
+  def download
+    poster = Poster.find(params[:id])
+    send_file(poster.filepath.path,
+      disposition: 'attachment',
+      url_based_filename: false)
+  end
+
   private
 
   def poster_params
