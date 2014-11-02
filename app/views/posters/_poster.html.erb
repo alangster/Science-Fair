@@ -18,7 +18,7 @@
     <div class="poster-tags">
       <ul>
         <% poster.tags.each do |tag| %>
-        <li><%= link_to "#{tag.discipline}", tag %></li>
+        <li><%= tag.discipline %></li>
         <% end %>
       </ul>
     </div>

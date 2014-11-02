@@ -11,11 +11,19 @@ body {
   background-color: $ivory_color; 
 }
 
+div{
+  display: block;
+}
 .all-posters{
+  clear:both;
   display: block;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.hidden{
+  display:none;
 }
 
 div.poster {
@@ -28,10 +36,22 @@ div.poster {
   /*padding: 1em 2em 1em 10em;*/
 }
 
-div.landing_picture {
- display: block;
- width: 5em;
- height: 3em;
+div.col-3-8{
+  clear:both;
+  width:37.5%;
+  height: 1em;
+}
+
+div.posters-control {
+  margin-top: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  height: 3em;
+  text-align: center;
+}
+
+div.posters-control select{
+  height: 2em;
 }
 
 /*div.poster:nth-child(even) {
