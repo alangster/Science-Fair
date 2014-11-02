@@ -6,7 +6,7 @@
 /*Some CSS*/
 * {margin: 0; padding: 0; border: 0;}
 .magnify {
-  width: 50%;
+  width: 66%;
   /*margin: 50px auto;*/
   margin-top: 0.2em;
   margin-left: 0.2em;
@@ -31,8 +31,13 @@
   display: none;
 }
 
+.pic_small_container {
+  width: 66%;
+}
+
 /*To solve overlap bug at the edges during magnification*/
 .pic_small {
+  display: block;
   top: 4em;
   left: 0;
   right: 4em;
@@ -126,6 +131,7 @@ div.bottom_bar_after {
   bottom: 0;
   padding: 0.5em 4em 0.5em 4em;
   background-color: #FFFFF0;
+  overflow: scroll;
 }
 
 div.bottom_bar_after h2 {
