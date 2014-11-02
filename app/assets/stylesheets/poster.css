@@ -57,6 +57,14 @@ div.bottom_bar_before {
   position: fixed;
 }
 
+div.bottom_bar_before p.poster-info-tag {
+  color: #FFFFF0;
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  font-size: 1.3em;
+}
+
 div.right_side_bar_after {
   /*border-left: 0.5em solid #C41E3A;*/
   position: fixed;
@@ -110,7 +118,7 @@ input.add {
 
 div.bottom_bar_after {
 /*   border: 1px solid black; */
-  border: 0.25em solid grey;
+  border: 0.25em solid #C41E3A;
   border-bottom: none;
   height: 25%;
   width: 58.9%;
@@ -153,14 +161,14 @@ div.poster-points {
 }
 
 div.bottom_bar_after ul.poster-users {
-/*   border: 1px solid black; */
+   /*border: 1px solid black;*/
   text-align: center;
   list-style: none;
   padding: 0.2em 0.5em 0.2em 0.5em;
 }
 
 div.bottom_bar_after ul.poster-users li {
-  display: inline;
+  display: inline-block;
   margin: 0.2em;
 }
 

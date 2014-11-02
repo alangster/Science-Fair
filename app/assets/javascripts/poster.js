@@ -120,7 +120,7 @@ $(".poster_comment_reply_form > form").on("submit", function(event){
     $(".right_side_bar_after").toggle();
   });
 
-  $(".bottom_bar_before a").on("click", function(event) {
+  $(".bottom_bar_before").on("click", function(event) {
     // event.preventDefault();
     // $(this).toggle();
     $(".bottom_bar_after").toggle();
