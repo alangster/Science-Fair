@@ -1,0 +1,2125 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2014-11-02 14:26:31 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered users/edit.html.erb within layouts/application (413.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (4.7ms)
+Completed 200 OK in 892ms (Views: 791.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:32 -0600
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "user"=>{"first_name"=>"t", "last_name"=>"t", "email"=>"t", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 't' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2014-11-02 20:26:40.650240"], ["email", "t"], ["first_name", "t"], ["last_name", "t"], ["password_hash", "$2a$10$9KduLG7SFXjExEhEBpyahO9R5J.hoCidDW0aViLASWrNUMYqZcpVW"], ["updated_at", "2014-11-02 20:26:40.650240"]]
+  [1m[36m (14.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 124ms (ActiveRecord: 16.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mPoster Load (0.5ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 2]]
+  Rendered posters/_poster.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (5.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  Rendered layouts/_header.html.erb (4.3ms)
+Completed 200 OK in 175ms (Views: 145.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:40 -0600
+
+
+Started GET "/log_out" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+Processing by PostersController#index as HTML
+  [1m[36mPoster Load (0.4ms)[0m  [1mSELECT "posters".* FROM "posters"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mTag Load (0.4ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 1]]
+  Rendered posters/_poster.html.erb (16.0ms)
+  Rendered posters/index.html.erb within layouts/application (25.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (3.9ms)
+Completed 200 OK in 171ms (Views: 166.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:44 -0600
+
+
+Started GET "/posters/1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+Processing by PostersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPoster Load (0.3ms)[0m  [1mSELECT  "posters".* FROM "posters"  WHERE "posters"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Poster"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 2], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 3], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 18], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 19], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 20], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 21], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 22], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 23], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 24], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 4], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 5], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 6], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 7], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 8], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 9], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 10], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 11], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 12], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 13], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 14], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 15], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 16], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 17], ["commentable_type", "Comment"]]
+  Rendered posters/_list_comments.html.erb (67.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered posters/show.html.erb within layouts/application (72.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 276ms (Views: 214.1ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:26:46 -0600
+
+
+Started POST "/log_in" for 127.0.0.1 at 2014-11-02 14:28:47 -0600
+Processing by SessionsController#create as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "email"=>"t", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 't' LIMIT 1[0m
+Redirected to http://localhost:3000/posters/1
+Completed 302 Found in 76ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/posters/1" for 127.0.0.1 at 2014-11-02 14:28:47 -0600
+Processing by PostersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mPoster Load (0.3ms)[0m  SELECT  "posters".* FROM "posters"  WHERE "posters"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 1], ["commentable_type", "Poster"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 2], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 3], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 18], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 19], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 20], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 21], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 22], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 23], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 24], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 4], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 5], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 6], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 7], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 8], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 9], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 10], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 11], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 12], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 13], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 14], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 15], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 16], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 17], ["commentable_type", "Comment"]]
+  Rendered posters/_list_comments.html.erb (169.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1[0m  [["poster_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered posters/show.html.erb within layouts/application (181.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (6.5ms)
+Completed 200 OK in 287ms (Views: 277.2ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/jquery.js?body=1&_=1414960006751" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1&_=1414960006752" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/login_signup.js?body=1&_=1414960006753" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1&_=1414960006754" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/new_poster.js?body=1&_=1414960006755" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/points.js?body=1&_=1414960006756" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/poster.js?body=1&_=1414960006757" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/application.js?body=1&_=1414960006758" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:28:48 -0600
+
+
+Started POST "/comments" for 127.0.0.1 at 2014-11-02 14:28:50 -0600
+Processing by CommentsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "comment"=>{"text"=>"tt", "commentable_type"=>"Poster", "commentable_id"=>"1"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Poster"], ["created_at", "2014-11-02 20:28:50.517855"], ["text", "tt"], ["updated_at", "2014-11-02 20:28:50.517855"], ["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2014-11-02 14:28:55 -0600
+Processing by CommentsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "comment"=>{"text"=>"tt", "commentable_type"=>"Comment", "commentable_id"=>"1"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Comment"], ["created_at", "2014-11-02 20:28:55.943814"], ["text", "tt"], ["updated_at", "2014-11-02 20:28:55.943814"], ["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2014-11-02 14:29:03 -0600
+Processing by CommentsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "comment"=>{"text"=>"tt", "commentable_type"=>"Comment", "commentable_id"=>"1"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("commentable_id", "commentable_type", "created_at", "text", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["commentable_id", 1], ["commentable_type", "Comment"], ["created_at", "2014-11-02 20:29:03.878437"], ["text", "tt"], ["updated_at", "2014-11-02 20:29:03.878437"], ["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/comment/1/point" for 127.0.0.1 at 2014-11-02 14:29:09 -0600
+Processing by CommentsController#add_point as JSON
+  Parameters: {"comment_id"=>"1"}
+  [1m[35mComment Load (0.5ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "comments" SET "points" = $1, "updated_at" = $2 WHERE "comments"."id" = 1  [["points", 1], ["updated_at", "2014-11-02 20:29:09.085234"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/posters/1" for 127.0.0.1 at 2014-11-02 14:34:01 -0600
+Processing by PostersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPoster Load (0.3ms)[0m  SELECT  "posters".* FROM "posters"  WHERE "posters"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 1], ["commentable_type", "Poster"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 4], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 5], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 6], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 7], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 8], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 9], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 10], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 11], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 12], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 13], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 14], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 15], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 16], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 17], ["commentable_type", "Comment"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 25], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 1], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 2], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 3], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 18], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 19], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 20], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 21], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 22], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 23], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 24], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 26], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 27], ["commentable_type", "Comment"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  Rendered posters/_list_comments.html.erb (123.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  Rendered posters/show.html.erb within layouts/application (193.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  Rendered layouts/_header.html.erb (4.6ms)
+Completed 200 OK in 319ms (Views: 282.0ms | ActiveRecord: 14.5ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:02 -0600
+
+
+Started GET "/log_out" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+Processing by PostersController#index as HTML
+  [1m[36mPoster Load (0.4ms)[0m  [1mSELECT "posters".* FROM "posters"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 1]]
+  Rendered posters/_poster.html.erb (81.9ms)
+  Rendered posters/index.html.erb within layouts/application (84.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (5.1ms)
+Completed 200 OK in 215ms (Views: 212.0ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:03 -0600
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-02 14:34:10 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "user"=>{"first_name"=>"s", "last_name"=>"ss", "email"=>"s", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 's' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/application (5.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 239ms (Views: 160.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:34:11 -0600
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-02 14:39:38 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "user"=>{"first_name"=>"s", "last_name"=>"ss", "email"=>"s", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 's' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/application (5.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (4.3ms)
+Completed 200 OK in 241ms (Views: 149.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:38 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:38 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:38 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:38 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:39 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:39 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:39 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:39 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:39 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:39 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:39 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:39 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:39 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:39 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:39 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:39 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:39 -0600
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "user"=>{"first_name"=>"c", "last_name"=>"c", "email"=>"c", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'c' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/application (4.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 155ms (Views: 82.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:46 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:39:47 -0600
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "user"=>{"first_name"=>"c", "last_name"=>"c", "email"=>"c", "password"=>"[FILTERED]", "institution"=>""}, "commit"=>"Create User"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'c' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/application (4.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (5.0ms)
+Completed 200 OK in 162ms (Views: 84.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:09 -0600
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "user"=>{"first_name"=>"c", "last_name"=>"c", "email"=>"ccc", "password"=>"[FILTERED]", "institution"=>""}, "commit"=>"Create User"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'ccc' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/application (3.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (3.8ms)
+Completed 200 OK in 231ms (Views: 155.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:40:13 -0600
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "user"=>{"first_name"=>"c", "last_name"=>"c", "email"=>"ccc", "password"=>"[FILTERED]", "institution"=>""}, "commit"=>"Create User"}
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'ccc' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/application (4.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 242ms (Views: 150.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:46 -0600
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "user"=>{"first_name"=>"a", "last_name"=>"Anderson", "email"=>"a", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'a' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/application (4.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 161ms (Views: 88.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:53 -0600
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-02 14:41:57 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "user"=>{"first_name"=>"a", "last_name"=>"Anderson", "email"=>"a", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'a' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/application (5.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (4.6ms)
+Completed 200 OK in 222ms (Views: 87.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:58 -0600
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:41:59 -0600
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:00 -0600
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:01 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+Processing by PostersController#index as HTML
+  [1m[36mPoster Load (0.4ms)[0m  [1mSELECT "posters".* FROM "posters"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "user_posters" ON "users"."id" = "user_posters"."user_id" WHERE "user_posters"."poster_id" = $1  [["poster_id", 1]]
+  [1m[36mTag Load (0.6ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "poster_tags" ON "tags"."id" = "poster_tags"."tag_id" WHERE "poster_tags"."poster_id" = $1[0m  [["poster_id", 1]]
+  Rendered posters/_poster.html.erb (17.0ms)
+  Rendered posters/index.html.erb within layouts/application (25.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (4.7ms)
+Completed 200 OK in 122ms (Views: 107.8ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:03 -0600
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "user"=>{"first_name"=>"a", "last_name"=>"Anderson", "email"=>"a", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'a' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/application (4.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 166ms (Views: 90.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:08 -0600
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "user"=>{"first_name"=>"a", "last_name"=>"a", "email"=>"peryanderson@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'peryanderson@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/application (4.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (4.2ms)
+Completed 200 OK in 236ms (Views: 160.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:33 -0600
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-02 14:42:49 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "user"=>{"first_name"=>"a", "last_name"=>"a", "email"=>"tsetstws@garh.com", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'tsetstws@garh.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-11-02 20:42:49.976791"], ["email", "tsetstws@garh.com"], ["first_name", "a"], ["last_name", "a"], ["password_hash", "$2a$10$UCnLaiaTNd8Ezl0YGB5soeXduAUfFnqH6s0ArQGya67dLjyBh6O/e"], ["updated_at", "2014-11-02 20:42:49.976791"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 77ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2014-11-02 14:42:49 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mPoster Load (0.3ms)[0m  [1mSELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered posters/_poster.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (3.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 3 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.8ms)
+Completed 200 OK in 94ms (Views: 91.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:42:50 -0600
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:43:53 -0600
+
+
+Started POST "/users" for 127.0.0.1 at 2014-11-02 14:44:04 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IewvCOwkuBeZ1SxKYMoS62T4n3LN0tANSqT9zDIA1us=", "user"=>{"first_name"=>"a", "last_name"=>"a", "email"=>"agsadga@gmmasgd.com", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'agsadga@gmmasgd.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_hash", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2014-11-02 20:44:05.004478"], ["email", "agsadga@gmmasgd.com"], ["first_name", "a"], ["last_name", "a"], ["password_hash", "$2a$10$25eaiYy2NFx2dgFA499OWOz9jgPXizvA3xZG/wHQzn6LZU0SuKW5K"], ["updated_at", "2014-11-02 20:44:05.004478"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 98ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35mPoster Load (0.4ms)[0m  SELECT "posters".* FROM "posters" INNER JOIN "user_posters" ON "posters"."id" = "user_posters"."poster_id" WHERE "user_posters"."user_id" = $1  [["user_id", 4]]
+  Rendered posters/_poster.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (5.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 4 LIMIT 1
+  Rendered layouts/_header.html.erb (4.6ms)
+Completed 200 OK in 170ms (Views: 155.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/header.css?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/simplegrid.css?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/multiple_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/new_poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/poster.css?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/login_signup.js?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/multiple_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/new_poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/points.js?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/poster.js?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-02 14:44:05 -0600

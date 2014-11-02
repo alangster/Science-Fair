@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   has_many :authored_posters, through: :user_posters, source: :poster
 
   validates :password, :last_name, :first_name, :email, presence: true
+  validates :email, uniqueness: true, format:{ with: /\w{3,}@\w{3,10}/, message: "is not valid" }
 
-  validates :email, uniqueness: true
 
 
   def password
