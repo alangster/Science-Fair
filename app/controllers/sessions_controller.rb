@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       respond_to do |format|
         format.html { redirect_to :back }
-        format.js
+        format.js {render :layout => false}
       end
     else
       @error = "That wasn't quite right"
