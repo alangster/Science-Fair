@@ -1,4 +1,7 @@
 class PostersController < ApplicationController
+
+  skip_before_action :require_login, only: [:index, :show, :filter_sort, :download]
+
   def index
     @posters = Poster.all
   end
@@ -11,9 +14,6 @@ class PostersController < ApplicationController
   end
 
   def new
-    #  unless current_user
-    #   render "posters"
-    # end
     @tags = Tag.all
     @poster = Poster.new
     @user = User.new
