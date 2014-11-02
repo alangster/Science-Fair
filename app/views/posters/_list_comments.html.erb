@@ -9,7 +9,7 @@
 <div class="poster_comment_list">
   <ul id="poster_comment_list_ul">
     <% @poster.comments.each do |comment| %>
-      <li id="poster_comment">
+      <li class="poster_comment">
         <%= link_to "#{comment.user.name}", user_path(comment.user)%> - <%= comment.text %></br>Points: <span class="points"><%=comment.points%></span>
         <div class="comment-points">
           <% if current_user && current_user != comment.user%>

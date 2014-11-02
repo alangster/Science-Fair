@@ -1,14 +1,31 @@
 $(document).ready(function(){
   $(".poster_comment_reply_form").hide();
   $(".poster_comment_reply_button").on("click", function(event){
-    element = $(this)
-    console.log(element);
+    event.preventDefault();
     $(this).next(".poster_comment_reply_form").toggle();
+  });
+
+
+$(".poster_comment_reply_form > form").on("submit", function(event){
+  event.preventDefault();
+  var that = $(this);
+  var form = that.serialize();
+  $.ajax({
+      url: "/comments",
+      type: "POST",
+      dataType: "json",
+      data: form,
+      success: function(response){
+        that[0].reset();
+        that.after("<li class='poster_comment'>Your Comment: "+ response.text +"</li>");
+      },
+      error: function(response){
+      }
+    });
   });
 
   $(".poster_comment_form > form").on("submit", function(event){
     event.preventDefault();
-    console.log($(this));
     var form = $(this).serialize();
     $.ajax({
       url: "/comments",
