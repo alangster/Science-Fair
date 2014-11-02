@@ -6,6 +6,7 @@ $(document).ready(function(){
 
   $(".poster_comment_form > form").on("submit", function(event){
     event.preventDefault();
+    console.log($(this));
     var form = $(this).serialize();
     $.ajax({
       url: "/comments",
@@ -15,10 +16,11 @@ $(document).ready(function(){
       success: function(response){
         console.log("success");
         console.log(response);
-        $("#poster_comment_list_ul").after("<li>"+response+"</li>");
+        $("#poster_comment_list_ul").after("<li>"+ response +"</li>");
       },
       error: function(response) {
         console.log(response);
+        console.log("fail so hard");
       }
     });
   });
