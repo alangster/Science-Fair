@@ -19,8 +19,8 @@
           <% end %>
         </div>
       </li>
-      <li id="poster_comment_reply_button"><button type="button">Reply</button></li>
-      <li id="poster_comment_reply_form">
+      <li class="poster_comment_reply_button"><button type="button">Reply</button></li>
+      <li class="poster_comment_reply_form">
         <%= form_for(@comment_at_comment, url: comments_path(@comment_at_comment), html: {method: "POST"}) do |f| %>
           <%= f.text_field :text %>
           <%= f.hidden_field :commentable_type, value: "Comment" %>

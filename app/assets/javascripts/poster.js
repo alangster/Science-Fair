@@ -1,7 +1,9 @@
 $(document).ready(function(){
-
-  $("#poster_comment_reply_button").on("click", function(event){
-    $("#poster_comment_reply_form").toggle();
+  $(".poster_comment_reply_form").hide();
+  $(".poster_comment_reply_button").on("click", function(event){
+    element = $(this)
+    console.log(element);
+    $(this).next(".poster_comment_reply_form").toggle();
   });
 
   $(".poster_comment_form > form").on("submit", function(event){
@@ -14,20 +16,17 @@ $(document).ready(function(){
       dataType: "json",
       data: form,
       success: function(response){
-        console.log("success");
-        console.log(response);
-        $("#poster_comment_list_ul").after("<li>"+ response +"</li>");
+        $('.poster_comment_form > form')[0].reset();
+        $("#poster_comment_list_ul").before("<li>Your Comment: "+ response.text +"</li>");
       },
       error: function(response) {
-        console.log(response);
-        console.log("fail so hard");
+        console.log("failure");
       }
     });
   });
 
   var native_width = 0;
   var native_height = 0;
-
 
   $(".magnify").mousemove(function(e){
     var pic_source = $(".pic_small").attr("src");
