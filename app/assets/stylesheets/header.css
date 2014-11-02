@@ -1,3 +1,8 @@
+@viewport{
+    zoom: 1.0;
+    width: device-width;
+}
+
 header {
     background-color: #C41E3A;
     height: 4em;
@@ -52,12 +57,13 @@ div.login-form {
     display: none;
     z-index: 99;
     width: 20em;
-    height: 8em;
+    height: 11em;
     background-color: #C41E3A;
     position: absolute;
-    right: 2em;
+    right: 22em;
     top: 4.02em;
     padding-top: 1em;
+    border-radius: 0em 0em 1em 1em;
 }
 
 div.login-form tr {
@@ -66,6 +72,7 @@ div.login-form tr {
 
 div.login-form td {
     padding: .3em;
+    padding-left: 0.5em;
 }
 
 div.login-form .submit-button {
@@ -86,12 +93,14 @@ div.sign-up-form {
     display: none;
     z-index: 99;
     width: 20em;
-    height: 12em;
+    height: 14em;
     background-color: #C41E3A;
     position: absolute;
-    right: 13.9em;
+    right: 22em;
     top: 4.02em;
     padding-top: 1em;
+    border-radius: 0em 0em 1em 1em;
+
 }
 
 div.sign-up-form tr {

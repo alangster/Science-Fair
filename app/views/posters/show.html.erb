@@ -1,19 +1,22 @@
-<div class="magnify">
-      <div class="pic_large">
-      </div>
-      <%= image_tag(@poster.filepath, class: "pic_small") %>
+<div class="col-9-12">
+  <div class="magnify">
+        <div class="pic_large">
+        </div>
+        <%= image_tag(@poster.filepath, class: "pic_small") %>
+  </div>
 </div>
+<div class="col-3-12">
   <script src="http://thecodeplayer.com/uploads/js/prefixfree.js" type="text/javascript"></script>
 
   <div class="right_side_bar_before">
-    <a class="right_side_bar_arrow" style="top: 500">&#8660;</a>
+    <!-- <a class="right_side_bar_arrow" style="top: 500">&#8660;</a> -->
     <!-- <i class="fa fa-arrow-circle-left fa-2x"></i> -->
   </div>
 
   <div class="right_side_bar_after">
-    <a class="right_side_bar_arrow">&#8660;</a>
+    <!-- <a class="right_side_bar_arrow">&#8660;</a> -->
     <div class="comments_bar">
-      <h2>Comments</h2>
+      <!-- <h2>Comments</h2> -->
       <%= render partial: "list_comments", locals: { poster: @poster, comment: @comment } %>
     </div>
     <!-- <i class="fa fa-arrow-circle-left fa-2x fa-rotate-180"></i> -->
@@ -27,28 +30,29 @@
   <div class="bottom_bar_after">
     <a class="bottom_bar_arrow">&#8661;</a>
     <h2><%= @poster.title %></h2>
-    Points: <span class="poster-points-number"><%=@poster.points%></span>
+    <p><%= @poster.abstract %></p>
+    <span class="points-tag">Points: </span><span class="poster-points-number"><%=@poster.points%></span>
     <div class="poster-points">
       <% if current_user && current_user != @poster.creator%>
         <%= form_for @poster, url: add_point_poster_path(@poster), method: "post" do |f|%>
-        <%= f.submit 'Add' %>
+          <%= f.submit 'Add', class: "add" %>
         <% end %>
       <% end %>
-    <p><%= @poster.abstract %></p>
-
-    <ul>
+    </div>
+    <ul class="poster-users">
       <% @poster.users.each do |user| %>
-      <li><%= link_to "#{user.name}", user %></li><br>
+      <li><%= link_to "#{user.name}", user %><br>
       Points: <span class="points"><%=user.points%></span>
         <div class="user-points">
           <% if current_user && current_user != user%>
-           <%= form_for user, url: add_point_user_path(user), method: "post" do |f|%>
-           <%= f.submit 'Add' %>
-          <% end %>
-        <%end%>
+            <%= form_for user, url: add_point_user_path(user), method: "post" do |f|%>
+              <%= f.submit 'Add', class: "add-author-point"%>
+            <% end %>
+          <%end%>
+        </div>
+      </li>
       <% end %>
     </ul>
-    <!-- <i class="fa fa-arrow-circle-left fa-2x fa-rotate-270"></i> -->
   </div>
 
   <div class="poster_info_bar">
