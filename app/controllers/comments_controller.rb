@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      # text = @comment.text
-      render json: @comment, status: 200
+
+      render json: {text: @comment.text, user_id: "#{@comment.user.id}" ,name: @comment.user.name, points: 0 }, status: 200
     else
       @error = "Comment unable to be posted"
       render json: @error, status: 422
