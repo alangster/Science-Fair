@@ -5286,3 +5286,17 @@ Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2014-11-02 16:48:
 
 
 Started GET "/assets/awesome.mp3" for 127.0.0.1 at 2014-11-02 16:48:30 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAudioToPoster (20141102230655)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (26.9ms)[0m  [1mALTER TABLE "poster" ADD COLUMN "audio_path" character varying(255)[0m
+PG::UndefinedTable: ERROR:  relation "poster" does not exist
+: ALTER TABLE "poster" ADD COLUMN "audio_path" character varying(255)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAudioToPosters (20141102230655)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (9.0ms)[0m  [1mALTER TABLE "posters" ADD COLUMN "audio_path" character varying(255)[0m
+  [1m[35mSQL (11.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141102230655"]]
+  [1m[36m (6.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
