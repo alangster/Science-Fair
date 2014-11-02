@@ -37,7 +37,6 @@ class PostersController < ApplicationController
   end
 
   def update
-    p poster_params
     @poster = Poster.find(params[:id])
     @poster.filepath = nil
     @poster.update_attributes(poster_params)

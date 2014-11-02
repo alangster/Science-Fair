@@ -1,16 +1,20 @@
 <div class="col-1-2 poster">
-  <div class="poster-container">
-    <div class="poster-pic">
-      <%= image_tag(poster.filepath, width: "282", height: "218") %>
+    <div class="poster-title">
+        <h2><%= link_to "#{poster.title}", poster %></h2>
     </div>
-    <div class="poster-info">
-      <p><%= link_to "#{poster.title}", poster %></p>
+
+    <div class="poster-authors">
       <ul>
         <% poster.users.each do |user| %>
         <li><%= link_to "#{user.name}", user %></li>
         <% end %>
       </ul>
     </div>
+
+    <div class="poster-picture">
+      <%= link_to image_tag(poster.filepath, class:"poster-thumbnail"), poster %>
+    </div>
+
     <div class="poster-tags">
       <ul>
         <% poster.tags.each do |tag| %>
@@ -18,6 +22,6 @@
         <% end %>
       </ul>
     </div>
-  </div>
+
 </div>
 
