@@ -86,7 +86,7 @@ class PostersController < ApplicationController
   private
 
   def poster_params
-    params.require(:poster).permit(:title, :abstract, :filepath, :audio_path)
+    params.require(:poster).permit(:title, :abstract, :filepath, :audio_path, :poster_tags)
   end
 
 end

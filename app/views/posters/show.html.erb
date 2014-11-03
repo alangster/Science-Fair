@@ -30,6 +30,7 @@
     <%= link_to "Download", poster_download_path(@poster) %>
     <% if current_user == @poster.creator %>
       <%= link_to "Delete", @poster, method: "delete" %>
+      <%= link_to "Edit", edit_poster_path(@poster) %>
     <% end %>
     <p><%= @poster.abstract %></p>
     <span class="points-tag">Points: </span><span class="poster-points-number"><%=@poster.points%></span>
