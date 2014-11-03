@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: ScienceFair_production
-  username: ScienceFair
-  password: <%= ENV['SCIENCEFAIR_DATABASE_PASSWORD'] %>
+  # username: ScienceFair
+  # password: <%= ENV['SCIENCEFAIR_DATABASE_PASSWORD'] %>

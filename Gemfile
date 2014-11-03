@@ -45,3 +45,6 @@ gem 'font-awesome-sass'
 gem 'debugger', group: [:development, :test]
 
 gem 'rspec-rails', group: [:development, :test]
+
+gem 'rails_12factor', group: :production
+ruby '2.0.0'
