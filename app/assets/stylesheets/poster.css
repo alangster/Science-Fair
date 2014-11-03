@@ -15,7 +15,7 @@
 
 /*Lets create the magnifying glass*/
 .pic_large {
-  width: 1000px; height: 300px;
+  width: 900px; height: 600px;
   position: absolute;
   border-radius: 10%;
 
