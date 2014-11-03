@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root "posters#index"
 
-  resources :posters, except: [:destroy]
+  resources :posters
 
 	resources :comments, only: [:create]
 
