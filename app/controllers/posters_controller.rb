@@ -77,6 +77,12 @@ class PostersController < ApplicationController
       url_based_filename: false)
   end
 
+  def destroy
+    poster = Poster.find(params[:id])
+    poster.delete
+    redirect_to current_user
+  end
+
   private
 
   def poster_params
