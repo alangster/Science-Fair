@@ -46,5 +46,8 @@ gem 'debugger', group: [:development, :test]
 
 gem 'rspec-rails', group: [:development, :test]
 
+gem 'memcached'
+gem 'dalli'
+
 gem 'rails_12factor', group: :production
 ruby '2.0.0'

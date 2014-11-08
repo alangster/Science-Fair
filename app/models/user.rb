@@ -9,15 +9,7 @@ class User < ActiveRecord::Base
   validates :password, :last_name, :first_name, :email, presence: true
   validates :email, uniqueness: true
 
-
-  def password
-    @password ||= BCrypt::Password.new(password_hash)
-  end
-
-  def password=(new_password)
-    @password = BCrypt::Password.create(new_password)
-    self.password_hash = @password
-  end
+  #has_secure_password
 
   def disciplines
     tags_array = self.authored_posters.map {|poster| poster.tags}[0]

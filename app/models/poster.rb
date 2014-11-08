@@ -16,23 +16,13 @@ class Poster < ActiveRecord::Base
   	emails(self.user_posters)
   end
 
-  def credit_where_it_is_due(params)
-    emails = filter_emails(params)
-    emails.each do |key, value|
-      if value != "" && user = User.find_by(email: value)
-        UserPoster.create!(poster: self, user: user)
-      end
-    end
-    email_array = []
-    emails.each do |key, value|
-      email_array << value
-    end
-    if !email_array.include?(self.creator.email)
-      UserPoster.create!(poster: self, user: self.creator)
-    end
+  def credit_where_it_is_due(emails)
+    emails.each { |email| User.find_by(email:email).authored_posters << self }
   end
 
-  def update_credit(params)
+  def update_credit(updated_emails)
+    # self.authors = updated_emails.map {|email| User.find_or_create_by(email:email)} #does AR update the join records?
+
   	email_array = emails(get_ups)
   	filter_emails(params).each do |key, value|
   		if !email_array.include?(value) && user = User.find_by(email: value)
@@ -46,11 +36,13 @@ class Poster < ActiveRecord::Base
     if filter_option == 'All disciplines'
       processed_posters = Poster.all
     else
-      processed_posters = Tag.where(discipline: filter_option)[0].posters
+      processed_posters = Posters.all.where(tags:{discipline:filter_options})
+      # processed_posters = Tag.where(discipline: filter_option)[0].posters
     end
     #sort
     case sort_option
     when "Most recent"
+      # processed_posters.sort_by(:created_at)
       processed_posters.sort{|poster1, poster2| poster2.created_at <=> poster1.created_at}
     when "Upvote points"
       processed_posters.sort{|poster1, poster2| poster2.points <=> poster1.points}

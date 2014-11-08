@@ -1,0 +1,42 @@
+Cache write: foo
+Dalli::Server#connect 127.0.0.1:11211
+Cache read: foo
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-04 14:38:55 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (7.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostersController#index as HTML
+Completed 500 Internal Server Error in 54ms
+
+SyntaxError (/Users/alexd/Desktop/ScienceFair/Science-Fair/app/models/poster.rb:103: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/models/poster.rb:103: syntax error, unexpected keyword_end, expecting end-of-input
+  app/controllers/posters_controller.rb:7:in `index'
+
+
+  Rendered /Users/alexd/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/alexd/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/alexd/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/alexd/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.7ms)
+  [1m[36mComment Load (0.9ms)[0m  [1mSELECT  "comments".* FROM "comments"   ORDER BY "comments"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (0.7ms)[0m  SELECT  "comments".* FROM "comments"   ORDER BY "comments"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.9ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 61], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 70], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 83], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT  "comments".* FROM "comments"   ORDER BY "comments"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 50]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  ORDER BY "comments"."id" ASC LIMIT 1[0m  [["commentable_id", 1], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (1.1ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  ORDER BY "comments"."id" ASC LIMIT 1  [["commentable_id", 1], ["commentable_type", "Comment"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (23.4ms)[0m  UPDATE "comments" SET "commentable_id" = $1, "commentable_type" = $2, "updated_at" = $3 WHERE "comments"."id" = 50  [["commentable_id", 61], ["commentable_type", "Comment"], ["updated_at", "2014-11-04 20:59:54.074752"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 61], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.8ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 61], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 50], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 107], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 114], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 70], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 83], ["commentable_type", "Comment"]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2  [["commentable_id", 95], ["commentable_type", "Comment"]]
+  [1m[36mUser Load (3.3ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m

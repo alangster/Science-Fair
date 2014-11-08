@@ -47,6 +47,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     columnize (0.8.9)
+    dalli (2.7.2)
     debugger (1.6.8)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -71,6 +72,7 @@ GEM
     json (1.8.1)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
+    memcached (1.8.0)
     mime-types (2.4.3)
     mini_magick (3.8.1)
       subexec (~> 0.2.1)
@@ -164,11 +166,13 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   carrierwave
   coffee-rails (~> 4.0.0)
+  dalli
   debugger
   faker
   font-awesome-sass
   jbuilder (~> 2.0)
   jquery-rails
+  memcached
   mini_magick
   paperclip (~> 4.2.0)
   pg

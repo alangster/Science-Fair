@@ -9,8 +9,30 @@ class Comment < ActiveRecord::Base
     return recursive_comments(self)
   end
 
-  def get_user_responded_to
+  def in_reply_to
+    return commentable_type == "Comment" ? user_responded_to : ""
+  end
+
+  def user_responded_to
     return self.commentable.user.name
+  end
+
+  def reply_tree
+    self.comments.map(&:comment_tree)
+  end
+
+  def comment_tree
+    [self] + self.comments.map(&:comment_tree)
+  end
+
+  def as_json
+    {
+      text: text,
+      user_id: user.id,
+      name: user.name,
+      points: points,
+      in_reply_to: in_reply_to
+    }
   end
 
   private

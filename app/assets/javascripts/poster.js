@@ -16,15 +16,19 @@ $(".poster_comment_reply_form > form").on("submit", function(event){
       dataType: "json",
       data: form,
       success: function(response){
-        that[0].reset();
+        this.reset();
 
 
-        $(".subcomment").first().before("<li class=\"subcomment\"><a href=\"/users/" + response.user_id + "\">" + response.name + "</a> @" + response.commented_on +"<br>" + response.text + "<br><span class=\"points-tag\">Points: </span><span class=\"points\">0</span><div class=\"comment-points\"></div></li>");
-      },
+        $(".subcomment").first().before("<li class=\"subcomment\">"+makeUserLink(response)+" @" + response.commented_on +"<br>" + response.text + "<br><span class=\"points-tag\">Points: </span><span class=\"points\">0</span><div class=\"comment-points\"></div></li>");
+      }.bind(this),
       error: function(response){
       }
     });
   });
+
+  function makeUserLink(user) {
+    return "<a href=\"/users/" + user.user_id + "\">" + user.name + "</a>"
+  }
 
   $(".poster_comment_form > form").on("submit", function(event){
     event.preventDefault();

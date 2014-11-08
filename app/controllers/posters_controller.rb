@@ -7,8 +7,7 @@ class PostersController < ApplicationController
   end
 
   def show
-    @poster = Poster.find(params[:id])
-    @comments = @poster.comments
+    @comments = Rails.cache.fetch("poster-#{params[:id]}") { Poster.find(params[:id]).includes(:comments) }.comments
     @comment_at_poster = Comment.new(commentable: @poster)
     @comment_at_comment = Comment.new()
   end
@@ -20,20 +19,24 @@ class PostersController < ApplicationController
   end
 
   def create
-    p params
-    @poster = Poster.new(poster_params)
-    @poster.creator = current_user
-      if @poster.save
-        @poster.credit_where_it_is_due(params)
-        params[:poster][:tag_ids].each do |id|
-          PosterTag.create!(poster: @poster, tag: Tag.find(id.to_i)) unless id == ""
-        end
-        redirect_to @poster
-      else
-        @error = "The poster was not saved"
-        @errors = @poster.errors.messages
-        render "new"
+    @poster = Poster.new(poster_params.merge(creator:current_user))
+    if @poster.save
+      @poster.credit_where_it_is_due(params[:emails])
+      params[:poster][:tag_ids].reject{|id| id==""}.each do |id|
+        @poster.tags << Tag.find(id.to_i)
       end
+
+      #alt?
+      #@poster.tags = params[:poster][:tag_ids]
+      #  .reject{|id| id==""}
+      #  .map{|id| Tag.find(id.to_i)}
+
+      redirect_to @poster
+    else
+      @error = "The poster was not saved"
+      @errors = @poster.errors.messages
+      render "new"
+    end
   end
 
   def edit

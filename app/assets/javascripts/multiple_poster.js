@@ -20,6 +20,16 @@ $(document).ready(function(){
         console.log(response);
       }
     });
+
+    var response = $.get("/filter_sort", option_data)
+    response.done(function(response) {
+      var allPosters= $('.all-posters');
+      allPosters.empty();
+      allPosters.append(response);
+    })
+    response.fail(function(response) {
+      console.log(response);
+    })
   });
 
 })
